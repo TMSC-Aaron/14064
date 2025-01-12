@@ -6,13 +6,19 @@ body {
 }
 
 header {
-    background: #006400; /* 深綠色 */
-    color: white;
+    background: white; /* 修改為白色背景 */
+    color: black; /* 文字顏色改為黑色 */
     padding: 1rem;
     display: flex; /* 使用 Flexbox 排版 */
     justify-content: space-between; /* 分散排列項目 */
     align-items: center; /* 垂直置中對齊 */
     width: 100%;
+}
+
+header nav {
+    background: #006400; /* 綠色背景 */
+    width: 100%;
+    padding: 0.5rem 0; /* 可以適當調整間距 */
 }
 
 .logo {
