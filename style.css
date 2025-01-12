@@ -15,7 +15,7 @@ header {
 }
 
 header .logo img {
-    max-width: 88px; /* 限制寬度為 88px */
+    max-width: 66px; /* 限制寬度為 88px */
     height: auto; /* 保持比例 */
 }
 
@@ -88,7 +88,7 @@ footer {
 }
 
 .contact-list .icon {
-    width: 120px; /* 調整寬度為 120px */
-    height: 120px; /* 調整高度為 120px */
+    width: 88px; /* 調整寬度為 88px */
+    height: 88px; /* 調整高度為 88px */
     margin-right: 10px; /* 保持間距 */
 }
