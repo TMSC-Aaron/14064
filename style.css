@@ -1,3 +1,8 @@
+.logo img {
+    max-width: 100px; /* 限制寬度為 100px */
+    height: auto; /* 保持比例 */
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
