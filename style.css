@@ -71,3 +71,20 @@ footer {
     text-align: center;
     padding: 1rem 0;
 }
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.contact-list .icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
