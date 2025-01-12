@@ -9,9 +9,9 @@ header {
     background: #006400; /* 深綠色 */
     color: white;
     padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* 使用 Flexbox 排版 */
+    justify-content: space-between; /* 分散排列項目 */
+    align-items: center; /* 垂直置中對齊 */
     width: 100%;
 }
 
@@ -19,21 +19,20 @@ header {
     display: flex; /* 使用 Flexbox 排版 */
     align-items: center; /* 垂直置中對齊 */
     gap: 10px; /* 圖片與文字之間的間距 */
-    width: auto;
+    width: auto; /* 讓logo區塊自適應大小 */
 }
 
 .logo img {
-    max-width: 66px; /* 控制圖片寬度 */
-    height: auto; /* 保持比例 */
+    max-width: 66px; /* 控制圖片最大寬度 */
+    height: auto; /* 保持圖片比例 */
 }
 
 .logo h1 {
     font-size: 1.5rem; /* 調整字體大小 */
     margin: 0; /* 去除默認外邊距 */
     color: #006400; /* 綠色文字 */
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: nowrap; /* 防止文字換行 */
 }
-
 
 header nav ul {
     list-style: none;
