@@ -107,6 +107,9 @@ footer {
     width: 50%; /* Adjust image size */
     height: auto;
     display: block;
+    margin: 0 auto; /* Center the image */
+    max-width: 100%; /* Make sure it resizes properly */
+    height: auto; /* Maintain aspect ratio */
 }
 
 #about .text-overlay {
