@@ -1,4 +1,3 @@
-/* 其他樣式保持不變 */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -13,6 +12,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+header .logo img {
+    max-width: 20%; /* 圖片縮放到 1/5 */
+    height: auto; /* 保持比例 */
 }
 
 header nav ul {
