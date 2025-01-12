@@ -1,4 +1,4 @@
-body {
+body { 
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
@@ -6,45 +6,45 @@ body {
 }
 
 header {
-    background: white; /* 修改為白色背景 */
-    color: black; /* 文字顏色改為黑色 */
+    background: white;
+    color: black;
     padding: 1rem;
-    display: flex; /* 使用 Flexbox 排版 */
-    justify-content: space-between; /* 分散排列項目 */
-    align-items: center; /* 垂直置中對齊 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
 header nav {
-    background: #006400; /* 綠色背景 */
+    background: #006400;
     width: 100%;
-    padding: 0.5rem 0; /* 可以適當調整間距 */
+    padding: 0.5rem 0;
 }
 
 .logo {
-    display: flex; /* 使用 Flexbox 排版 */
-    align-items: center; /* 垂直置中對齊 */
-    gap: 10px; /* 圖片與文字之間的間距 */
-    width: auto; /* 讓logo區塊自適應大小 */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: auto;
 }
 
 .logo img {
-    max-width: 66px; /* 控制圖片最大寬度 */
-    height: auto; /* 保持圖片比例 */
+    max-width: 66px;
+    height: auto;
 }
 
 .logo h1 {
-    font-size: 1.5rem; /* 調整字體大小 */
-    margin: 0; /* 去除默認外邊距 */
-    color: black; /* 變更為黑色 */
-    white-space: nowrap; /* 防止文字換行 */
+    font-size: 1.5rem;
+    margin: 0;
+    color: black;
+    white-space: nowrap;
 }
 
 header nav ul {
     list-style: none;
     padding: 0;
-    text-align: right; /* 這行會讓選單項目靠右 */
-    margin: 0 15px; /* Adjusted margin to prevent the menu from touching the edges */
+    text-align: right;
+    margin: 0 15px;
 }
 
 header nav ul li {
@@ -62,7 +62,7 @@ header nav ul li a {
     color: white;
     padding: 5rem 2rem;
     text-align: center;
-    background-color: #006400; /* 深綠色 */
+    background-color: #006400;
 }
 
 .hero h2 {
@@ -70,7 +70,7 @@ header nav ul li a {
 }
 
 .cta-btn {
-    background: #32CD32; /* 淺綠色 */
+    background: #32CD32;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -93,7 +93,7 @@ section {
 }
 
 footer {
-    background: #006400; /* 深綠色 */
+    background: #006400;
     color: white;
     text-align: center;
     padding: 1rem 0;
@@ -101,15 +101,16 @@ footer {
 
 #about {
     position: relative;
+    text-align: center;
+    padding: 2rem;
 }
 
 #about img {
-    width: 50%; /* Adjust image size */
+    width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto; /* Center the image */
-    max-width: 100%; /* Make sure it resizes properly */
-    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto;
 }
 
 #about .text-overlay {
@@ -119,9 +120,11 @@ footer {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Optional: Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
+    width: 80%;
+    box-sizing: border-box;
 }
 
 .contact-list {
@@ -136,7 +139,7 @@ footer {
 }
 
 .contact-list .icon {
-    width: 88px; /* 調整寬度為 88px */
-    height: 88px; /* 調整高度為 88px */
-    margin-right: 10px; /* 保持間距 */
+    width: 88px;
+    height: 88px;
+    margin-right: 10px;
 }
