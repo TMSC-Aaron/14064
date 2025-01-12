@@ -14,10 +14,23 @@ header {
     align-items: center;
 }
 
-header .logo img {
-    max-width: 66px; /* 限制寬度為 88px */
+.logo {
+    display: flex; /* 使用 Flexbox 排版 */
+    align-items: center; /* 垂直置中對齊 */
+    gap: 10px; /* 圖片與文字之間的間距 */
+}
+
+.logo img {
+    max-width: 66px; /* 控制圖片寬度 */
     height: auto; /* 保持比例 */
 }
+
+.logo h1 {
+    font-size: 1.5rem; /* 調整字體大小 */
+    margin: 0; /* 去除默認外邊距 */
+    color: #006400; /* 綠色文字 */
+}
+
 
 header nav ul {
     list-style: none;
