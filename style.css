@@ -30,7 +30,7 @@ header {
 .logo h1 {
     font-size: 1.5rem; /* 調整字體大小 */
     margin: 0; /* 去除默認外邊距 */
-    color: white; /* 變更為白色 */
+    color: black; /* 變更為黑色 */
     white-space: nowrap; /* 防止文字換行 */
 }
 
