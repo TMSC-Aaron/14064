@@ -43,6 +43,7 @@ header nav {
 header nav ul {
     list-style: none;
     padding: 0;
+    text-align: right; /* 這行會讓選單項目靠右 */
 }
 
 header nav ul li {
