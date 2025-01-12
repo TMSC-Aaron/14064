@@ -98,6 +98,28 @@ footer {
     padding: 1rem 0;
 }
 
+#about {
+    position: relative;
+}
+
+#about img {
+    width: 100%; /* Adjust image size */
+    height: auto;
+    display: block;
+}
+
+#about .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
 .contact-list {
     list-style: none;
     padding: 0;
