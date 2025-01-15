@@ -119,7 +119,7 @@ footer {
     transform: translate(-50%, -50%);
     color: black;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0); /* Optional: Semi-transparent background */
+    background-color: rgba(120, 0, 0, 0); /* Optional: Semi-transparent background */
     padding: 20px;
     border-radius: 10px;
 }
