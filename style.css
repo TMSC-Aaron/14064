@@ -124,6 +124,11 @@ footer {
     border-radius: 10px;
 }
 
+.highlight {
+    color: red;
+    font-weight: bold; /* 使文字更加醒目 */
+}
+
 .contact-list {
     list-style: none;
     padding: 0;
