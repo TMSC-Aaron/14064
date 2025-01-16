@@ -1,147 +1,213 @@
-body { 
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMSC台灣管理系統驗證有限公司</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-header {
-    background: white; /* 修改為白色背景 */
-    color: black; /* 文字顏色改為黑色 */
-    padding: 1rem;
-    display: flex; /* 使用 Flexbox 排版 */
-    justify-content: space-between; /* 分散排列項目 */
-    align-items: center; /* 垂直置中對齊 */
-    width: 100%;
-}
+        header {
+            background: white;
+            color: black;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-header nav {
-    background: #006400; /* 綠色背景 */
-    width: 100%;
-    padding: 0.5rem 0; /* 可以適當調整間距 */
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.logo {
-    display: flex; /* 使用 Flexbox 排版 */
-    align-items: center; /* 垂直置中對齊 */
-    gap: 10px; /* 圖片與文字之間的間距 */
-    width: auto; /* 讓logo區塊自適應大小 */
-}
+        .logo img {
+            max-width: 66px;
+            height: auto;
+        }
 
-.logo img {
-    max-width: 66px; /* 控制圖片最大寬度 */
-    height: auto; /* 保持圖片比例 */
-}
+        .logo h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: black;
+            white-space: nowrap;
+        }
 
-.logo h1 {
-    font-size: 1.5rem; /* 調整字體大小 */
-    margin: 0; /* 去除默認外邊距 */
-    color: black; /* 變更為黑色 */
-    white-space: nowrap; /* 防止文字換行 */
-}
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: right; /* 這行會讓選單項目靠右 */
-    margin: 0 15px; /* Adjusted margin to prevent the menu from touching the edges */
-}
+        nav ul li a {
+            color: #006400;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-header nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
 
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-}
+        .hero h2 {
+            font-size: 2.5rem;
+        }
 
-.hero {
-    text-align: center;
-    background-color: #006400; /* 深綠色 */
-    background: url('hero-image.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 5rem 2rem;
-}
+        .cta-btn {
+            background: #32CD32;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
 
-.hero h2 {
-    font-size: 3.5rem;
-}
+        section {
+            padding: 2rem;
+        }
 
-.cta-btn {
-    background: #32CD32; /* 淺綠色 */
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
+        #about {
+            position: relative;
+        }
 
-section {
-    padding: 2rem;
-}
+        #about img {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+        }
 
-.course-list {
-    display: flex;
-    gap: 20px;
-}
+        #about .text-overlay {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 10px;
+        }
 
-.course-item {
-    border: 1px solid #ddd;
-    padding: 1rem;
-    width: 45%;
-}
+        #about .highlight {
+            color: red;
+            font-weight: bold;
+        }
 
-footer {
-    background: #006400; /* 深綠色 */
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-}
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-#about {
-    position: relative;
-}
+        .course-item {
+            flex: 1 1 calc(50% - 20px);
+            border: 1px solid #ddd;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
 
-#about img {
-    width: 50%; /* Adjust image size */
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Center the image */
-    max-width: 100%; /* Make sure it resizes properly */
-    height: auto; /* Maintain aspect ratio */
-}
+        footer {
+            background: #006400;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
 
-#about .text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.6); /* Optional: Semi-transparent background */
-    padding: 20px;
-    border-radius: 10px;
-}
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.highlight {
-    color: red;
-    font-weight: bold; /* 使文字更加醒目 */
-}
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
 
-.contact-list {
-    list-style: none;
-    padding: 0;
-}
+        .contact-list .icon {
+            width: 88px;
+            height: 88px;
+            margin-right: 10px;
+        }
 
-.contact-list li {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
 
-.contact-list .icon {
-    width: 88px; /* 調整寬度為 88px */
-    height: 88px; /* 調整高度為 88px */
-    margin-right: 10px; /* 保持間距 */
-}
+            .course-list {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="Logo">
+            <h1>TMSC 台灣管理系統驗證</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">公司簡介</a></li>
+                <li><a href="#courses">課程資訊</a></li>
+                <li><a href="#news">新知分享</a></li>
+                <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>台灣管理系統驗證有限公司</h2>
+        <p>Transforming Mindset to Sustainable Changes</p>
+        <a href="#courses" class="cta-btn">了解更多</a>
+    </section>
+
+    <section id="about">
+        <img src="/images/logo_TMSC.png" alt="公司照片">
+        <div class="text-overlay">
+            <h2>公司簡介</h2>
+            <p>結合產、官、學、研，專注致力於環境保護，提供有關 ISO 14064、<br>溫室氣體排放盤查、查驗、減量；技術諮詢與評估、教育訓練等服務。</p>
+            <h2>WHY 14064？</h2>
+            <p>14064：共同實現地球回歸永續的密碼<br>
+               14064 : The Sustainable Code of Atonement for the Earth<br>
+               <span class="highlight">Atonement / 贖罪：為過去的錯誤做彌補</span>
+            </p>
+        </div>
+    </section>
+
+    <section id="courses">
+        <h2>年度課程</h2>
+        <div class="course-list">
+            <div class="course-item">
+                <h3>課程名稱 1</h3>
+                <p>簡短介紹課程內容。</p>
+                <a href="#">報名連結</a>
+            </div>
+            <div class="course-item">
+                <h3>課程名稱 2</h3>
+                <p>簡短介紹課程內容。</p>
+                <a href="#">報名連結</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Taiwan Management System Certification Ltd. | <a href="#">隱私政策</a></p>
+    </footer>
+</body>
+</html>
