@@ -60,21 +60,9 @@ header nav ul li a {
 .hero {
     text-align: center;
     background-color: #006400; /* 深綠色 */
-    display: flex;  /* 使用 Flexbox 排列 */
-    align-items: center;  /* 垂直置中 */
-    justify-content: space-between;  /* 左右分配空間 */
     background: url('hero-image.jpg') no-repeat center center/cover;
     color: white;
     padding: 5rem 2rem;
-}
-
-.hero .logo {
-    flex: 1;  /* 讓 logo 占據一半寬度 */
-}
-
-.hero .hero-content {
-    flex: 1;  /* 文字區域也占據另一半寬度 */
-    text-align: left;  /* 文字靠左 */
 }
 
 .hero h2 {
