@@ -78,18 +78,21 @@
         }
 
         #about {
-            position: relative;
+           display: flex;
+           align-items: center;
+           gap: 20px; /* 文字與圖片之間的間距 */
+           padding: 2rem;
         }
 
         #about img {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            display: block;
+            flex: 0 0 40%; /* 圖片佔據 2/5 */
+            max-width: 100%; /* 讓圖片的最大寬度為其容器寬度 */
+            height: auto;
         }
 
         #about .text-overlay {
-            text-align: center;
+            flex: 1; /* 文字部分佔據剩下的 3/5 */
+            text-align: left;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
