@@ -11,7 +11,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            overflow-x: hidden; /* 防止內容溢出 */
         }
 
         * {
@@ -105,8 +104,8 @@
         }
 
         #contact {
-            padding: 2rem;
             background: #f9f9f9;
+            padding: 2rem;
             text-align: center;
         }
 
@@ -119,25 +118,43 @@
         .contact-list li {
             display: flex;
             align-items: center;
+            margin: 15px 0;
             justify-content: center;
-            gap: 10px;
-            margin: 10px 0;
         }
 
         .contact-list .icon {
-            width: 40px;
-            height: 40px;
+            width: 88px;
+            height: 88px;
+            margin-right: 15px;
         }
 
         form {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 20px auto;
         }
 
         form input, form textarea, form button {
-            display: block;
             width: 100%;
-            margin: 10px 0;
             padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #32CD32;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #228B22;
         }
 
         footer {
@@ -154,17 +171,13 @@
             }
 
             #about img {
+                flex: 0 0 auto;
                 width: 100%;
                 margin-bottom: 20px;
             }
 
             #about .text-overlay {
                 padding: 10px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
             }
         }
     </style>
@@ -206,24 +219,27 @@
 
     <section id="contact">
         <h2>聯絡我們</h2>
+        <p>如果您有任何問題或需求，歡迎聯絡我們：</p>
         <ul class="contact-list">
             <li>
                 <img src="/images/0800.png" alt="免付費專線" class="icon">
-                免付費專線：<a href="tel:0800014064">0800-014064</a>
+                免付費專線(限市話)：<a href="tel:0800014064">0800-014064</a>
             </li>
             <li>
                 <img src="/images/mail.png" alt="公司信箱" class="icon">
                 電子郵件：<a href="mailto:service@14064.com.tw">service@14064.com.tw</a>
             </li>
             <li>
-                <img src="/images/line.png" alt="官方 Line" class="icon">
+                <img src="/images/line.png" alt="官方line" class="icon">
                 加入我們的 Line 官方帳號
             </li>
         </ul>
         <form action="#">
-            <input type="text" placeholder="姓名">
-            <input type="email" placeholder="電子郵件">
-            <textarea placeholder="留言內容"></textarea>
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" placeholder="請輸入您的姓名">
+            <label for="email">電子郵件：</label>
+            <input type="email" id="email" name="email" placeholder="請輸入您的電子郵件">
+            <textarea id="message" name="message" placeholder="請輸入您的留言內容"></textarea>
             <button type="submit">提交</button>
         </form>
     </section>
