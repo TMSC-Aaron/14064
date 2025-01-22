@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            overflow-x: hidden; /* 防止內容溢出 */
         }
 
         * {
@@ -60,7 +61,7 @@
         }
 
         .hero {
-            background: #006400; /* 深綠色背景 */
+            background: #006400;
             text-align: center;
             padding: 5rem 2rem;
             color: white;
@@ -83,24 +84,60 @@
             align-items: flex-start;
             justify-content: space-between;
             padding: 2rem;
-            max-width: 1200px; /* 限制總寬度 */
-            margin: 0 auto; /* 置中 */
+            max-width: 1200px;
+            margin: 0 auto;
             gap: 20px;
         }
 
         #about img {
-            flex: 0 0 25%; /* 圖片佔 25% */
-            max-width: 100%; /* 確保圖片不超出容器 */
+            flex: 0 0 25%;
+            max-width: 100%;
             height: auto;
         }
 
         #about .text-overlay {
-            flex: 1; /* 剩餘空間分配給文字 */
+            flex: 1;
             text-align: left;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
             border-radius: 10px;
+        }
+
+        #contact {
+            padding: 2rem;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .contact-list .icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
         }
 
         footer {
@@ -117,13 +154,17 @@
             }
 
             #about img {
-                flex: 0 0 auto;
-                width: 100%; /* 手機版圖片佔滿寬度 */
+                width: 100%;
                 margin-bottom: 20px;
             }
 
             #about .text-overlay {
                 padding: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -161,6 +202,30 @@
                <span style="color: red; font-weight: bold;">Atonement / 贖罪：為過去的錯誤做彌補</span>
             </p>
         </div>
+    </section>
+
+    <section id="contact">
+        <h2>聯絡我們</h2>
+        <ul class="contact-list">
+            <li>
+                <img src="/images/0800.png" alt="免付費專線" class="icon">
+                免付費專線：<a href="tel:0800014064">0800-014064</a>
+            </li>
+            <li>
+                <img src="/images/mail.png" alt="公司信箱" class="icon">
+                電子郵件：<a href="mailto:service@14064.com.tw">service@14064.com.tw</a>
+            </li>
+            <li>
+                <img src="/images/line.png" alt="官方 Line" class="icon">
+                加入我們的 Line 官方帳號
+            </li>
+        </ul>
+        <form action="#">
+            <input type="text" placeholder="姓名">
+            <input type="email" placeholder="電子郵件">
+            <textarea placeholder="留言內容"></textarea>
+            <button type="submit">提交</button>
+        </form>
     </section>
 
     <footer>
