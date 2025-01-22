@@ -68,6 +68,7 @@
 
         .hero h2 {
             font-size: 2.5rem;
+            margin: 0;
         }
 
         .cta-btn {
@@ -78,24 +79,26 @@
             border-radius: 5px;
         }
 
+        section {
+            padding: 2rem;
+        }
+
         #about {
             display: flex;
+            flex-wrap: wrap;
             align-items: flex-start;
             justify-content: space-between;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
             gap: 20px;
         }
 
         #about img {
-            flex: 0 0 25%;
-            max-width: 100%;
+            flex: 1 1 25%;
+            max-width: 300px;
             height: auto;
         }
 
         #about .text-overlay {
-            flex: 1;
+            flex: 1 1 70%;
             text-align: left;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.6);
@@ -103,36 +106,53 @@
             border-radius: 10px;
         }
 
-        #contact {
-            background: #f9f9f9;
-            padding: 2rem;
+        #about .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .course-item {
+            flex: 1 1 calc(50% - 20px);
+            border: 1px solid #ddd;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        footer {
+            background: #006400;
+            color: white;
             text-align: center;
+            padding: 1rem 0;
         }
 
         .contact-list {
             list-style: none;
             padding: 0;
-            margin: 20px 0;
         }
 
         .contact-list li {
             display: flex;
             align-items: center;
-            margin: 15px 0;
-            justify-content: center;
+            margin: 10px 0;
         }
 
         .contact-list .icon {
             width: 88px;
             height: 88px;
-            margin-right: 15px;
+            margin-right: 10px;
         }
 
         form {
             margin-top: 20px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
             max-width: 600px;
             margin: 20px auto;
         }
@@ -157,14 +177,19 @@
             background: #228B22;
         }
 
-        footer {
-            background: #006400;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
         @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
             #about {
                 flex-direction: column;
                 text-align: center;
@@ -172,12 +197,16 @@
 
             #about img {
                 flex: 0 0 auto;
-                width: 100%;
+                max-width: 100%;
                 margin-bottom: 20px;
             }
 
             #about .text-overlay {
                 padding: 10px;
+            }
+
+            .course-list .course-item {
+                flex: 1 1 100%;
             }
         }
     </style>
@@ -212,8 +241,24 @@
             <h2>WHY 14064？</h2>
             <p>14064：共同實現地球回歸永續的密碼<br>
                14064 : The Sustainable Code of Atonement for the Earth<br>
-               <span style="color: red; font-weight: bold;">Atonement / 贖罪：為過去的錯誤做彌補</span>
+               <span class="highlight">Atonement / 贖罪：為過去的錯誤做彌補</span>
             </p>
+        </div>
+    </section>
+
+    <section id="courses">
+        <h2>年度課程</h2>
+        <div class="course-list">
+            <div class="course-item">
+                <h3>課程名稱 1</h3>
+                <p>簡短介紹課程內容。</p>
+                <a href="#">報名連結</a>
+            </div>
+            <div class="course-item">
+                <h3>課程名稱 2</h3>
+                <p>簡短介紹課程內容。</p>
+                <a href="#">報名連結</a>
+            </div>
         </div>
     </section>
 
@@ -236,10 +281,10 @@
         </ul>
         <form action="#">
             <label for="name">姓名：</label>
-            <input type="text" id="name" name="name" placeholder="請輸入您的姓名">
+            <input type="text" id="name" name="name">
             <label for="email">電子郵件：</label>
-            <input type="email" id="email" name="email" placeholder="請輸入您的電子郵件">
-            <textarea id="message" name="message" placeholder="請輸入您的留言內容"></textarea>
+            <input type="email" id="email" name="email">
+            <textarea placeholder="留言內容"></textarea>
             <button type="submit">提交</button>
         </form>
     </section>
