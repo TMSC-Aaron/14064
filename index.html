@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            text-align: center; /* 全局置中 */
         }
 
         * {
@@ -76,13 +77,27 @@
         }
 
         .cta-btn {
-            background: #32CD32;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
+            display: inline-block;
+            background: #32CD32;  /* 綠色背景 */
+            color: white;         /* 白色文字 */
+            padding: 15px 30px;   /* 加大按鈕內距 */
+            text-decoration: none;/* 去除文字下劃線 */
+            border-radius: 5px;   /* 圓角樣式 */
+            font-weight: bold;    /* 粗體字 */
+            font-size: 1.2rem;    /* 字體大小 */
+            text-align: center;   /* 文字置中 */
+            cursor: pointer;      /* 滑鼠指針 */
+            margin-top: 20px;     /* 與其他元素的間距 */
         }
 
+        .cta-btn:hover {
+            background: #228B22;  /* 滑鼠懸停效果的深綠色 */
+        }
+
+        .container {
+            margin: 50px 0;       /* 上下間距 */
+        }
+        
         section {
             padding: 2rem;
         }
@@ -288,6 +303,7 @@
             </li>
         </ul>
        <!-- 另開新視窗的 Google 表單按鈕 -->
+   <div class="container">
         <button
             class="cta-btn" 
             onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScma-JAfeeo4W1-xMDcDHfVcwubSalbo4HDBIuGFhpXclg4SQ/viewform', '_blank')">
