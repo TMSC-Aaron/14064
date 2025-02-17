@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://www.14064.com.tw/</loc>
@@ -6,17 +5,17 @@
         <changefreq>daily</changefreq>
     </url>
     <url>
-        <loc>https://www.14064.com.tw/#about</loc>
+        <loc>https://www.14064.com.tw/about</loc>
         <priority>0.8</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://www.14064.com.tw/#courses</loc>
+        <loc>https://www.14064.com.tw/courses</loc>
         <priority>0.8</priority>
         <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://www.14064.com.tw/#contact</loc>
+        <loc>https://www.14064.com.tw/contact</loc>
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
