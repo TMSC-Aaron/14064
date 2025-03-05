@@ -6,22 +6,4 @@
     <changefreq>daily</changefreq>
     <lastmod>2025-02-17</lastmod> 
   </url>
-  <url>
-    <loc>https://www.14064.com.tw/about</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-    <lastmod>2025-02-17</lastmod> 
-  </url>
-  <url>
-    <loc>https://www.14064.com.tw/courses</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-    <lastmod>2025-02-17</lastmod> 
-  </url>
-  <url>
-    <loc>https://www.14064.com.tw/contact</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-    <lastmod>2025-05-17</lastmod> 
-  </url>
-</urlset>
+  </urlset>
