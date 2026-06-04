@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>感管無菌環境基礎冷負荷基線與碳排計算模組</title>
+    <style>
+        body { font-family: 'PingFang TC', 'Helvetica Neue', Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        h2 { text-align: center; color: #0f5132; border-bottom: 3px solid #d1e7dd; padding-bottom: 12px; margin-bottom: 25px; font-weight: 700; font-size: 1.4em; }
+        .section-title { font-size: 1.1em; color: #198754; margin-top: 25px; margin-bottom: 15px; font-weight: bold; border-left: 4px solid #198754; padding-left: 8px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        @media(max-width: 600px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+        .input-group { background: #f8f9fa; padding: 12px; border-radius: 8px; border: 1px solid #dee2e6; margin-bottom: 10px; }
+        .input-group.locked { background: #e9ecef; border-color: #ced4da; } 
+        label { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.95em; margin-bottom: 8px; color: #495057; }
+        .val-display { color: #198754; font-weight: bold; }
+        input[type="text"], input[type="number"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 1em; }
+        input[type="range"] { width: 100%; cursor: pointer; accent-color: #198754; }
+        
+        /* --- 3D 空間渲染引擎專屬 CSS (已將高度提升至 320px 提供充足空間) --- */
+        .space-visualizer { 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            background: #e8f5e9; border: 1px dashed #198754; border-radius: 12px; padding: 20px; 
+            margin-top: 15px; height: 320px; overflow: hidden; perspective: 1200px; 
+        }
+        .cube-wrapper {
+            position: relative; width: 0; height: 0; 
+            transform-style: preserve-3d; 
+            transform: rotateX(-15deg) rotateY(-35deg); 
+            transition: transform 0.5s ease-out; 
+        }
+        .cube-face {
+            position: absolute; 
+            border: 2px solid rgba(25, 135, 84, 0.8); 
+            background-color: rgba(25, 135, 84, 0.15); 
+            background-image: linear-gradient(rgba(25,135,84,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(25,135,84,0.3) 1px, transparent 1px); 
+            background-size: 20px 20px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9em; font-weight: bold; color: #0f5132;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        /* --- 3D CSS 結束 --- */
+
+        .result-box { background: #e8f5e9; padding: 25px; border-radius: 12px; margin-top: 30px; border: 1px solid #c3e6cb; }
+        .result-item { display: flex; justify-content: space-between; font-size: 1.1em; margin-bottom: 12px; color: #155724; }
+        .total-price { font-size: 1.4em; font-weight: bold; color: #b02a37; margin-top: 10px; }
+        .total-carbon { font-size: 1.4em; font-weight: bold; color: #0d6efd; margin-top: 10px; }
+        .annual-box { background: #fff3cd; padding: 20px; border-radius: 8px; margin-top: 20px; border: 1px solid #ffeeba; }
+        .btn-export { display: block; width: 100%; background-color: #198754; color: white; border: none; padding: 15px; font-size: 1.2em; font-weight: bold; border-radius: 8px; margin-top: 20px; cursor: pointer; transition: 0.3s; }
+        .btn-export:hover { background-color: #146c43; }
+        .note { font-size: 0.85em; color: #6c757d; margin-top: 5px; }
+        .citation { font-size: 0.8em; color: #6c757d; font-style: normal; display: block; margin-top: 4px; border-top: 1px dashed #ccc; padding-top: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="./pic/yeezen.png" alt="桃園怡仁醫院" style="height: 80px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 10px;">
+        </div>
+        <h2 style="font-size: 1.4em; line-height: 1.5;">
+            <span style="color: #0d6efd;">【桃園怡仁醫院專屬】感染科學能管戰情室</span><br>
+            <span style="font-size: 0.9em; color: #198754;">空調基線與碳排解析系統</span>
+        </h2>
+        
+        <div class="section-title">場域標識與立體空間設定</div>
+        <div class="input-group">
+            <label>地點 / 設施名稱</label>
+            <input type="text" id="locationName" placeholder="例如：手術室 Room 1" value="手術室 Room 1" oninput="calculate()">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+            <div class="grid-3">
+                <div class="input-group">
+                    <label>長度 L (m)</label>
+                    <input type="number" id="len" min="1" step="0.1" value="6.8" oninput="calculate()">
+                </div>
+                <div class="input-group">
+                    <label>寬度 W (m)</label>
+                    <input type="number" id="wid" min="1" step="0.1" value="5.4" oninput="calculate()">
+                </div>
+                <div class="input-group">
+                    <label>高度 H (m)</label>
+                    <input type="number" id="hei" min="1" step="0.1" value="2.7" oninput="calculate()">
+                </div>
+            </div>
+            
+            <div class="space-visualizer">
+                <div class="cube-wrapper" id="cubeWrapper">
+                    <div class="cube-face" id="face-front">前</div>
+                    <div class="cube-face" id="face-back"></div>
+                    <div class="cube-face" id="face-right">右</div>
+                    <div class="cube-face" id="face-left"></div>
+                    <div class="cube-face" id="face-top">頂 (天花板)</div>
+                    <div class="cube-face" id="face-bottom"></div>
+                </div>
+            </div>
+        </div>
+        <div class="note">自動計算總體積：<span id="valVol" class="val-display">99.14</span> m³</div>
+
+        <div class="section-title">工程與碳排基線參數</div>
+        <div class="grid-2">
+            <div class="input-group">
+                <label><span>換氣次數 (ACH)</span> <span id="valAch" class="val-display">20</span></label>
+                <input type="range" id="ach" min="5" max="30" value="20" oninput="calculate()">
+            </div>
+            <div class="input-group">
+                <label><span>主機效率 (kW/RT)</span> <span id="valCop" class="val-display">1.0</span></label>
+                <input type="range" id="cop" min="0.4" max="1.5" step="0.05" value="1.0" oninput="calculate()">
+            </div>
+        </div>
+        <div class="input-group locked">
+            <label><span>電力排碳係數</span> <span style="color: #0d6efd; font-weight: bold;">0.467 kgCO₂e/度</span></label>
+            <span class="citation">引用來源：經濟部能源署115年6月2日公告基準114年度電力排碳係數為0.467公斤CO2e/度</span>
+            <input type="hidden" id="ecf" value="0.467">
+        </div>
+
+        <div class="section-title">室內恆溫濕目標設定</div>
+        <div class="grid-2">
+            <div class="input-group">
+                <label><span>室內目標溫度 (℃)</span> <span id="valInTemp" class="val-display">20</span></label>
+                <input type="range" id="inTemp" min="15" max="26" value="20" oninput="calculate()">
+            </div>
+            <div class="input-group">
+                <label><span>室內目標濕度 (%)</span> <span id="valInRh" class="val-display">50</span></label>
+                <input type="range" id="inRh" min="40" max="70" value="50" oninput="calculate()">
+            </div>
+        </div>
+
+        <div class="section-title">白天與夜間外部環境 (各 12h)</div>
+        <div class="grid-2">
+            <div class="input-group">
+                <label><span>白天外氣溫度 (℃)</span> <span id="valDayTemp" class="val-display">32</span></label>
+                <input type="range" id="dayTemp" min="20" max="42" value="32" oninput="calculate()">
+            </div>
+            <div class="input-group">
+                <label><span>白天外氣濕度 (%)</span> <span id="valDayRh" class="val-display">70</span></label>
+                <input type="range" id="dayRh" min="40" max="100" value="70" oninput="calculate()">
+            </div>
+            <div class="input-group">
+                <label><span>夜間外氣溫度 (℃)</span> <span id="valNightTemp" class="val-display">27</span></label>
+                <input type="range" id="nightTemp" min="15" max="35" value="27" oninput="calculate()">
+            </div>
+            <div class="input-group">
+                <label><span>夜間外氣濕度 (%)</span> <span id="valNightRh" class="val-display">80</span></label>
+                <input type="range" id="nightRh" min="40" max="100" value="80" oninput="calculate()">
+            </div>
+        </div>
+
+        <div class="result-box">
+            <div class="result-item"><span>單日總耗電量估算：</span> <strong id="totalKwh">0 度</strong></div>
+            <div class="result-item total-price"><span>單日電費試算 (3.5元/度)：</span> <span id="totalCost">NT$ 0</span></div>
+            <div class="result-item total-carbon"><span>單日碳排估算：</span> <span id="totalCarbon">0 kg CO₂e</span></div>
+        </div>
+
+        <div class="annual-box">
+            <div class="result-item" style="color: #856404; border-bottom: 2px solid #ffeeba; padding-bottom: 8px; margin-bottom: 12px; font-weight: bold;">
+                📅 ISO 14064 溫室氣體年化盤查推估 (365天)
+            </div>
+            <div class="result-item" style="color: #856404;"><span>年化總耗電量：</span> <strong id="yearKwh">0 度/年</strong></div>
+            <div class="result-item" style="color: #856404; font-size: 1.3em; font-weight: bold; margin-top: 8px;">
+                <span>年化預估電費：</span> <span id="yearCost">NT$ 0</span>
+            </div>
+            <div class="result-item" style="color: #055160; font-size: 1.3em; font-weight: bold; margin-top: 8px;">
+                <span>年化總碳排放：</span> <span id="yearCarbon">0 公噸 CO₂e</span>
+            </div>
+        </div>
+
+        <button class="btn-export" onclick="exportCSV()">📥 匯出盤查稽核軌跡 (.CSV)</button>
+    </div>
+
+    <script>
+        function calcEnthalpy(t, rh) {
+            t = parseFloat(t); rh = parseFloat(rh);
+            let ps = 6.112 * Math.exp((17.67 * t) / (t + 243.5));
+            let pv = ps * (rh / 100);
+            let w = 0.622 * (pv / (1013.25 - pv));
+            let h = 1.006 * t + w * (2501 + 1.86 * t);
+            return h;
+        }
+
+        let currentData = {};
+
+        function render3DCube(len, wid, hei) {
+            if(len <= 0 || wid <= 0 || hei <= 0) return;
+            
+            let maxDim = Math.max(len, wid, hei);
+            // (模型放大：基準像素拉升至 200，讓視覺張力更強)
+            let scaleFactor = 200 / maxDim; 
+            
+            let pxL = len * scaleFactor; 
+            let pxW = wid * scaleFactor; 
+            let pxH = hei * scaleFactor; 
+
+            const front = document.getElementById('face-front');
+            const back = document.getElementById('face-back');
+            const right = document.getElementById('face-right');
+            const left = document.getElementById('face-left');
+            const top = document.getElementById('face-top');
+            const bottom = document.getElementById('face-bottom');
+
+            front.style.width = `${pxW}px`; front.style.height = `${pxH}px`;
+            front.style.left = `${-(pxW/2)}px`; front.style.top = `${-(pxH/2)}px`;
+            front.style.transform = `translateZ(${pxL/2}px)`;
+
+            back.style.width = `${pxW}px`; back.style.height = `${pxH}px`;
+            back.style.left = `${-(pxW/2)}px`; back.style.top = `${-(pxH/2)}px`;
+            back.style.transform = `rotateY(180deg) translateZ(${pxL/2}px)`;
+
+            right.style.width = `${pxL}px`; right.style.height = `${pxH}px`;
+            right.style.left = `${-(pxL/2)}px`; right.style.top = `${-(pxH/2)}px`;
+            right.style.transform = `rotateY(90deg) translateZ(${pxW/2}px)`;
+
+            left.style.width = `${pxL}px`; left.style.height = `${pxH}px`;
+            left.style.left = `${-(pxL/2)}px`; left.style.top = `${-(pxH/2)}px`;
+            left.style.transform = `rotateY(-90deg) translateZ(${pxW/2}px)`;
+
+            top.style.width = `${pxW}px`; top.style.height = `${pxL}px`;
+            top.style.left = `${-(pxW/2)}px`; top.style.top = `${-(pxL/2)}px`;
+            top.style.transform = `rotateX(90deg) translateZ(${pxH/2}px)`;
+
+            bottom.style.width = `${pxW}px`; bottom.style.height = `${pxL}px`;
+            bottom.style.left = `${-(pxW/2)}px`; bottom.style.top = `${-(pxL/2)}px`;
+            bottom.style.transform = `rotateX(-90deg) translateZ(${pxH/2}px)`;
+        }
+
+        function calculate() {
+            let loc = document.getElementById('locationName').value || '未命名場域';
+            let len = parseFloat(document.getElementById('len').value) || 0;
+            let wid = parseFloat(document.getElementById('wid').value) || 0;
+            let hei = parseFloat(document.getElementById('hei').value) || 0;
+            let vol = len * wid * hei;
+            
+            render3DCube(len, wid, hei);
+            
+            let ach = document.getElementById('ach').value;
+            let cop = document.getElementById('cop').value;
+            let ecf = document.getElementById('ecf').value;
+            
+            let inTemp = document.getElementById('inTemp').value;
+            let inRh = document.getElementById('inRh').value;
+            let dayTemp = document.getElementById('dayTemp').value;
+            let dayRh = document.getElementById('dayRh').value;
+            let nightTemp = document.getElementById('nightTemp').value;
+            let nightRh = document.getElementById('nightRh').value;
+            
+            let costPerUnit = 3.5; 
+
+            document.getElementById('valVol').innerText = vol.toFixed(2);
+            document.getElementById('valAch').innerText = ach;
+            document.getElementById('valCop').innerText = cop;
+            document.getElementById('valInTemp').innerText = inTemp;
+            document.getElementById('valInRh').innerText = inRh;
+            document.getElementById('valDayTemp').innerText = dayTemp;
+            document.getElementById('valDayRh').innerText = dayRh;
+            document.getElementById('valNightTemp').innerText = nightTemp;
+            document.getElementById('valNightRh').innerText = nightRh;
+
+            let massFlow = (1.2 * vol * ach) / 3600; 
+            let hIn = calcEnthalpy(inTemp, inRh);
+            let hDay = calcEnthalpy(dayTemp, dayRh);
+            let hNight = calcEnthalpy(nightTemp, nightRh);
+            
+            let deltaHDay = Math.max(0, hDay - hIn);
+            let deltaHNight = Math.max(0, hNight - hIn);
+            
+            let dayPower = ((massFlow * deltaHDay) / 3.517) * cop;
+            let nightPower = ((massFlow * deltaHNight) / 3.517) * cop;
+            
+            let totalKwh = (dayPower * 12) + (nightPower * 12);
+            let totalCost = totalKwh * costPerUnit;
+            let totalCarbon = totalKwh * parseFloat(ecf);
+
+            let yearKwh = totalKwh * 365;
+            let yearCost = totalCost * 365;
+            let yearCarbon = (totalCarbon * 365) / 1000; 
+
+            document.getElementById('totalKwh').innerText = totalKwh.toFixed(1) + " 度";
+            document.getElementById('totalCost').innerText = "NT$ " + Math.round(totalCost).toLocaleString();
+            document.getElementById('totalCarbon').innerText = totalCarbon.toFixed(1) + " kg CO₂e";
+
+            document.getElementById('yearKwh').innerText = Math.round(yearKwh).toLocaleString() + " 度/年";
+            document.getElementById('yearCost').innerText = "NT$ " + Math.round(yearCost).toLocaleString();
+            document.getElementById('yearCarbon').innerText = yearCarbon.toFixed(2) + " 公噸 CO₂e";
+
+            currentData = {
+                "地點/設施名稱": loc, "長度(m)": len, "寬度(m)": wid, "高度(m)": hei, "體積(m3)": vol.toFixed(2),
+                "換氣次數(ACH)": ach, "主機效率(kW/RT)": cop, 
+                "電力排碳係數(kgCO2e/度)": ecf, "排碳係數引用來源": "經濟部能源署 114 年度公告",
+                "室內目標溫度(℃)": inTemp, "室內目標濕度(%)": inRh,
+                "白天外氣溫度(℃)": dayTemp, "白天外氣濕度(%)": dayRh,
+                "夜間外氣溫度(℃)": nightTemp, "夜間外氣濕度(%)": nightRh,
+                "單日總耗電(度)": totalKwh.toFixed(2), "單日預估電費(NT$)": Math.round(totalCost), "單日預估碳排(kgCO2e)": totalCarbon.toFixed(2),
+                "年化總耗電推估(度)": Math.round(yearKwh), "年化預估電費(NT$)": Math.round(yearCost), "年化總碳排放(公噸CO2e)": yearCarbon.toFixed(3),
+                "匯出時間": new Date().toLocaleString('zh-TW')
+            };
+        }
+        
+        function exportCSV() {
+            let csvContent = "\uFEFF"; 
+            let headers = Object.keys(currentData).join(",");
+            let values = Object.values(currentData).map(val => `"${val}"`).join(","); 
+            csvContent += headers + "\n" + values;
+            let blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            let url = URL.createObjectURL(blob);
+            let link = document.createElement("a");
+            link.setAttribute("href", url);
+            let safeName = currentData["地點/設施名稱"].replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, "_");
+            link.setAttribute("download", `基線與碳排盤查表_${safeName}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // 初始化
+        calculate();
+    </script>
+</body>
+</html>
