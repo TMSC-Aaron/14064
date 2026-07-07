@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隱私政策 - TMSC台灣管理系統驗證有限公司</title>
+    <meta name="description" content="台灣管理系統驗證有限公司(TMSC)隱私政策，說明本網站蒐集個人資料的方式、目的與當事人權利。">
+    <meta property="og:title" content="隱私政策 - TMSC台灣管理系統驗證有限公司">
+    <meta property="og:description" content="說明本網站蒐集個人資料的方式、目的與當事人權利。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.14064.com.tw/privacy.html">
+    <meta property="og:image" content="https://www.14064.com.tw/images/logo_TMSC.png">
+    <meta property="og:locale" content="zh_TW">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-900: #06331d;
+            --green-800: #0b4d2c;
+            --green-700: #0f6b3f;
+            --green-600: #006400;
+            --green-500: #2ea44f;
+            --green-400: #32CD32;
+            --green-100: #eaf6ee;
+            --green-50: #f6faf6;
+            --ink: #182b1f;
+            --muted: #5b7267;
+            --border: #e1ebe3;
+            --shadow-sm: 0 2px 8px rgba(6, 51, 29, 0.08);
+            --shadow-md: 0 10px 30px rgba(6, 51, 29, 0.12);
+            --radius: 16px;
+            --header-h: 84px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            color: var(--ink);
+            background: #fff;
+            padding-top: var(--header-h);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            color: var(--green-700);
+        }
+
+        h1, h2, h3 {
+            line-height: 1.4;
+        }
+
+        .section-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            color: var(--green-900);
+            text-align: center;
+            margin: 0 0 8px 0;
+            font-weight: 900;
+        }
+
+        .section-title-en {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--muted);
+            letter-spacing: 2px;
+            margin-top: 6px;
+        }
+
+        section {
+            padding: 72px 0;
+        }
+
+        /* ===== Header / Nav (shared with homepage) ===== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 2px 12px rgba(6, 51, 29, 0.08);
+            height: var(--header-h);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .logo img {
+            max-width: 54px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .logo h1 {
+            font-size: 1.15rem;
+            margin: 0;
+            color: var(--green-900);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .logo-en {
+            display: block;
+            font-size: 0.62em;
+            font-weight: 400;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .nav-toggle-checkbox {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .nav-toggle-label span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--green-800);
+            border-radius: 3px;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 8px;
+        }
+
+        .main-nav ul li a {
+            display: inline-block;
+            color: var(--green-800);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .main-nav ul li a:hover {
+            background: var(--green-100);
+            color: var(--green-600);
+        }
+
+        @media (max-width: 860px) {
+            .nav-toggle-label {
+                display: flex;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: var(--header-h);
+                left: 0;
+                right: 0;
+                background: #fff;
+                box-shadow: var(--shadow-md);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 8px 16px 16px;
+            }
+
+            .main-nav ul li a {
+                display: block;
+                padding: 14px 10px;
+                border-bottom: 1px solid var(--border);
+                border-radius: 0;
+            }
+
+            .nav-toggle-checkbox:checked ~ .main-nav {
+                max-height: 400px;
+            }
+
+            .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .nav-toggle-checkbox:checked ~ .nav-toggle-label span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .logo h1 {
+                font-size: 0.95rem;
+                white-space: normal;
+            }
+        }
+
+        /* ===== Page header (slim hero) ===== */
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 55%, var(--green-500) 130%);
+            text-align: center;
+            padding: 64px 24px 56px;
+            color: white;
+        }
+
+        .page-hero h2 {
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .page-hero p {
+            font-size: 1rem;
+            opacity: 0.92;
+            margin: 14px 0 0;
+        }
+
+        /* ===== Policy content ===== */
+        #policy {
+            background: white;
+        }
+
+        .policy-block {
+            max-width: 900px;
+            margin: 0 auto 28px auto;
+            background: var(--green-50);
+            border-radius: var(--radius);
+            padding: 32px;
+            border: 1px solid var(--border);
+        }
+
+        .policy-block h3 {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--green-900);
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-left: 5px solid var(--green-400);
+            padding-left: 16px;
+            margin: 0 0 16px 0;
+        }
+
+        .policy-block p,
+        .policy-block li {
+            line-height: 2;
+            color: #333;
+        }
+
+        .policy-block p {
+            margin: 0 0 12px 0;
+        }
+
+        .policy-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-block ul {
+            margin: 0 0 12px 0;
+            padding-left: 22px;
+        }
+
+        .policy-block ul:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-contact {
+            font-weight: 700;
+            color: var(--green-800);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--green-900);
+            color: white;
+            text-align: center;
+            padding: 28px 24px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        footer .footer-meta {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            opacity: 0.75;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 600px) {
+            :root {
+                --header-h: 72px;
+            }
+
+            section {
+                padding: 52px 0;
+            }
+
+            .page-hero {
+                padding: 48px 20px 44px;
+            }
+
+            .page-hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .policy-block {
+                padding: 22px;
+            }
+
+            .policy-block h3 {
+                flex-wrap: wrap;
+                font-size: 1.05rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Logo">
+                <h1>
+                    台灣管理系統驗證有限公司<br>
+                    <span class="logo-en">Taiwan Management System Certification Ltd.</span>
+                </h1>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="開啟選單">
+                <span></span><span></span><span></span>
+            </label>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/index.html">回首頁</a></li>
+                    <li><a href="/index.html#about">關於我們</a></li>
+                    <li><a href="/index.html#courses">講座資訊</a></li>
+                    <li><a href="https://www.cca.gov.tw/affairs/carbon-fee-fund/2301.html" target="_blank" rel="noopener noreferrer">碳費專區</a></li>
+                    <li><a href="/index.html#contact">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <h2>隱私政策</h2>
+        <p>Privacy Policy</p>
+    </section>
+
+    <section id="policy">
+        <div class="section-inner">
+            <div class="policy-block">
+                <h3>一、適用範圍</h3>
+                <p>本網站（www.14064.com.tw）由台灣管理系統驗證有限公司（以下稱「本公司」）經營管理，為單純的靜態資訊網站，不設會員登入機制，也不刊登任何廣告。本政策說明本公司在您使用本網站及相關服務時，如何蒐集、處理及利用您的個人資料，敬請您詳閱。</p>
+            </div>
+
+            <div class="policy-block">
+                <h3>二、我們蒐集個人資料的方式與項目</h3>
+                <p>本網站本身不會透過網頁自動蒐集您的個人資料，僅在以下兩種情況下，會取得您主動提供的資料：</p>
+                <ul>
+                    <li>當您透過網站上的 Google 表單連結報名課程／講座，或使用線上留言表單與我們聯繫時，您所填寫的姓名、聯絡電話、電子郵件等資料，將由 Google 表單服務蒐集並暫存，本公司再據以進行後續聯繫與行政作業。此部分資料之傳輸與儲存，適用 Google 本身的隱私權政策。</li>
+                    <li>當您透過免付費專線、一般電話或電子郵件主動與本公司聯繫時，我們會取得您提供的姓名、聯絡方式及您在通話或信件中提及之相關內容。</li>
+                </ul>
+                <p>除上述兩種情形外，本公司不會以其他方式（如網站會員註冊、第三方廣告追蹤等）蒐集您的個人資料。</p>
+            </div>
+
+            <div class="policy-block">
+                <h3>三、蒐集之目的與利用範圍</h3>
+                <p>本公司蒐集您的個人資料，僅限於下列目的：</p>
+                <ul>
+                    <li>課程與講座之報名作業、名額確認及相關通知。</li>
+                    <li>就您透過表單、電話或電子郵件提出之詢問，進行業務聯繫與回覆。</li>
+                </ul>
+                <p>您的個人資料僅由本公司內部人員於上述目的範圍內使用，不會出售、交換或提供予前述目的無關之第三方。</p>
+            </div>
+
+            <div class="policy-block">
+                <h3>四、Cookie 與追蹤技術</h3>
+                <p>本網站本身未使用 Cookie 或其他追蹤技術蒐集您的瀏覽紀錄。若您點選連結前往 Google 表單或其他外部網站，該等網站之資料蒐集方式將依其各自之隱私權政策辦理，與本公司無關。</p>
+            </div>
+
+            <div class="policy-block">
+                <h3>五、當事人權利</h3>
+                <p>依據《個人資料保護法》相關規定，您就本公司所保有之個人資料，得行使下列權利：</p>
+                <ul>
+                    <li>查詢或請求閱覽。</li>
+                    <li>請求製給複製本。</li>
+                    <li>請求補充或更正。</li>
+                    <li>請求停止蒐集、處理或利用。</li>
+                    <li>請求刪除。</li>
+                </ul>
+                <p>如您欲行使上述權利，或對本政策有任何疑問，歡迎透過下方聯絡窗口與我們聯繫，我們將於合理期間內處理回覆。</p>
+            </div>
+
+            <div class="policy-block">
+                <h3>六、聯絡窗口</h3>
+                <p class="policy-contact">電子郵件：<a href="mailto:service@14064.com.tw">service@14064.com.tw</a></p>
+                <p class="policy-contact">免付費專線(限市話)：<a href="tel:0800014064">0800-014064</a></p>
+            </div>
+
+            <div class="policy-block">
+                <h3>七、政策修訂</h3>
+                <p>本公司得視法規修訂或營運需要，適時調整本政策內容，修訂後之內容將公布於本頁面，並更新頁尾所載之最後更新日期。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Taiwan Management System Certification Ltd. | <a href="/index.html">回首頁</a></p>
+        <p class="footer-meta">本政策最後更新日期：2026年7月7日</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.main-nav a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                document.getElementById('nav-toggle').checked = false;
+            });
+        });
+    </script>
+</body>
+</html>
