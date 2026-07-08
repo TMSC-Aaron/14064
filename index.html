@@ -32,10 +32,26 @@
             --shadow-lg: 0 20px 45px rgba(6, 51, 29, 0.16);
             --radius: 16px;
             --header-h: 84px;
+            --tech-blue: #4a9dff;
+            --tech-blue-soft: #7fb8ff;
+            --carbon-900: #05080d;
+            --carbon-800: #0a0f18;
+            --navy-800: #0a1c24;
         }
 
         * {
             box-sizing: border-box;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
         }
 
         html {
@@ -248,7 +264,7 @@
         .hero {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 55%, var(--green-500) 130%);
+            background: linear-gradient(150deg, var(--green-900) 0%, #0a2e2a 40%, var(--carbon-800) 78%, var(--carbon-900) 100%);
             text-align: center;
             padding: 96px 24px 88px;
             color: white;
@@ -258,16 +274,28 @@
         .hero-shapes {
             position: absolute;
             inset: 0;
+            z-index: 0;
             pointer-events: none;
             background-image:
-                radial-gradient(circle at 12% 20%, rgba(255,255,255,0.10) 0, rgba(255,255,255,0.10) 120px, transparent 121px),
-                radial-gradient(circle at 88% 15%, rgba(255,255,255,0.08) 0, rgba(255,255,255,0.08) 180px, transparent 181px),
-                radial-gradient(circle at 92% 85%, rgba(50,205,50,0.18) 0, rgba(50,205,50,0.18) 160px, transparent 161px),
-                radial-gradient(circle at 6% 88%, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 140px, transparent 141px);
+                radial-gradient(circle at 12% 20%, rgba(255,255,255,0.08) 0, rgba(255,255,255,0.08) 120px, transparent 121px),
+                radial-gradient(circle at 88% 15%, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 180px, transparent 181px),
+                radial-gradient(circle at 92% 85%, rgba(50,205,50,0.14) 0, rgba(50,205,50,0.14) 160px, transparent 161px),
+                radial-gradient(circle at 6% 88%, rgba(74,157,255,0.08) 0, rgba(74,157,255,0.08) 140px, transparent 141px);
+        }
+
+        .hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.55;
+            pointer-events: none;
         }
 
         .hero-inner {
             position: relative;
+            z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -277,12 +305,14 @@
             margin: 0;
             font-weight: 900;
             letter-spacing: 1px;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.4);
         }
 
         .hero-sub {
             font-size: 1.05rem;
             opacity: 0.92;
             margin: 18px 0 0;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.35);
         }
 
         .hero-btn-group {
@@ -335,6 +365,119 @@
             margin-top: 2px;
         }
 
+        /* ===== War Room Entry ===== */
+        .warroom-section {
+            background: var(--green-50);
+            padding: 40px 0 56px;
+        }
+
+        .warroom-entry {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 38px;
+            border-radius: 20px;
+            background: linear-gradient(155deg, var(--carbon-800) 0%, var(--navy-800) 55%, var(--carbon-900) 100%);
+            border: 1px solid rgba(74, 157, 255, 0.35);
+            box-shadow: 0 0 0 1px rgba(74,157,255,0.08), 0 18px 40px rgba(0,0,0,0.28), 0 0 36px rgba(74,157,255,0.14);
+            text-decoration: none;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .warroom-entry:hover {
+            transform: translateY(-4px);
+            border-color: rgba(127, 184, 255, 0.6);
+            box-shadow: 0 0 0 1px rgba(127,184,255,0.18), 0 24px 50px rgba(0,0,0,0.32), 0 0 52px rgba(74,157,255,0.24);
+        }
+
+        .warroom-bg-grid {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(74,157,255,0.14) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74,157,255,0.14) 1px, transparent 1px),
+                radial-gradient(circle at 88% 15%, rgba(74,157,255,0.28), transparent 60%);
+            background-size: 26px 26px, 26px 26px, 100% 100%;
+            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.95), transparent 88%);
+            mask-image: linear-gradient(to right, rgba(0,0,0,0.95), transparent 88%);
+        }
+
+        .warroom-icon {
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: rgba(74,157,255,0.12);
+            border: 1px solid rgba(74,157,255,0.4);
+            color: var(--tech-blue-soft);
+        }
+
+        .warroom-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .warroom-label {
+            position: relative;
+            flex: 1;
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #eaf2ff;
+        }
+
+        .warroom-label .cta-btn-note {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: rgba(180, 210, 255, 0.75);
+        }
+
+        .warroom-chevron {
+            position: relative;
+            flex-shrink: 0;
+            display: flex;
+            color: var(--tech-blue-soft);
+            transition: transform 0.25s ease;
+        }
+
+        .warroom-chevron svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .warroom-entry:hover .warroom-chevron {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 600px) {
+            .warroom-entry {
+                flex-direction: column;
+                text-align: center;
+                padding: 26px 20px;
+                gap: 12px;
+            }
+
+            .warroom-chevron {
+                transform: rotate(90deg);
+            }
+
+            .warroom-entry:hover .warroom-chevron {
+                transform: rotate(90deg) translateX(5px);
+            }
+        }
+
         /* ===== News ===== */
         .news-section {
             background: var(--green-50);
@@ -343,7 +486,7 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             margin-top: 36px;
         }
@@ -486,9 +629,18 @@
             margin: 0;
         }
 
+        .about-block--elevated {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-block--elevated:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
         .governance-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 18px;
             margin-top: 26px;
         }
@@ -508,8 +660,20 @@
         }
 
         .governance-icon {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            color: var(--green-600);
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .governance-icon svg {
+            width: 34px;
+            height: 34px;
+            display: block;
+        }
+
+        .governance-card:hover .governance-icon {
+            color: var(--green-400);
+            transform: translateY(-3px);
         }
 
         .governance-card h4 {
@@ -542,7 +706,7 @@
 
         .course-list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 28px;
             margin-top: 36px;
         }
@@ -655,20 +819,6 @@
         }
 
         /* ===== Responsive ===== */
-        @media (max-width: 900px) {
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .governance-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .course-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 600px) {
             :root {
                 --header-h: 72px;
@@ -698,10 +848,6 @@
             .about-block h3 {
                 flex-wrap: wrap;
                 font-size: 1.1rem;
-            }
-
-            .governance-grid {
-                grid-template-columns: 1fr;
             }
 
             .section-title {
@@ -741,16 +887,36 @@
 
     <section class="hero" id="hero">
         <div class="hero-shapes" aria-hidden="true"></div>
+        <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
         <div class="hero-inner">
             <h2>台灣管理系統驗證有限公司<br>TMSC</h2>
             <p class="hero-sub">Transforming Mindset to Sustainable Changes<br>創新思維讓地球永續生存是我們的使命</p>
             <div class="hero-btn-group">
                 <a href="#courses" class="cta-btn">驗證公會免費講座</a>
-                <a href="/yeezen/" class="cta-btn cta-btn-secondary">
+            </div>
+        </div>
+    </section>
+
+    <section class="warroom-section" aria-label="能源管理戰情室入口">
+        <div class="section-inner">
+            <a href="/yeezen/" class="warroom-entry">
+                <span class="warroom-bg-grid" aria-hidden="true"></span>
+                <span class="warroom-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M24 4l16 8v16l-16 8-16-8V12z"/>
+                        <path d="M14 22l6 6 5-10 5 6 4-4"/>
+                    </svg>
+                </span>
+                <span class="warroom-label">
                     焓差冷負荷-能源管理戰情室
                     <span class="cta-btn-note">授權登入</span>
-                </a>
-            </div>
+                </span>
+                <span class="warroom-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 6l6 6-6 6"/>
+                    </svg>
+                </span>
+            </a>
         </div>
     </section>
 
@@ -802,32 +968,53 @@
                 <p>作為「中華民國驗證商業同業公會」的核心治理成員，TMSC 團隊長期以前瞻思維參與國內外驗證產業的政策推動與標準制定。憑藉在公會擔任常務理事與理事的深厚制度底蘊，本公司擁有無可比擬的國際接軌優勢與最新法規敏銳度。我們不僅代表行業前沿的專業發言權，更引進國際最高規格的評估視野，將政策趨勢無縫轉化為企業落實 ESG 與國際標準的策略藍圖。</p>
             </div>
 
-            <div class="about-block">
+            <div class="about-block about-block--elevated">
                 <h3><span class="about-num">三</span>綠色醫療實務與學術實力<span class="about-en">Green Healthcare Rigor &amp; Academic Evidence</span></h3>
                 <p>TMSC 拒絕流於表象的條文合規，強調以「科學實證」與「學術嚴謹度」解決實務痛點。本團隊承接並推動衛福部「114年綠色醫療永續規劃暨教育訓練補助計畫」，並於國際研討會公開發表四篇核心學術論文。我們以「焓差冷負荷」為核心方法論，針對醫院耗能最為關鍵的「無菌環境—基礎冷負荷」進行精確的能耗與電費定量化分析。此項領先業界的科研成果，已實質應用於大型醫療體系的能源管理優化，展現將學術理論轉化為高經濟效益的實戰能量。</p>
             </div>
 
-            <div class="about-block">
+            <div class="about-block about-block--elevated">
                 <h3><span class="about-num">四</span>四維前瞻治理與落地驗證<span class="about-en">Four-Dimensional Governance &amp; Case Validation</span></h3>
                 <p>深耕一線的實務經驗，讓 TMSC 成功協助北榮蘇澳分院、桃園怡仁醫院、台中光田綜合醫院及高雄聖功醫院等四家指標性醫療院所建置 ISO 50001 能源管理系統。我們將複雜的醫院營運環境，歸納為四大治理面向進行深度融合：</p>
                 <div class="governance-grid">
                     <div class="governance-card">
-                        <div class="governance-icon">🤝</div>
+                        <div class="governance-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="16" cy="24" r="9"/>
+                                <circle cx="32" cy="24" r="9"/>
+                            </svg>
+                        </div>
                         <h4>社會責任<span>Social Responsibility</span></h4>
                         <p>協助醫療機構落實淨零減碳，彰顯公共衛生機構的綠色價值。</p>
                     </div>
                     <div class="governance-card">
-                        <div class="governance-icon">💬</div>
+                        <div class="governance-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8 10h32a2 2 0 012 2v16a2 2 0 01-2 2H20l-8 8v-8h-4a2 2 0 01-2-2V12a2 2 0 012-2z"/>
+                                <path d="M14 20h20M14 26h14"/>
+                            </svg>
+                        </div>
                         <h4>友善職場溝通<span>Workplace Communication</span></h4>
                         <p>優化跨部門溝通機制，將節能意識轉化為全員參與的職場文化。</p>
                     </div>
                     <div class="governance-card">
-                        <div class="governance-icon">🧫</div>
+                        <div class="governance-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M24 5l15 6v11c0 10-6.5 16.5-15 21-8.5-4.5-15-11-15-21V11z"/>
+                                <path d="M16 24l6 6 11-12"/>
+                            </svg>
+                        </div>
                         <h4>感管標準<span>Infection Control Standards</span></h4>
                         <p>在嚴格符合醫療感染管制與無菌環境的安全前提下，實現能源配置的最佳化。</p>
                     </div>
                     <div class="governance-card">
-                        <div class="governance-icon">📡</div>
+                        <div class="governance-icon" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="9" width="38" height="24" rx="2.5"/>
+                                <path d="M11 26l6-9 5 5 7-11 8 10"/>
+                                <path d="M19 39h10M24 33v6"/>
+                            </svg>
+                        </div>
                         <h4>數位監控<span>Digital Monitoring</span></h4>
                         <p>導入數位化精準數據監測，以科技力確保碳資產與能源績效的持續改善。</p>
                     </div>
@@ -926,6 +1113,105 @@
                 document.getElementById('nav-toggle').checked = false;
             });
         });
+    </script>
+
+    <script>
+        (function () {
+            var canvas = document.getElementById('hero-canvas');
+            var hero = document.getElementById('hero');
+            if (!canvas || !hero || !canvas.getContext) return;
+
+            var ctx = canvas.getContext('2d');
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var dpr = Math.min(window.devicePixelRatio || 1, 2);
+            var width, height, nodes, nodeCount, animId, resizeTimer;
+
+            function initNodes() {
+                nodes = [];
+                for (var i = 0; i < nodeCount; i++) {
+                    nodes.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * 0.12,
+                        vy: (Math.random() - 0.5) * 0.12
+                    });
+                }
+            }
+
+            function resize() {
+                width = hero.clientWidth;
+                height = hero.clientHeight;
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                nodeCount = Math.max(16, Math.min(42, Math.round((width * height) / 28000)));
+                initNodes();
+                draw();
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                var linkDist = Math.min(150, width / 6);
+
+                for (var i = 0; i < nodes.length; i++) {
+                    for (var j = i + 1; j < nodes.length; j++) {
+                        var a = nodes[i], b = nodes[j];
+                        var dx = a.x - b.x, dy = a.y - b.y;
+                        var dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < linkDist) {
+                            var alpha = (1 - dist / linkDist) * 0.18;
+                            ctx.strokeStyle = 'rgba(180, 210, 255,' + alpha + ')';
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(a.x, a.y);
+                            ctx.lineTo(b.x, b.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                for (var k = 0; k < nodes.length; k++) {
+                    ctx.beginPath();
+                    ctx.arc(nodes[k].x, nodes[k].y, 1.6, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+                    ctx.fill();
+                }
+            }
+
+            function step() {
+                for (var i = 0; i < nodes.length; i++) {
+                    var n = nodes[i];
+                    n.x += n.vx;
+                    n.y += n.vy;
+                    if (n.x < 0 || n.x > width) n.vx *= -1;
+                    if (n.y < 0 || n.y > height) n.vy *= -1;
+                }
+                draw();
+                animId = requestAnimationFrame(step);
+            }
+
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(resize, 200);
+            });
+
+            document.addEventListener('visibilitychange', function () {
+                if (reduceMotion) return;
+                if (document.hidden) {
+                    cancelAnimationFrame(animId);
+                } else {
+                    animId = requestAnimationFrame(step);
+                }
+            });
+
+            resize();
+
+            if (!reduceMotion) {
+                animId = requestAnimationFrame(step);
+            }
+        })();
     </script>
 </body>
 </html>
