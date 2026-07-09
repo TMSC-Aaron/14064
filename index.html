@@ -9,8 +9,9 @@
     <meta property="og:description" content="結合產、官、學、研，專注於ISO 14064溫室氣體排放盤查、查驗、減量，提供技術諮詢、評估與教育訓練等服務。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.14064.com.tw/">
-    <meta property="og:image" content="https://www.14064.com.tw/images/logo_TMSC.png">
+    <meta property="og:image" content="https://www.14064.com.tw/images/og-image.png">
     <meta property="og:locale" content="zh_TW">
+    <link rel="icon" type="image/png" href="/images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -286,11 +287,23 @@
         .hero-canvas {
             position: absolute;
             inset: 0;
-            z-index: 0;
+            z-index: 1;
             width: 100%;
             height: 100%;
             opacity: 0.55;
             pointer-events: none;
+        }
+
+        .hero-logo-texture {
+            position: absolute;
+            top: 50%;
+            right: -8%;
+            transform: translateY(-50%);
+            width: min(58%, 560px);
+            z-index: 0;
+            opacity: 0.13;
+            pointer-events: none;
+            filter: drop-shadow(0 0 50px rgba(50, 205, 50, 0.2));
         }
 
         .hero-inner {
@@ -365,15 +378,120 @@
             margin-top: 2px;
         }
 
+        /* ===== Stats Band ===== */
+        .stats-section {
+            background: #fff;
+            padding: 52px 0 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0 8px;
+        }
+
+        .stat-number {
+            font-size: clamp(1.9rem, 4.2vw, 2.6rem);
+            font-weight: 900;
+            color: var(--green-700);
+            line-height: 1.15;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-label {
+            font-size: 0.86rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 700px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px 20px;
+            }
+        }
+
         /* ===== War Room Entry ===== */
         .warroom-section {
-            background: var(--green-50);
-            padding: 40px 0 56px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(155deg, var(--carbon-800) 0%, var(--navy-800) 55%, var(--carbon-900) 100%);
+            padding: 72px 0 78px;
+            scroll-margin-top: var(--header-h);
+        }
+
+        .warroom-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(74,157,255,0.10) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74,157,255,0.10) 1px, transparent 1px),
+                radial-gradient(circle at 88% 12%, rgba(74,157,255,0.24), transparent 55%),
+                radial-gradient(circle at 8% 90%, rgba(74,157,255,0.14), transparent 50%);
+            background-size: 32px 32px, 32px 32px, 100% 100%, 100% 100%;
+        }
+
+        .warroom-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            box-shadow: inset 0 0 0 1px rgba(74,157,255,0.18), inset 0 0 90px rgba(74,157,255,0.08);
+        }
+
+        .warroom-header {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto 44px;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .warroom-header h2 {
+            margin: 0 0 18px;
+            color: #eaf2ff;
+            font-size: 1.85rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 26px rgba(74,157,255,0.35);
+        }
+
+        .warroom-quote {
+            margin: 0;
+            color: rgba(212, 227, 255, 0.86);
+            font-size: 1rem;
+            line-height: 1.95;
+        }
+
+        .warroom-signature {
+            position: absolute;
+            bottom: 20px;
+            right: 26px;
+            width: 68px;
+            height: auto;
+            opacity: 0.32;
+            pointer-events: none;
+            z-index: 1;
         }
 
         .warroom-grid {
+            position: relative;
+            z-index: 1;
             max-width: 960px;
             margin: 0 auto;
+            padding: 0 24px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
@@ -392,7 +510,7 @@
             gap: 24px;
             padding: 30px 38px;
             border-radius: 20px;
-            background: linear-gradient(155deg, var(--carbon-800) 0%, var(--navy-800) 55%, var(--carbon-900) 100%);
+            background: linear-gradient(155deg, rgba(10,15,24,0.6) 0%, rgba(10,28,36,0.6) 55%, rgba(5,8,13,0.6) 100%);
             border: 1px solid rgba(74, 157, 255, 0.35);
             box-shadow: 0 0 0 1px rgba(74,157,255,0.08), 0 18px 40px rgba(0,0,0,0.28), 0 0 36px rgba(74,157,255,0.14);
             text-decoration: none;
@@ -556,6 +674,19 @@
             color: var(--green-900);
         }
 
+        .badge-hot {
+            display: inline-block;
+            background: #d9483c;
+            color: #fff;
+            font-size: 0.66rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-left: 8px;
+            vertical-align: middle;
+            letter-spacing: 1px;
+        }
+
         /* ===== About ===== */
         #about {
             background: white;
@@ -594,10 +725,10 @@
 
         .about-block {
             max-width: 900px;
-            margin: 0 auto 28px auto;
+            margin: 0 auto 36px auto;
             background: var(--green-50);
             border-radius: var(--radius);
-            padding: 32px;
+            padding: 36px 40px;
             border: 1px solid var(--border);
         }
 
@@ -610,7 +741,7 @@
             font-weight: 700;
             border-left: 5px solid var(--green-400);
             padding-left: 16px;
-            margin: 0 0 18px 0;
+            margin: 0 0 20px 0;
         }
 
         .about-num {
@@ -635,10 +766,15 @@
         }
 
         .about-block > p {
-            line-height: 2;
+            line-height: 2.15;
             color: #333;
             text-align: justify;
             margin: 0;
+        }
+
+        .about-block strong {
+            color: var(--green-800);
+            font-weight: 700;
         }
 
         .about-block--elevated {
@@ -848,13 +984,19 @@
                 font-size: 1.7rem;
             }
 
+            .hero-logo-texture {
+                width: 78%;
+                opacity: 0.09;
+                right: -12%;
+            }
+
             .about-header {
                 flex-direction: column;
                 text-align: center;
             }
 
             .about-block {
-                padding: 22px;
+                padding: 26px 22px;
             }
 
             .about-block h3 {
@@ -899,6 +1041,7 @@
 
     <section class="hero" id="hero">
         <div class="hero-shapes" aria-hidden="true"></div>
+        <img src="/images/logo_TMSC.png" alt="" class="hero-logo-texture" aria-hidden="true">
         <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
         <div class="hero-inner">
             <h2>台灣管理系統驗證有限公司<br>TMSC</h2>
@@ -909,73 +1052,25 @@
         </div>
     </section>
 
-    <section class="warroom-section" aria-label="能源管理戰情室入口">
+    <section class="stats-section" aria-label="實績數字">
         <div class="section-inner">
-            <div class="warroom-grid">
-                <a href="/warroom/" class="warroom-entry">
-                    <span class="warroom-bg-grid" aria-hidden="true"></span>
-                    <span class="warroom-icon" aria-hidden="true">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M24 4l16 8v16l-16 8-16-8V12z"/>
-                            <path d="M14 22l6 6 5-10 5 6 4-4"/>
-                        </svg>
-                    </span>
-                    <span class="warroom-label">
-                        TMSC 能源管理戰情室
-                        <span class="cta-btn-note">授權登入</span>
-                    </span>
-                    <span class="warroom-chevron" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 6l6 6-6 6"/>
-                        </svg>
-                    </span>
-                </a>
-                <a href="/yeezen/" class="warroom-entry">
-                    <span class="warroom-bg-grid" aria-hidden="true"></span>
-                    <span class="warroom-icon" aria-hidden="true">
-                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M24 4l16 8v16l-16 8-16-8V12z"/>
-                            <path d="M14 22l6 6 5-10 5 6 4-4"/>
-                        </svg>
-                    </span>
-                    <span class="warroom-label">
-                        怡仁綜合醫院專屬入口
-                        <span class="cta-btn-note">授權登入</span>
-                    </span>
-                    <span class="warroom-chevron" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 6l6 6-6 6"/>
-                        </svg>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="news" class="news-section">
-        <div class="section-inner">
-            <h2 class="section-title">最新消息<span class="section-title-en">Latest News</span></h2>
-            <div class="news-grid">
-                <article class="news-card">
-                    <div class="news-date">
-                        <span class="news-day">07</span>
-                        <span class="news-month">JUL</span>
-                        <span class="news-year">2026</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>講座改期至2026年9月</h3>
-                    </div>
-                </article>
-                <article class="news-card">
-                    <div class="news-date">
-                        <span class="news-day">07</span>
-                        <span class="news-month">JUL</span>
-                        <span class="news-year">2026</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>溫室氣體查確證師國際證照班熱烈招生中</h3>
-                    </div>
-                </article>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">家指標醫療院所</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">篇國際學術論文</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">114年</span>
+                    <span class="stat-label">衛福部補助計畫</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">常務理事</span>
+                    <span class="stat-label">驗證公會</span>
+                </div>
             </div>
         </div>
     </section>
@@ -997,17 +1092,17 @@
 
             <div class="about-block">
                 <h3><span class="about-num">二</span>驗證公會優勢與國際接軌<span class="about-en">Institutional Advantage &amp; Global Alignment</span></h3>
-                <p>作為「中華民國驗證商業同業公會」的核心治理成員，TMSC 團隊長期以前瞻思維參與國內外驗證產業的政策推動與標準制定。憑藉在公會擔任常務理事與理事的深厚制度底蘊，本公司擁有無可比擬的國際接軌優勢與最新法規敏銳度。我們不僅代表行業前沿的專業發言權，更引進國際最高規格的評估視野，將政策趨勢無縫轉化為企業落實 ESG 與國際標準的策略藍圖。</p>
+                <p>作為「中華民國驗證商業同業公會」的核心治理成員，TMSC 團隊長期以前瞻思維參與國內外驗證產業的政策推動與標準制定。憑藉在公會擔任<strong>常務理事</strong>與理事的深厚制度底蘊，本公司擁有無可比擬的國際接軌優勢與最新法規敏銳度。我們不僅代表行業前沿的專業發言權，更引進國際最高規格的評估視野，將政策趨勢無縫轉化為企業落實 ESG 與國際標準的策略藍圖。</p>
             </div>
 
             <div class="about-block about-block--elevated">
                 <h3><span class="about-num">三</span>綠色醫療實務與學術實力<span class="about-en">Green Healthcare Rigor &amp; Academic Evidence</span></h3>
-                <p>TMSC 拒絕流於表象的條文合規，強調以「科學實證」與「學術嚴謹度」解決實務痛點。本團隊承接並推動衛福部「114年綠色醫療永續規劃暨教育訓練補助計畫」，並於國際研討會公開發表四篇核心學術論文。我們以「焓差冷負荷」為核心方法論，針對醫院耗能最為關鍵的「無菌環境—基礎冷負荷」進行精確的能耗與電費定量化分析。此項領先業界的科研成果，已實質應用於大型醫療體系的能源管理優化，展現將學術理論轉化為高經濟效益的實戰能量。</p>
+                <p>TMSC 拒絕流於表象的條文合規，強調以「科學實證」與「學術嚴謹度」解決實務痛點。本團隊承接並推動衛福部「<strong>114年綠色醫療永續規劃暨教育訓練補助計畫</strong>」，並於國際研討會公開發表<strong>四篇核心學術論文</strong>。我們以「<strong>焓差冷負荷</strong>」為核心方法論，針對醫院耗能最為關鍵的「無菌環境—基礎冷負荷」進行精確的能耗與電費定量化分析。此項領先業界的科研成果，已實質應用於大型醫療體系的能源管理優化，展現將學術理論轉化為高經濟效益的實戰能量。</p>
             </div>
 
             <div class="about-block about-block--elevated">
                 <h3><span class="about-num">四</span>四維前瞻治理與落地驗證<span class="about-en">Four-Dimensional Governance &amp; Case Validation</span></h3>
-                <p>深耕一線的實務經驗，讓 TMSC 成功協助北榮蘇澳分院、桃園怡仁醫院、台中光田綜合醫院及高雄聖功醫院等四家指標性醫療院所建置 ISO 50001 能源管理系統。我們將複雜的醫院營運環境，歸納為四大治理面向進行深度融合：</p>
+                <p>深耕一線的實務經驗，讓 TMSC 成功協助<strong>北榮蘇澳分院</strong>、<strong>桃園怡仁醫院</strong>、<strong>台中光田綜合醫院</strong>及<strong>高雄聖功醫院</strong>等四家指標性醫療院所建置 ISO 50001 能源管理系統。我們將複雜的醫院營運環境，歸納為四大治理面向進行深度融合：</p>
                 <div class="governance-grid">
                     <div class="governance-card">
                         <div class="governance-icon" aria-hidden="true">
@@ -1053,6 +1148,52 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="warroom-section" aria-label="能源管理戰情室入口">
+        <div class="warroom-header">
+            <h2>焓差冷負荷－能源管理戰情室</h2>
+            <p class="warroom-quote">以焓差冷負荷演算法為核心，將無菌環境的能耗轉化為即時量化的電費與碳排數據——已實際應用於四家醫療體系的能源管理優化。</p>
+        </div>
+        <div class="warroom-grid">
+            <a href="/warroom/" class="warroom-entry">
+                <span class="warroom-bg-grid" aria-hidden="true"></span>
+                <span class="warroom-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M24 4l16 8v16l-16 8-16-8V12z"/>
+                        <path d="M14 22l6 6 5-10 5 6 4-4"/>
+                    </svg>
+                </span>
+                <span class="warroom-label">
+                    TMSC 能源管理戰情室
+                    <span class="cta-btn-note">授權登入</span>
+                </span>
+                <span class="warroom-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 6l6 6-6 6"/>
+                    </svg>
+                </span>
+            </a>
+            <a href="/yeezen/" class="warroom-entry">
+                <span class="warroom-bg-grid" aria-hidden="true"></span>
+                <span class="warroom-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M24 4l16 8v16l-16 8-16-8V12z"/>
+                        <path d="M14 22l6 6 5-10 5 6 4-4"/>
+                    </svg>
+                </span>
+                <span class="warroom-label">
+                    怡仁綜合醫院專屬入口
+                    <span class="cta-btn-note">授權登入</span>
+                </span>
+                <span class="warroom-chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 6l6 6-6 6"/>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        <img src="/images/logo_TMSC.png" alt="" class="warroom-signature" aria-hidden="true">
     </section>
 
     <section id="courses">
@@ -1102,6 +1243,34 @@
         </div>
     </section>
 
+    <section id="news" class="news-section">
+        <div class="section-inner">
+            <h2 class="section-title">最新消息<span class="section-title-en">Latest News</span></h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-date">
+                        <span class="news-day">07</span>
+                        <span class="news-month">JUL</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>講座改期至2026年9月</h3>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <div class="news-date">
+                        <span class="news-day">07</span>
+                        <span class="news-month">JUL</span>
+                        <span class="news-year">2026</span>
+                    </div>
+                    <div class="news-content">
+                        <h3>溫室氣體查確證師國際證照班<span class="badge-hot">熱烈招生中</span></h3>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="section-inner">
             <h2 class="section-title">聯絡我們</h2>
@@ -1136,7 +1305,7 @@
      </section>
 
     <footer>
-        <p>&copy; 2025 Taiwan Management System Certification Ltd. | <a href="/privacy.html">隱私政策</a></p>
+        <p>&copy; <span id="footer-year">2026</span> Taiwan Management System Certification Ltd. | <a href="/privacy.html">隱私政策</a></p>
     </footer>
 
     <script>
@@ -1145,6 +1314,13 @@
                 document.getElementById('nav-toggle').checked = false;
             });
         });
+    </script>
+
+    <script>
+        var footerYearEl = document.getElementById('footer-year');
+        if (footerYearEl) {
+            footerYearEl.textContent = new Date().getFullYear();
+        }
     </script>
 
     <script>
