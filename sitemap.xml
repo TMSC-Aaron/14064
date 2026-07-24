@@ -4,6 +4,12 @@
     <loc>https://www.14064.com.tw/</loc>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
-    <lastmod>2025-02-17</lastmod> 
+    <lastmod>2026-07-09</lastmod>
   </url>
-  </urlset>
+  <url>
+    <loc>https://www.14064.com.tw/privacy.html</loc>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-07</lastmod>
+  </url>
+</urlset>
