@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Bash(git status)",
+      "Bash(git status:*)",
+      "Bash(git pull)",
+      "Bash(git push)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch)",
+      "Bash(git branch:*)",
+      "Bash(git remote -v)",
+      "Bash(git show:*)",
+      "Bash(git commit -m:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(pwd)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Read(./**)"
+    ],
+    "deny": [
+      "Bash(git add .)",
+      "Bash(git add -A)",
+      "Bash(git add --all)",
+      "Bash(git add *)",
+      "Bash(git reset --hard:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git clean:*)",
+      "Bash(rm -rf:*)",
+      "Bash(curl:*)",
+      "Edit(./yeezen/**)",
+      "Edit(./warroom/**)",
+      "Edit(./test/**)",
+      "Write(./yeezen/**)",
+      "Write(./warroom/**)",
+      "Write(./test/**)"
+    ],
+    "ask": [
+      "Bash(git commit:*)",
+      "Edit(./kuangtien/**)",
+      "Write(./kuangtien/**)",
+      "Edit(./robots.txt)",
+      "Edit(./sitemap.xml)",
+      "Edit(./CLAUDE.md)"
+    ]
+  }
+}
