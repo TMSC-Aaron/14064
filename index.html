@@ -265,45 +265,25 @@
         .hero {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(150deg, var(--green-900) 0%, #0a2e2a 40%, var(--carbon-800) 78%, var(--carbon-900) 100%);
+            background-image:
+                radial-gradient(ellipse 700px 500px at 8% -10%, rgba(255,255,255,0.22) 0%, transparent 60%),
+                linear-gradient(120deg, rgba(255,255,255,0.43) 0%, rgba(232,244,236,0.37) 30%, rgba(150,190,168,0.27) 62%, rgba(70,110,88,0.37) 100%),
+                radial-gradient(ellipse 120% 140% at 50% 50%, transparent 55%, rgba(20,40,30,0.18) 100%),
+                url('/images/view.jpg');
+            background-size: cover, cover, cover, cover;
+            background-position: center, center, center, center;
+            background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
             text-align: center;
             padding: 96px 24px 88px;
-            color: white;
+            color: var(--green-900);
             scroll-margin-top: var(--header-h);
         }
 
-        .hero-shapes {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            background-image:
-                radial-gradient(circle at 12% 20%, rgba(255,255,255,0.08) 0, rgba(255,255,255,0.08) 120px, transparent 121px),
-                radial-gradient(circle at 88% 15%, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 180px, transparent 181px),
-                radial-gradient(circle at 92% 85%, rgba(50,205,50,0.14) 0, rgba(50,205,50,0.14) 160px, transparent 161px),
-                radial-gradient(circle at 6% 88%, rgba(74,157,255,0.08) 0, rgba(74,157,255,0.08) 140px, transparent 141px);
-        }
-
-        .hero-canvas {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            opacity: 0.55;
-            pointer-events: none;
-        }
-
+        /* 原為深色底設計之光暈／粒子動畫／浮水印，淺色照片底下對比不足、觀感雜亂，暫隱藏 */
+        .hero-shapes,
+        .hero-canvas,
         .hero-logo-texture {
-            position: absolute;
-            top: 50%;
-            right: -8%;
-            transform: translateY(-50%);
-            width: min(58%, 560px);
-            z-index: 0;
-            opacity: 0.13;
-            pointer-events: none;
-            filter: drop-shadow(0 0 50px rgba(50, 205, 50, 0.2));
+            display: none;
         }
 
         .hero-inner {
@@ -314,12 +294,13 @@
         }
 
         .hero-en {
-            font-size: 1rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            letter-spacing: 3px;
-            opacity: 0.88;
-            margin: 0 0 12px;
-            text-shadow: 0 1px 10px rgba(0,0,0,0.35);
+            letter-spacing: 1px;
+            color: #3c443f;
+            opacity: 0.9;
+            margin: 14px 0 0;
+            text-shadow: 0 1px 6px rgba(255,255,255,0.5);
         }
 
         .hero h2 {
@@ -327,14 +308,8 @@
             margin: 0;
             font-weight: 900;
             letter-spacing: 1px;
-            text-shadow: 0 2px 16px rgba(0,0,0,0.4);
-        }
-
-        .hero-sub {
-            font-size: 1.05rem;
-            opacity: 0.92;
-            margin: 18px 0 0;
-            text-shadow: 0 1px 10px rgba(0,0,0,0.35);
+            color: #1a1a1a;
+            text-shadow: 0 2px 10px rgba(255,255,255,0.4);
         }
 
         .hero-btn-group {
@@ -343,6 +318,26 @@
             justify-content: center;
             gap: 20px;
             margin-top: 40px;
+        }
+
+        /* Hero 專屬按鈕配色：偏黑深綠，區隔全站標準綠（不影響其他區塊 .cta-btn） */
+        .hero .cta-btn {
+            background: #082616;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .hero .cta-btn:hover {
+            background: #051a0f;
+        }
+
+        .hero .cta-btn-outline {
+            color: #082616;
+            border-color: #082616;
+        }
+
+        .hero .cta-btn-outline:hover {
+            background: #082616;
+            color: white;
         }
 
         .cta-btn {
@@ -364,6 +359,19 @@
             background: #228B22;
             transform: translateY(-3px);
             box-shadow: 0 14px 30px rgba(0,0,0,0.24);
+        }
+
+        .cta-btn-outline {
+            background: rgba(255, 255, 255, 0.35);
+            color: var(--green-900);
+            border: 1.5px solid var(--green-900);
+            box-shadow: none;
+        }
+
+        .cta-btn-outline:hover {
+            background: var(--green-900);
+            color: white;
+            transform: translateY(-3px);
         }
 
         .cta-btn-secondary {
@@ -897,10 +905,11 @@
         }
 
         .about-header h2 {
-            margin: 0 0 8px 0;
+            margin: 0 0 10px 0;
             color: var(--green-900);
             font-size: 1.7rem;
             font-weight: 900;
+            line-height: 1.5;
         }
 
         .about-tagline {
@@ -1164,6 +1173,7 @@
 
             .hero {
                 padding: 64px 20px 56px;
+                background-position: center, 78% center;
             }
 
             .hero h2 {
@@ -1171,15 +1181,9 @@
             }
 
             .hero-en {
-                font-size: 0.8rem;
-                letter-spacing: 2px;
-                margin-bottom: 8px;
-            }
-
-            .hero-logo-texture {
-                width: 78%;
-                opacity: 0.09;
-                right: -12%;
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
+                margin-top: 10px;
             }
 
             .about-header {
@@ -1237,11 +1241,11 @@
         <img src="/images/logo_TMSC.png" alt="" class="hero-logo-texture" aria-hidden="true">
         <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
         <div class="hero-inner">
+            <h2>台灣管理系統驗證有限公司</h2>
             <p class="hero-en">Taiwan Management System Certification</p>
-            <h2>台灣管理系統驗證有限公司<br>TMSC</h2>
-            <p class="hero-sub">Transforming Mindset to Sustainable Changes<br>創新思維讓地球永續生存是我們的使命</p>
             <div class="hero-btn-group">
                 <a href="#hospitals" class="cta-btn">驗證專區</a>
+                <a href="/enthalpy.html" target="_blank" rel="noopener" class="cta-btn cta-btn-outline">焓差冷負荷</a>
             </div>
         </div>
     </section>
@@ -1278,8 +1282,8 @@
             <div class="about-header">
                 <img src="/images/logo_TMSC.png" alt="公司照片">
                 <div>
-                    <h2>關於我們 台灣管理系統驗證有限公司（TMSC）</h2>
-                    <p class="about-tagline">Taiwan Management System Certificate・Transforming Mindset to Sustainable Changes</p>
+                    <h2>繼往聖之絕學<br>開永續之未來</h2>
+                    <p class="about-tagline">Transforming Mindset to Sustainable Changes</p>
                 </div>
             </div>
 
@@ -1418,7 +1422,7 @@
         </div>
     </section>
 
-    <section class="warroom-section" aria-label="能源管理戰情室入口">
+    <section class="warroom-section" id="warroom" aria-label="能源管理戰情室入口">
         <div class="warroom-header">
             <h2>焓差冷負荷－能源管理戰情室</h2>
             <p class="warroom-tagline">解碼永續，精準運算。<span>Decoding Sustainability with Precision.</span></p>
