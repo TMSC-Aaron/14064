@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>焓差冷負荷｜台灣管理系統驗證有限公司 TMSC</title>
+<meta name="description" content="醫院無菌環境的能源管理，TMSC 考慮了什麼。">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/images/logo.png">
+<style>
+    :root {
+        --green-900: #06331d;
+        --green-600: #1a6b3f;
+        --green-500: #2ea44f;
+        --carbon-900: #05080d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        font-family: 'Noto Sans TC', 'Microsoft JhengHei', -apple-system, sans-serif;
+        color: #1c1c1c;
+        line-height: 1.8;
+        background: #fbfdfc;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+        background: white;
+        border-bottom: 1px solid #eee;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .topbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-weight: 900;
+        color: var(--green-900);
+        font-size: 1.1rem;
+    }
+
+    .topbar-brand img { height: 32px; }
+
+    .back-link {
+        text-decoration: none;
+        color: var(--green-600);
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    .hero {
+        background: linear-gradient(150deg, var(--green-900) 0%, #0a2e2a 45%, var(--carbon-900) 100%);
+        color: white;
+        padding: 72px 24px 56px;
+        text-align: center;
+    }
+
+    .hero-eyebrow {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+        opacity: 0.75;
+        margin-bottom: 16px;
+    }
+
+    .hero h1 {
+        font-size: 1.9rem;
+        margin: 0;
+        font-weight: 900;
+        line-height: 1.7;
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    .gallery {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 56px 24px 24px;
+    }
+
+    .frame {
+        margin-bottom: 64px;
+    }
+
+    .frame-num {
+        display: inline-block;
+        font-size: 0.85rem;
+        color: var(--green-600);
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .frame img {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid #e5e5e5;
+        box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+        display: block;
+    }
+
+    .frame-caption {
+        margin-top: 16px;
+        font-size: 1rem;
+        color: #333;
+        text-align: center;
+    }
+
+    .pain-frame svg {
+        width: 100%;
+        border-radius: 14px;
+        box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+    }
+
+    .cta-band {
+        background: var(--carbon-900);
+        color: white;
+        text-align: center;
+        padding: 64px 24px 72px;
+    }
+
+    .cta-band p {
+        opacity: 0.85;
+        max-width: 480px;
+        margin: 0 auto 28px;
+        font-size: 1.02rem;
+    }
+
+    .cta-btn {
+        display: inline-block;
+        padding: 15px 40px;
+        border-radius: 999px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.02rem;
+        background: var(--green-500);
+        color: white;
+        transition: transform 0.2s;
+    }
+
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    footer {
+        text-align: center;
+        padding: 32px 24px;
+        font-size: 0.85rem;
+        color: #888;
+    }
+
+    @media (max-width: 640px) {
+        .hero h1 { font-size: 1.5rem; }
+        .gallery { padding: 40px 20px 16px; }
+        .frame { margin-bottom: 48px; }
+    }
+</style>
+</head>
+<body>
+
+    <div class="topbar">
+        <a href="/" class="topbar-brand">
+            <img src="/images/logo.png" alt="TMSC">
+            <span>TMSC</span>
+        </a>
+        <a href="/" class="back-link">← 回首頁</a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-eyebrow">ENTHALPY-BASED COOLING LOAD</div>
+        <h1>醫院的能源帳單裡，<br>有一塊長年被當成固定成本、<br>沒有人拆得開的區塊。</h1>
+    </section>
+
+    <div class="gallery">
+
+        <div class="frame pain-frame">
+            <span class="frame-num">01</span>
+            <svg viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg">
+                <rect width="700" height="460" fill="#fdfdfb"/>
+                <rect x="40" y="40" width="620" height="380" rx="12" fill="#ffffff" stroke="#e2e2e2" stroke-width="1.5"/>
+                <text x="70" y="82" font-size="18" font-weight="900" fill="#1c1c1c" font-family="sans-serif">用電度數明細</text>
+                <line x1="70" y1="100" x2="630" y2="100" stroke="#eee" stroke-width="1"/>
+
+                <text x="70" y="140" font-size="14" fill="#555" font-family="sans-serif">照明系統</text>
+                <text x="630" y="140" font-size="14" fill="#555" font-family="sans-serif" text-anchor="end">已核實</text>
+
+                <text x="70" y="175" font-size="14" fill="#555" font-family="sans-serif">醫療儀器用電</text>
+                <text x="630" y="175" font-size="14" fill="#555" font-family="sans-serif" text-anchor="end">已核實</text>
+
+                <text x="70" y="210" font-size="14" fill="#555" font-family="sans-serif">電梯與公共設施</text>
+                <text x="630" y="210" font-size="14" fill="#555" font-family="sans-serif" text-anchor="end">已核實</text>
+
+                <rect x="60" y="228" width="580" height="64" rx="8" fill="#f6f6f4"/>
+                <text x="70" y="253" font-size="14" fill="#999" font-family="sans-serif">空調系統</text>
+                <text x="70" y="278" font-size="12" fill="#bbb" font-family="sans-serif">－ 長年列為固定成本 －</text>
+                <circle cx="600" cy="260" r="16" fill="none" stroke="#ccc" stroke-width="2"/>
+                <text x="600" y="266" font-size="16" fill="#bbb" font-family="sans-serif" text-anchor="middle" font-weight="700">?</text>
+
+                <line x1="70" y1="320" x2="630" y2="320" stroke="#eee" stroke-width="1"/>
+                <text x="70" y="358" font-size="15" font-weight="700" fill="#1c1c1c" font-family="sans-serif">本期應繳金額</text>
+                <text x="630" y="358" font-size="15" font-weight="700" fill="#1c1c1c" font-family="sans-serif" text-anchor="end">－－－－－</text>
+            </svg>
+            <p class="frame-caption">大部分的能源帳單，都停在這裡。</p>
+        </div>
+
+        <div class="frame">
+            <span class="frame-num">02</span>
+            <img src="/images/enthalpy/01-enthalpy-diagram.png" alt="室內目標與室外日夜環境的焓值對比">
+            <p class="frame-caption">室內目標，與室外白天、夜間的環境，各自的總熱含量。</p>
+        </div>
+
+        <div class="frame">
+            <span class="frame-num">03</span>
+            <img src="/images/enthalpy/02-ventilation-standard.png" alt="常見醫療場域換氣次數國際標準對照">
+            <p class="frame-caption">不同醫療場域，各有明確的換氣次數國際標準可循。</p>
+        </div>
+
+        <div class="frame">
+            <span class="frame-num">04</span>
+            <img src="/images/enthalpy/03-temp-humidity.png" alt="室內目標溫度與室外日夜溫度濕度設定">
+            <p class="frame-caption">室內目標，與室外白天、夜間的溫度濕度。</p>
+        </div>
+
+        <div class="frame">
+            <span class="frame-num">05</span>
+            <img src="/images/enthalpy/04-weather-data.png" alt="氣象資料擷取功能">
+            <p class="frame-caption">用的是實際發生過的氣象資料，不是單一假設的一天。</p>
+        </div>
+
+        <div class="frame">
+            <span class="frame-num">06</span>
+            <img src="/images/enthalpy/05-daily-result.png" alt="基礎冷負荷之單日電費與碳排">
+            <p class="frame-caption">電費，跟碳排，都能被量化。</p>
+        </div>
+
+        <div class="frame">
+            <span class="frame-num">07</span>
+            <img src="/images/enthalpy/06-annual-result.png" alt="年度總計與逐時模擬趨勢">
+            <p class="frame-caption">一整年的樣子，也能被看見。</p>
+        </div>
+
+    </div>
+
+    <div class="cta-band">
+        <p>已實際應用於四家醫療體系的能源管理優化。<br>想知道那一塊沒人拆開的區塊裡有什麼，歡迎與我們聯繫。</p>
+        <a href="/#contact" class="cta-btn">聯絡我們／預約簡報</a>
+    </div>
+
+    <footer>
+        &copy; <span id="footer-year">2026</span> Taiwan Management System Certification Ltd.
+    </footer>
+
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
