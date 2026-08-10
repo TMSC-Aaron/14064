@@ -331,6 +331,7 @@
         }
 
         .hero .cta-btn-outline {
+            background: rgba(255, 255, 255, 0.35);
             color: #082616;
             border-color: #082616;
         }
@@ -1208,6 +1209,35 @@
                 padding: 12px 14px;
             }
         }
+
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--green-900);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: opacity 0.25s, transform 0.25s;
+            z-index: 60;
+        }
+        .back-to-top.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            background: var(--green-600);
+        }
     </style>
 </head>
 <body>
@@ -1429,7 +1459,7 @@
             <p class="warroom-quote">以焓差冷負荷演算法為核心，將無菌環境的能耗轉化為即時量化的電費與碳排數據——已實際應用於四家醫療體系的能源管理優化。</p>
         </div>
         <div class="warroom-grid warroom-grid--single">
-            <a href="/warroom/" class="warroom-entry">
+            <a href="/enthalpy.html" target="_blank" rel="noopener" class="warroom-entry">
                 <span class="warroom-bg-grid" aria-hidden="true"></span>
                 <span class="warroom-icon" aria-hidden="true">
                     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -1439,7 +1469,6 @@
                 </span>
                 <span class="warroom-label">
                     TMSC 能源管理戰情室
-                    <span class="cta-btn-note">授權登入</span>
                 </span>
                 <span class="warroom-chevron" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1564,6 +1593,30 @@
     <footer>
         <p>&copy; <span id="footer-year">2026</span> Taiwan Management System Certification Ltd. | <a href="/privacy.html">隱私政策</a></p>
     </footer>
+
+    <a href="#hero" class="back-to-top" id="backToTop" aria-label="回到上面">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </a>
+
+    <script>
+        (function () {
+            var backToTop = document.getElementById('backToTop');
+            if (!backToTop) return;
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 600) {
+                    backToTop.classList.add('is-visible');
+                } else {
+                    backToTop.classList.remove('is-visible');
+                }
+            });
+            backToTop.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
 
     <script>
         document.querySelectorAll('.main-nav a').forEach(function (link) {

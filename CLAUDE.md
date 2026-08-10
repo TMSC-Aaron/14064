@@ -96,6 +96,7 @@ git add index.html
    - 錨點是否有對應 id
    - HTML 標籤是否配對
 4. 修改 `robots.txt` 或 `sitemap.xml` 時，須確認受保護目錄均已列入 Disallow。
+5. **本機端檔案修改（非 git 指令）優先交由 Claude Code 執行**，藉此讓仁哥熟悉 Claude Code 操作流程。來源討論（雲端對話）提供修改內容與說明，Claude Code 負責實際寫入本機檔案。
 
 ---
 
@@ -132,4 +133,4 @@ git add index.html
 
 ---
 
-*最後更新：民國 115 年 8 月 9 日*
+*最後更新：民國 115 年 8 月 11 日*
