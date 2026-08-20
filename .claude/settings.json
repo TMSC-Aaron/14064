@@ -27,7 +27,8 @@
       "Bash(git add .)",
       "Bash(git add -A)",
       "Bash(git add --all)",
-      "Bash(git add *)",
+      "Bash(git add -A:*)",
+      "Bash(git add --all:*)",
       "Bash(git reset --hard:*)",
       "Bash(git push --force:*)",
       "Bash(git push -f:*)",
@@ -44,6 +45,7 @@
     ],
     "ask": [
       "Bash(git commit:*)",
+      "Bash(git add:*)",
       "Edit(./kuangtien/**)",
       "Write(./kuangtien/**)",
       "Edit(./robots.txt)",
