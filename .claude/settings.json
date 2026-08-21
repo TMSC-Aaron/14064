@@ -46,8 +46,8 @@
     "ask": [
       "Bash(git commit:*)",
       "Bash(git add:*)",
-      "Edit(./kuangtien/**)",
-      "Write(./kuangtien/**)",
+      "Edit(./ktgh/**)",
+      "Write(./ktgh/**)",
       "Edit(./robots.txt)",
       "Edit(./sitemap.xml)",
       "Edit(./CLAUDE.md)"
