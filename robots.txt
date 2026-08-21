@@ -3,5 +3,5 @@ Allow: /
 Disallow: /yeezen/
 Disallow: /test/
 Disallow: /warroom/
-Disallow: /kuangtien/
+Disallow: /ktgh/
 Sitemap: https://www.14064.com.tw/sitemap.xml
