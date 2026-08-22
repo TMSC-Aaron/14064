@@ -40,6 +40,7 @@ a{color:var(--green-700)}
   position:fixed;inset:0;z-index:9999;
   background:var(--hero-bg);
   display:flex;align-items:center;justify-content:center;padding:24px;
+  overflow-y:auto;
 }
 .gate-shapes{
   position:absolute;inset:0;pointer-events:none;
@@ -77,7 +78,7 @@ a{color:var(--green-700)}
 }
 .gate-btn:hover{background:#3eb092;transform:translateY(-2px)}
 #gate-err{min-height:22px;margin-top:12px;font-size:.85rem;color:#ff8f7a}
-.gate-note{margin:22px 0 0;font-size:.72rem;color:#5d6f6a;line-height:1.8}
+.gate-note{margin:22px 0 0;font-size:.72rem;color:#5d6f6a;line-height:1.9;text-align:left}
 
 /* ===== 主體 ===== */
 #app{display:none}
@@ -98,9 +99,9 @@ a{color:var(--green-700)}
 .header-title h1{margin:0;font-size:1.02rem;font-weight:900;color:var(--green-900);line-height:1.4}
 .header-title .en{display:block;font-size:.68rem;font-weight:400;color:var(--muted);letter-spacing:.5px;margin-top:2px}
 .validity{
-  flex-shrink:0;font-size:.72rem;color:var(--green-800);
+  flex-shrink:0;max-width:360px;font-size:.68rem;color:var(--green-800);
   background:var(--mint-bg);border:1px solid var(--border);
-  border-radius:999px;padding:6px 14px;line-height:1.5;
+  border-radius:12px;padding:9px 14px;line-height:1.75;text-align:left;
 }
 
 .tabs{
@@ -146,7 +147,7 @@ a{color:var(--green-700)}
   background:#fff;border:1px solid var(--border);border-radius:var(--radius);
   box-shadow:var(--shadow-sm);overflow-x:auto;
 }
-table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:820px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:900px}
 thead th{
   background:var(--green-900);color:#fff;font-weight:700;font-size:.8rem;
   padding:12px 10px;text-align:left;white-space:nowrap;letter-spacing:.5px;
@@ -154,11 +155,11 @@ thead th{
 tbody td{padding:12px 10px;border-bottom:1px solid var(--border);vertical-align:middle}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:#fafdfb}
-td.num{color:var(--muted);text-align:center;width:44px}
 td.code{font-family:'Consolas','Menlo',monospace;font-size:.84rem;color:var(--green-800);white-space:nowrap}
-td.name{font-weight:500;min-width:230px}
+td.name{font-weight:500;min-width:220px}
 td.ver,td.date{white-space:nowrap;color:var(--muted);font-size:.83rem}
-td.clause{font-size:.82rem;color:#4a6357;min-width:140px}
+td.clause{font-size:.82rem;color:#4a6357;min-width:130px}
+td.remark{font-size:.78rem;color:var(--muted);min-width:200px;line-height:1.65}
 td.act{white-space:nowrap;text-align:right}
 
 .btn-doc{
@@ -181,7 +182,7 @@ td.act{white-space:nowrap;text-align:right}
 }
 
 /* 條款對照表 */
-table.clause-table{min-width:700px}
+table.clause-table{min-width:760px}
 table.clause-table td.cl{font-weight:900;color:var(--green-700);white-space:nowrap;width:70px}
 table.clause-table td.cn{font-weight:500;min-width:180px}
 table.clause-table td.doc a{
@@ -223,11 +224,12 @@ footer strong{color:var(--green-400);font-weight:500}
   .header-inner{padding:12px 16px;gap:10px}
   .header-logos img.kt{max-width:118px}
   .header-title h1{font-size:.92rem}
-  .validity{font-size:.68rem;padding:5px 11px}
+  .validity{font-size:.64rem;padding:8px 11px;max-width:100%}
   .panel,.tabs{padding-left:14px;padding-right:14px}
   .intro{padding:16px 18px}
   .tab-btn{padding:9px 18px;font-size:.88rem}
   .note-box{padding:18px 18px}
+  .gate-card{padding:34px 22px 30px}
 }
 </style>
 </head>
@@ -249,9 +251,8 @@ footer strong{color:var(--green-400);font-weight:500}
     <div id="gate-err" role="alert"></div>
 
     <p class="gate-note">
-      本專區僅供 ISO 50001 第三方驗證使用<br>
-      有效期間：115/8/20 － 115/8/26<br>
-      台灣管理系統驗證有限公司 TMSC 建置
+      本文件著作權／所有權屬衛生福利部「114年綠色醫療永續規劃暨教育訓練補助計畫」與光田綜合醫院。<br>
+      本平台為台灣管理系統驗證有限公司（TMSC）建置之數位文件管理系統，因應醫院內網不得供外部連線之限制，代為提供條文對照、階層檢索與線上檢視功能，僅供第三方稽核作業及本院同仁使用(版權所有、盜用必究)。
     </p>
   </div>
 </div>
@@ -272,7 +273,8 @@ footer strong{color:var(--green-400);font-weight:500}
         </h1>
       </div>
       <div class="validity">
-        僅供第三方驗證使用<br>有效期間 115/8/20－115/8/26
+        本文件著作權／所有權屬衛生福利部「114年綠色醫療永續規劃暨教育訓練補助計畫」與光田綜合醫院。<br>
+        本平台為台灣管理系統驗證有限公司（TMSC）建置之數位文件管理系統，因應醫院內網不得供外部連線之限制，代為提供條文對照、階層檢索與線上檢視功能，僅供第三方稽核作業及本院同仁使用(版權所有、盜用必究)。
       </div>
     </div>
   </header>
@@ -286,282 +288,465 @@ footer strong{color:var(--green-400);font-weight:500}
   <section class="panel active" id="panel-docs">
 
     <div class="intro">
-      <p><strong>文件編碼原則：</strong>本院既有編號者一律沿用；原無編號之新制定文件，流水號自 5001 起編，以「50」字首識別為 ISO 50001 能源管理系統文件。編號結構 13 碼，依 0220ATP0001 條款 6.1 辦理。</p>
-      <p><strong>版次原則：</strong>制定單位為總務部且屬本系統之文件，一律重新制定為「第一版」；他單位母法沿用原版次，僅供遵循，不予修訂。</p>
-      <p><strong>統計：</strong>一階 2 份、二階 10 份（含引用不修訂 3 份）、三階 1 份、四階 9 份，合計 25 份。</p>
+      <p><strong>統計：</strong>一階 2 份、二階 14 份、三階 2 份、四階 16 份、其他相關 2 份、外來 1 份，合計 37 份。</p>
       <div class="legend">
         <span><i class="dot ok"></i>可檢視／可下載</span>
-        <span><i class="dot wip"></i>製作中，尚未產出</span>
+        <span><i class="dot wip"></i>更新中</span>
       </div>
     </div>
 
     <!-- 一階 -->
-    <div class="group-title">一階　品質手冊<span class="count">2 份</span></div>
+    <div class="group-title">一階　手冊（本計畫制定）<span class="count">2 份</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>序</th><th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th></th>
+          <th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th>備註</th><th></th>
         </tr></thead>
         <tbody>
           <tr id="doc-1D10ATQ0001">
-            <td class="num">1</td><td class="code">1D10ATQ0001</td>
+            <td class="code">1D10ATQ0001</td>
             <td class="name">能源管理手冊</td><td class="ver">第一版</td><td class="date">115/3/6</td>
-            <td class="clause">4.4、5.1、5.2、7.1、7.3、7.4、10.2</td>
+            <td class="clause">全條文</td>
+            <td class="remark">能源政策及管理代表指派均隨本手冊由總院長核准生效</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/一階_1D10ATQ0001_能源管理手冊.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/一階_1D10ATQ0001_能源管理手冊.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATQ0001.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATQ0001.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10CTC5001">
-            <td class="num">2</td><td class="code">1D10CTC5001</td>
+            <td class="code">1D10CTC5001</td>
             <td class="name">能源管理盤查小組組織章程暨職責說明</td><td class="ver">第一版</td><td class="date">115/3/27</td>
             <td class="clause">5.3</td>
+            <td class="remark">跨14部門16人，附表一為小組名單</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/一階_1D10CTC5001_能源管理盤查小組組織章程暨職責說明.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/一階_1D10CTC5001_能源管理盤查小組組織章程暨職責說明.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10CTC5001.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10CTC5001.pdf" download>下載</a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- 二階 -->
-    <div class="group-title">二階　作業程序書<span class="count">7 份（本系統制定）</span></div>
+    <!-- 二階 本計畫制定 -->
+    <div class="group-title">二階　程序書（本計畫制定）<span class="count">5 份</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>序</th><th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th></th>
+          <th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th>備註</th><th></th>
         </tr></thead>
         <tbody>
           <tr id="doc-1D10ATP0059">
-            <td class="num">3</td><td class="code">1D10ATP0059</td>
+            <td class="code">1D10ATP0059</td>
             <td class="name">組織背景及風險管理程序</td><td class="ver">第一版</td><td class="date">115/3/9</td>
             <td class="clause">4.1、4.2、4.3、6.1</td>
+            <td class="remark">－</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/二階_1D10ATP0059_組織背景及風險管理程序.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/二階_1D10ATP0059_組織背景及風險管理程序.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATP0059.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0059.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10ATP0066">
-            <td class="num">4</td><td class="code">1D10ATP0066</td>
+            <td class="code">1D10ATP0066</td>
             <td class="name">能源管理目標與方案管理程序書</td><td class="ver">第一版</td><td class="date">115/3/9</td>
             <td class="clause">6.2</td>
+            <td class="remark">－</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/二階_1D10ATP0066_能源管理目標與方案管理程序書.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/二階_1D10ATP0066_能源管理目標與方案管理程序書.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATP0066.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0066.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10ATP0048">
-            <td class="num">5</td><td class="code">1D10ATP0048</td>
+            <td class="code">1D10ATP0048</td>
             <td class="name">能源審查程序書</td><td class="ver">第一版</td><td class="date">115/3/9</td>
             <td class="clause">6.3、6.4、6.5</td>
+            <td class="remark">重大能源使用(SEU)之鑑別與排序</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/二階_1D10ATP0048_能源審查程序書.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/二階_1D10ATP0048_能源審查程序書.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATP0048.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0048.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10ATP0046">
-            <td class="num">6</td><td class="code">1D10ATP0046</td>
+            <td class="code">1D10ATP0046</td>
             <td class="name">能源系統監督與量測管理程序書</td><td class="ver">第一版</td><td class="date">115/3/9</td>
             <td class="clause">6.6、9.1.1</td>
+            <td class="remark">－</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/二階_1D10ATP0046_能源系統監督與量測管理程序書.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/二階_1D10ATP0046_能源系統監督與量測管理程序書.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATP0046.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0046.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10ATP0051">
-            <td class="num">7</td><td class="code">1D10ATP0051</td>
+            <td class="code">1D10ATP0051</td>
             <td class="name">能源法規鑑別與符合性查核程序書</td><td class="ver">第一版</td><td class="date">115/3/9</td>
             <td class="clause">9.1.2</td>
+            <td class="remark">－</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/二階_1D10ATP0051_能源法規鑑別與符合性查核程序書.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/二階_1D10ATP0051_能源法規鑑別與符合性查核程序書.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATP0051.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0051.pdf" download>下載</a>
             </td>
-          </tr>
-          <tr id="doc-1D10ATP0050">
-            <td class="num">8</td><td class="code">1D10ATP0050</td>
-            <td class="name">能源系統變更管理程序書</td><td class="ver">第一版</td><td class="date">115/3/9</td>
-            <td class="clause">8.1、8.2</td>
-            <td class="act"><span class="badge-wip">製作中</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- 二階 設備類 -->
-    <div class="group-title">二階　作業程序書（設備類）<span class="count">4 份</span></div>
+    <!-- 二階 本院既有，沿用不修訂 -->
+    <div class="group-title">二階　程序書（本院既有，沿用不修訂）<span class="count">9 份</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>序</th><th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th></th>
+          <th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th>備註</th><th></th>
         </tr></thead>
         <tbody>
-          <tr id="doc-1D10ATP0030">
-            <td class="num">9</td><td class="code">1D10ATP0030</td>
-            <td class="name">電力設備管理辦法</td><td class="ver">第一版</td><td class="date">115/3/20</td>
-            <td class="clause">8.1</td><td class="act"><span class="badge-wip">製作中</span></td>
+          <tr id="doc-0210ATP0020">
+            <td class="code">0210ATP0020</td>
+            <td class="name">職務個人工作說明書建立作業辦法</td><td class="ver">第八版</td><td class="date">111/11/15</td>
+            <td class="clause">7.2</td>
+            <td class="remark">人力資源單位；小組成員適任性之依據</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/0210ATP0020.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/0210ATP0020.pdf" download>下載</a>
+            </td>
           </tr>
-          <tr id="doc-1D10ATP0031">
-            <td class="num">10</td><td class="code">1D10ATP0031</td>
-            <td class="name">廢水處理設施操作維護管理辦法</td><td class="ver">第一版</td><td class="date">115/3/20</td>
-            <td class="clause">8.1</td><td class="act"><span class="badge-wip">製作中</span></td>
+          <tr id="doc-0220ATP0001">
+            <td class="code">0220ATP0001</td>
+            <td class="name">文件制定與管制作業辦法</td><td class="ver">第十一版</td><td class="date">111/3/14</td>
+            <td class="clause">7.5</td>
+            <td class="remark">管理中心秘書處；全院文管母法，本系統編號與格式規範</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/0220ATP0001.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/0220ATP0001.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATP0050">
+            <td class="code">1D10ATP0050</td>
+            <td class="name">能源系統變更管理程序書</td><td class="ver">第六版</td><td class="date">113/9/11</td>
+            <td class="clause">8.1、8.2</td>
+            <td class="remark">總務部；能源系統變更與設計管制</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATP0050.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0050.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATP0030">
+            <td class="code">1D10ATP0030</td>
+            <td class="name">電力設備管理辦法</td><td class="ver">第八版</td><td class="date">113/8/24</td>
+            <td class="clause">8.1</td>
+            <td class="remark">總務部；受電、配電設備營運管制</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATP0030.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0030.pdf" download>下載</a>
+            </td>
           </tr>
           <tr id="doc-1D10ATP0037">
-            <td class="num">11</td><td class="code">1D10ATP0037</td>
-            <td class="name">空調送風機檢查與保養辦法</td><td class="ver">第一版</td><td class="date">115/3/23</td>
-            <td class="clause">8.1</td><td class="act"><span class="badge-wip">製作中</span></td>
+            <td class="code">1D10ATP0037</td>
+            <td class="name">空調送風機檢查與保養辦法</td><td class="ver">第八版</td><td class="date">113/9/25</td>
+            <td class="clause">8.1</td>
+            <td class="remark">總務部；對應SEU第一順位（空調系統）</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATP0037.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0037.pdf" download>下載</a>
+            </td>
           </tr>
           <tr id="doc-1D10ATP0039">
-            <td class="num">12</td><td class="code">1D10ATP0039</td>
-            <td class="name">照度標準作業流程</td><td class="ver">第一版</td><td class="date">115/3/23</td>
-            <td class="clause">8.1</td><td class="act"><span class="badge-wip">製作中</span></td>
+            <td class="code">1D10ATP0039</td>
+            <td class="name">照度標準作業流程</td><td class="ver">第七版</td><td class="date">113/9/11</td>
+            <td class="clause">8.1</td>
+            <td class="remark">總務部；照明能源使用管制</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATP0039.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0039.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATP0031">
+            <td class="code">1D10ATP0031</td>
+            <td class="name">廢水處理設施操作維護管理辦法</td><td class="ver">第八版</td><td class="date">113/9/9</td>
+            <td class="clause">8.1</td>
+            <td class="remark">總務部；廢水處理動力設備能源使用管制</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATP0031.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0031.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATP0026">
+            <td class="code">1D10ATP0026</td>
+            <td class="name">醫電設備維護契約簽訂作業</td><td class="ver">第十版</td><td class="date">113/3/13</td>
+            <td class="clause">8.2、8.3</td>
+            <td class="remark">總務部；委外維護契約之節能要求</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATP0026.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATP0026.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-0410ATP0020">
+            <td class="code">0410ATP0020</td>
+            <td class="name">一般設備採購作業程序書</td><td class="ver">第九版</td><td class="date">112/10/6</td>
+            <td class="clause">8.3</td>
+            <td class="remark">採購單位；節能規格納入採購評估</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/0410ATP0020.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/0410ATP0020.pdf" download>下載</a>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <!-- 三階 -->
-    <div class="group-title">三階　作業指導書<span class="count">1 份</span></div>
+    <div class="group-title">三階　作業指導書（本院既有，沿用不修訂）<span class="count">2 份</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>序</th><th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th></th>
+          <th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th>備註</th><th></th>
         </tr></thead>
         <tbody>
-          <tr>
-            <td class="num">13</td><td class="code">－</td>
-            <td class="name">總務部 ISO 50001 文件制修訂規則（文件製作規格書）</td>
-            <td class="ver">第一版</td><td class="date">115/3/16</td>
-            <td class="clause">7.5</td>
-            <td class="act"><span class="badge-na">內部參考，不發行</span></td>
+          <tr id="doc-1D10ATW0010">
+            <td class="code">1D10ATW0010</td>
+            <td class="name">中央空調主機系統維護作業</td><td class="ver">第十版</td><td class="date">113/9/15</td>
+            <td class="clause">8.1</td>
+            <td class="remark">總務部；對應SEU第一順位，冰水主機運轉與維護</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATW0010.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATW0010.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATW0008">
+            <td class="code">1D10ATW0008</td>
+            <td class="name">醫療儀器及電子設備安裝配合工程作業</td><td class="ver">第九版</td><td class="date">112/10/11</td>
+            <td class="clause">8.2</td>
+            <td class="remark">總務部；新設備導入之能源績效考量</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATW0008.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATW0008.pdf" download>下載</a>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <!-- 四階 -->
-    <div class="group-title">四階　附件表單<span class="count">9 份</span></div>
+    <div class="group-title">四階　表單／紀錄（本計畫制定，制定單位：總務部）<span class="count">16 份</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>序</th><th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th></th>
+          <th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th>備註</th><th></th>
         </tr></thead>
         <tbody>
-          <tr id="doc-1D10ATF5002">
-            <td class="num">14</td><td class="code">1D10ATF5002</td>
-            <td class="name">能源管理系統文件清冊</td><td class="ver">第一版</td><td class="date">115/5/1</td>
+          <tr id="doc-1D10ATF5001">
+            <td class="code">1D10ATF5001</td>
+            <td class="name">能源管理系統文件清冊（本文件）</td><td class="ver">第二版</td><td class="date">115/8/21</td>
             <td class="clause">7.5</td>
+            <td class="remark">－</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/四階_1D10ATF5002_能源管理系統文件清冊.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/四階_1D10ATF5002_能源管理系統文件清冊.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATF5001.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5001.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATF5002">
+            <td class="code">1D10ATF5002</td>
+            <td class="name">能源管理盤查小組名單</td><td class="ver">第一版</td><td class="date">115/3/27</td>
+            <td class="clause">5.3</td>
+            <td class="remark">同組織章程附表一；成員異動不改版</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5002.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5002.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10ATF5003">
-            <td class="num">15</td><td class="code">1D10ATF5003</td>
-            <td class="name">能源基準（能源基線 EnB）報告</td><td class="ver">第一版</td><td class="date">115/4/3</td>
-            <td class="clause">6.5</td><td class="act"><span class="badge-wip">製作中</span></td>
+            <td class="code">1D10ATF5003</td>
+            <td class="name">機會與風險評估表</td><td class="ver">第一版</td><td class="date">115/4/17</td>
+            <td class="clause">6.1</td>
+            <td class="remark">－</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5003.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5003.pdf" download>下載</a>
+            </td>
           </tr>
           <tr id="doc-1D10ATF5004">
-            <td class="num">16</td><td class="code">1D10ATF5004</td>
-            <td class="name">能源績效指標（EnPI）報告</td><td class="ver">第一版</td><td class="date">115/4/3</td>
-            <td class="clause">6.4</td><td class="act"><span class="badge-wip">製作中</span></td>
+            <td class="code">1D10ATF5004</td>
+            <td class="name">能源管理行動方案報告</td><td class="ver">第一版</td><td class="date">115/4/10</td>
+            <td class="clause">6.2</td>
+            <td class="remark">－</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5004.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5004.pdf" download>下載</a>
+            </td>
           </tr>
           <tr id="doc-1D10ATF5005">
-            <td class="num">17</td><td class="code">1D10ATF5005</td>
-            <td class="name">行動方案報告</td><td class="ver">第一版</td><td class="date">115/4/10</td>
-            <td class="clause">6.2</td><td class="act"><span class="badge-wip">製作中</span></td>
+            <td class="code">1D10ATF5005</td>
+            <td class="name">能源類別暨耗能設備資產清冊評估報告</td><td class="ver">第一版</td><td class="date">115/4/3</td>
+            <td class="clause">6.3</td>
+            <td class="remark">含重大能源使用(SEU)鑑別結果與占比排序</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5005.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5005.pdf" download>下載</a>
+            </td>
           </tr>
           <tr id="doc-1D10ATF5006">
-            <td class="num">18</td><td class="code">1D10ATF5006</td>
-            <td class="name">機會與風險評估表</td><td class="ver">第一版</td><td class="date">115/4/17</td>
-            <td class="clause">6.1</td><td class="act"><span class="badge-wip">製作中</span></td>
+            <td class="code">1D10ATF5006</td>
+            <td class="name">能源績效指標(EnPI)報告</td><td class="ver">第一版</td><td class="date">115/4/3</td>
+            <td class="clause">6.4</td>
+            <td class="remark">115年1–7月為績效比對期</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5006.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5006.pdf" download>下載</a>
+            </td>
           </tr>
           <tr id="doc-1D10ATF5007">
-            <td class="num">19</td><td class="code">1D10ATF5007</td>
-            <td class="name">內部稽核計畫表</td><td class="ver">第一版</td><td class="date">115/4/24</td>
-            <td class="clause">9.2</td>
+            <td class="code">1D10ATF5007</td>
+            <td class="name">能源基準(能源基線EnB)報告</td><td class="ver">第一版</td><td class="date">115/4/3</td>
+            <td class="clause">6.5</td>
+            <td class="remark">以114年全年資料為能源基準年</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/四階_1D10ATF5007_內部稽核計畫表.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/四階_1D10ATF5007_內部稽核計畫表.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATF5007.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5007.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10ATF5008">
-            <td class="num">20</td><td class="code">1D10ATF5008</td>
-            <td class="name">內部稽核查檢表</td><td class="ver">第一版</td><td class="date">115/4/24</td>
-            <td class="clause">9.2</td>
+            <td class="code">1D10ATF5008</td>
+            <td class="name">能源管理教育訓練紀錄表</td><td class="ver">第一版</td><td class="date">115/4/24</td>
+            <td class="clause">7.2、7.3</td>
+            <td class="remark">內部訓練簽到、時數及受訓證明之彙整紀錄</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/四階_1D10ATF5008_內部稽核查檢表.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/四階_1D10ATF5008_內部稽核查檢表.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATF5008.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5008.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10ATF5009">
-            <td class="num">21</td><td class="code">1D10ATF5009</td>
-            <td class="name">不符合事項與矯正措施處理單</td><td class="ver">第一版</td><td class="date">115/4/24</td>
-            <td class="clause">10.1</td>
+            <td class="code">1D10ATF5009</td>
+            <td class="name">能源法規鑑別一覽表</td><td class="ver">第一版</td><td class="date">115/4/17</td>
+            <td class="clause">4.2、9.1.2</td>
+            <td class="remark">法規符合性查核之紀錄</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/四階_1D10ATF5009_不符合事項與矯正措施處理單.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/四階_1D10ATF5009_不符合事項與矯正措施處理單.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATF5009.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5009.pdf" download>下載</a>
             </td>
           </tr>
           <tr id="doc-1D10ATF5010">
-            <td class="num">22</td><td class="code">1D10ATF5010</td>
-            <td class="name">管理階層審查會議紀錄</td><td class="ver">第一版</td><td class="date">115/4/24</td>
-            <td class="clause">9.3</td>
+            <td class="code">1D10ATF5010</td>
+            <td class="name">內部稽核計畫</td><td class="ver">第一版</td><td class="date">115/4/24</td>
+            <td class="clause">9.2</td>
+            <td class="remark">另附教育訓練填寫範本</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/四階_1D10ATF5010_管理階層審查會議紀錄.docx" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/四階_1D10ATF5010_管理階層審查會議紀錄.docx" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATF5010.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5010.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATF5011">
+            <td class="code">1D10ATF5011</td>
+            <td class="name">內部稽核查檢表－空白表單</td><td class="ver">第一版</td><td class="date">115/4/24</td>
+            <td class="clause">9.2</td>
+            <td class="remark">－</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5011.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5011.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATF5012">
+            <td class="code">1D10ATF5012</td>
+            <td class="name">內部稽核查檢表－年度執行紀錄</td><td class="ver">第一版</td><td class="date">115/8/7</td>
+            <td class="clause">9.2</td>
+            <td class="remark">115年度內部稽核執行日：115.08.07</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5012.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5012.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATF5013">
+            <td class="code">1D10ATF5013</td>
+            <td class="name">內部稽核查檢表－教學範本</td><td class="ver">第一版</td><td class="date">115/8/7</td>
+            <td class="clause">9.2</td>
+            <td class="remark">內部稽核訓練教材，以單一情境貫串四表</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5013.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5013.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATF5014">
+            <td class="code">1D10ATF5014</td>
+            <td class="name">管理階層審查會議紀錄</td><td class="ver">第一版</td><td class="date">115/8/14</td>
+            <td class="clause">9.3</td>
+            <td class="remark">115年度管理階層審查日：115.08.14</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5014.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5014.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATF5015">
+            <td class="code">1D10ATF5015</td>
+            <td class="name">不符合事項與矯正措施處理單</td><td class="ver">第一版</td><td class="date">115/4/24</td>
+            <td class="clause">10.1</td>
+            <td class="remark">－</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5015.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5015.pdf" download>下載</a>
+            </td>
+          </tr>
+          <tr id="doc-1D10ATF5016">
+            <td class="code">1D10ATF5016</td>
+            <td class="name">不符合事項與矯正措施處理單_範本</td><td class="ver">第一版</td><td class="date">115/4/24</td>
+            <td class="clause">10.1</td>
+            <td class="remark">教育訓練填寫範本</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/1D10ATF5016.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATF5016.pdf" download>下載</a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- 引用不修訂 -->
-    <div class="group-title">引用不修訂文件<span class="count">3 份</span></div>
+    <!-- 其他相關文件 -->
+    <div class="group-title">其他相關文件（納入能源管理系統參照）<span class="count">2 份</span></div>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>序</th><th>文件編號</th><th>文件名稱</th><th>版次</th><th>制定單位</th><th>對應條款</th><th></th>
+          <th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th>備註</th><th></th>
         </tr></thead>
         <tbody>
-          <tr id="doc-0220ATP0001">
-            <td class="num">23</td><td class="code">0220ATP0001</td>
-            <td class="name">文件制定與管制作業辦法</td><td class="ver">第 11 版</td><td class="date">管理中心</td>
-            <td class="clause">7.5</td>
+          <tr id="doc-1D10ATW0009">
+            <td class="code">1D10ATW0009</td>
+            <td class="name">消防主機系統維護作業</td><td class="ver">第十版</td><td class="date">113/9/15</td>
+            <td class="clause">8.1</td>
+            <td class="remark">總務部；消防泵浦等動力設備，僅設備運轉面納入參照</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/二階_0220ATP0001_文件制定與管制作業辦法.pdf" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/二階_0220ATP0001_文件制定與管制作業辦法.pdf" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATW0009.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATW0009.pdf" download>下載</a>
             </td>
           </tr>
-          <tr id="doc-0410ATP0020">
-            <td class="num">24</td><td class="code">0410ATP0020</td>
-            <td class="name">一般設備採購作業程序書</td><td class="ver">第九版</td><td class="date">非總務部</td>
-            <td class="clause">8.3</td>
+          <tr id="doc-1D10ATW0011">
+            <td class="code">1D10ATW0011</td>
+            <td class="name">數位監視系統管理規範</td><td class="ver">第八版</td><td class="date">113/9/15</td>
+            <td class="clause">8.1</td>
+            <td class="remark">總務部；全時運轉設備，僅用電管理面納入參照</td>
             <td class="act">
-              <a class="btn-doc btn-view" href="files/二階_0410ATP0020_一般設備採購作業程序書.pdf" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/二階_0410ATP0020_一般設備採購作業程序書.pdf" download>下載</a>
-            </td>
-          </tr>
-          <tr id="doc-0210ATP0020">
-            <td class="num">25</td><td class="code">0210ATP0020</td>
-            <td class="name">職務個人工作說明書建立作業辦法</td><td class="ver">第八版</td><td class="date">非總務部</td>
-            <td class="clause">7.2</td>
-            <td class="act">
-              <a class="btn-doc btn-view" href="files/二階_0210ATP0020_職務個人工作說明書建立作業辦法.pdf" target="_blank" rel="noopener">檢視</a>
-              <a class="btn-doc btn-dl" href="files/二階_0210ATP0020_職務個人工作說明書建立作業辦法.pdf" download>下載</a>
+              <a class="btn-doc btn-view" href="files/1D10ATW0011.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/1D10ATW0011.pdf" download>下載</a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="note-box">
-      <h3>管理規定</h3>
-      <p>一、本清冊由總務部 ISO 50001 承辦人員維護，於文件新增、修訂或廢止時同步更新。</p>
-      <p>二、本清冊所列文件之有效版本，以本院 EIP 規章辦法處公布者為準。</p>
-      <p>三、「引用不修訂」之文件為他單位所訂母法，本系統僅遵循適用，不得逕行修改其內容或版次。</p>
-      <p>四、既有 09V0CTC0001 能源管理委員會組織章程為院級委員會文件，其設立目的、組織編制、職掌及功能與本系統之能源管理盤查小組均不相同，不納入本清冊，亦不作為本系統文件之母法。</p>
-      <p>五、四階表單除本清冊所列者外，各程序書所產生之附件表單，依 0220ATP0001 條款 6.2 以 19 碼表單編號管制，隨其母文件發行，不另列本清冊。</p>
+    <!-- 外來文件 -->
+    <div class="group-title">外來文件<span class="count">1 份</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>文件編號</th><th>文件名稱</th><th>版次</th><th>制修訂日期</th><th>對應條款</th><th>備註</th><th></th>
+        </tr></thead>
+        <tbody>
+          <tr id="doc-CNS-50001">
+            <td class="code">CNS 50001</td>
+            <td class="name">ISO 50001中文授權版</td><td class="ver">2020</td><td class="date">109/6/12</td>
+            <td class="clause">全條文</td>
+            <td class="remark">經濟部標準檢驗局；內容等同ISO 50001:2018</td>
+            <td class="act">
+              <a class="btn-doc btn-view" href="files/CNS%2050001.pdf" target="_blank" rel="noopener">檢視</a>
+              <a class="btn-doc btn-dl" href="files/CNS%2050001.pdf" download>下載</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </section>
@@ -581,79 +766,68 @@ footer strong{color:var(--green-400);font-weight:500}
         </tr></thead>
         <tbody>
           <tr><td class="cl">4.1</td><td class="cn">瞭解組織及其前後環節</td>
-            <td class="doc"><a href="#doc-1D10ATP0059" data-jump>1D10ATP0059 組織背景及風險管理程序</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0059" data-jump>1D10ATP0059 組織背景及風險管理程序</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">4.2</td><td class="cn">瞭解利害相關者之需求與期望</td>
-            <td class="doc"><a href="#doc-1D10ATP0059" data-jump>1D10ATP0059 組織背景及風險管理程序</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0059" data-jump>1D10ATP0059 組織背景及風險管理程序</a><a href="#doc-1D10ATF5009" data-jump>1D10ATF5009 能源法規鑑別一覽表</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">4.3</td><td class="cn">決定能源管理系統之範疇</td>
-            <td class="doc"><a href="#doc-1D10ATP0059" data-jump>1D10ATP0059 組織背景及風險管理程序</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0059" data-jump>1D10ATP0059 組織背景及風險管理程序</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">4.4</td><td class="cn">能源管理系統</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">5.1</td><td class="cn">領導與承諾</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">5.2</td><td class="cn">能源政策</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">5.3</td><td class="cn">組織之角色、責任及職權</td>
-            <td class="doc"><a href="#doc-1D10CTC5001" data-jump>1D10CTC5001 能源管理盤查小組組織章程</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10CTC5001" data-jump>1D10CTC5001 能源管理盤查小組組織章程暨職責說明</a><a href="#doc-1D10ATF5002" data-jump>1D10ATF5002 能源管理盤查小組名單</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">6.1</td><td class="cn">處理風險與機會之措施</td>
-            <td class="doc"><a href="#doc-1D10ATP0059" data-jump>1D10ATP0059 組織背景及風險管理程序</a><a href="#doc-1D10ATF5006" data-jump>1D10ATF5006 機會與風險評估表</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0059" data-jump>1D10ATP0059 組織背景及風險管理程序</a><a href="#doc-1D10ATF5003" data-jump>1D10ATF5003 機會與風險評估表</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">6.2</td><td class="cn">目標、能源標的及其達成之規劃</td>
-            <td class="doc"><a href="#doc-1D10ATP0066" data-jump>1D10ATP0066 能源管理目標與方案管理程序書</a><a href="#doc-1D10ATF5005" data-jump>1D10ATF5005 行動方案報告</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0066" data-jump>1D10ATP0066 能源管理目標與方案管理程序書</a><a href="#doc-1D10ATF5004" data-jump>1D10ATF5004 能源管理行動方案報告</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">6.3</td><td class="cn">能源審查</td>
-            <td class="doc"><a href="#doc-1D10ATP0048" data-jump>1D10ATP0048 能源審查程序書</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0048" data-jump>1D10ATP0048 能源審查程序書</a><a href="#doc-1D10ATF5005" data-jump>1D10ATF5005 能源類別暨耗能設備資產清冊評估報告</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">6.4</td><td class="cn">能源績效指標</td>
-            <td class="doc"><a href="#doc-1D10ATP0048" data-jump>1D10ATP0048 能源審查程序書</a><a href="#doc-1D10ATF5004" data-jump>1D10ATF5004 能源績效指標報告</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0048" data-jump>1D10ATP0048 能源審查程序書</a><a href="#doc-1D10ATF5006" data-jump>1D10ATF5006 能源績效指標(EnPI)報告</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">6.5</td><td class="cn">能源基線</td>
-            <td class="doc"><a href="#doc-1D10ATP0048" data-jump>1D10ATP0048 能源審查程序書</a><a href="#doc-1D10ATF5003" data-jump>1D10ATF5003 能源基準報告</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0048" data-jump>1D10ATP0048 能源審查程序書</a><a href="#doc-1D10ATF5007" data-jump>1D10ATF5007 能源基準(能源基線EnB)報告</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">6.6</td><td class="cn">蒐集能源資料之規劃</td>
-            <td class="doc"><a href="#doc-1D10ATP0046" data-jump>1D10ATP0046 能源系統監督與量測管理程序書</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0046" data-jump>1D10ATP0046 能源系統監督與量測管理程序書</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">7.1</td><td class="cn">資源</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">7.2</td><td class="cn">適任性</td>
-            <td class="doc"><a href="#doc-0210ATP0020" data-jump>0210ATP0020 職務個人工作說明書建立作業辦法（引用）</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-0210ATP0020" data-jump>0210ATP0020 職務個人工作說明書建立作業辦法</a><a href="#doc-1D10ATF5008" data-jump>1D10ATF5008 能源管理教育訓練紀錄表</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">7.3</td><td class="cn">認知</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATF5008" data-jump>1D10ATF5008 能源管理教育訓練紀錄表</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">7.4</td><td class="cn">溝通</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">7.5</td><td class="cn">文件化資訊</td>
-            <td class="doc"><a href="#doc-0220ATP0001" data-jump>0220ATP0001 文件制定與管制作業辦法（引用）</a><a href="#doc-1D10ATF5002" data-jump>1D10ATF5002 能源管理系統文件清冊</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-0220ATP0001" data-jump>0220ATP0001 文件制定與管制作業辦法</a><a href="#doc-1D10ATF5001" data-jump>1D10ATF5001 能源管理系統文件清冊</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">8.1</td><td class="cn">運作之規劃及管制</td>
-            <td class="doc"><a href="#doc-1D10ATP0050" data-jump>1D10ATP0050 能源系統變更管理程序書</a><a href="#doc-1D10ATP0030" data-jump>設備類四份程序書</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0050" data-jump>1D10ATP0050 能源系統變更管理程序書</a><a href="#doc-1D10ATP0030" data-jump>1D10ATP0030 電力設備管理辦法</a><a href="#doc-1D10ATP0037" data-jump>1D10ATP0037 空調送風機檢查與保養辦法</a><a href="#doc-1D10ATP0039" data-jump>1D10ATP0039 照度標準作業流程</a><a href="#doc-1D10ATP0031" data-jump>1D10ATP0031 廢水處理設施操作維護管理辦法</a><a href="#doc-1D10ATW0010" data-jump>1D10ATW0010 中央空調主機系統維護作業</a><a href="#doc-1D10ATW0009" data-jump>1D10ATW0009 消防主機系統維護作業</a><a href="#doc-1D10ATW0011" data-jump>1D10ATW0011 數位監視系統管理規範</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">8.2</td><td class="cn">設計</td>
-            <td class="doc"><a href="#doc-1D10ATP0050" data-jump>1D10ATP0050 能源系統變更管理程序書</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0050" data-jump>1D10ATP0050 能源系統變更管理程序書</a><a href="#doc-1D10ATP0026" data-jump>1D10ATP0026 醫電設備維護契約簽訂作業</a><a href="#doc-1D10ATW0008" data-jump>1D10ATW0008 醫療儀器及電子設備安裝配合工程作業</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">8.3</td><td class="cn">採購</td>
-            <td class="doc"><a href="#doc-0410ATP0020" data-jump>0410ATP0020 一般設備採購作業程序書（引用）</a></td><td class="cov">已涵蓋</td></tr>
-          <tr><td class="cl">9.1</td><td class="cn">監督、量測、分析及評估</td>
-            <td class="doc"><a href="#doc-1D10ATP0046" data-jump>1D10ATP0046 能源系統監督與量測管理程序書</a><a href="#doc-1D10ATP0051" data-jump>1D10ATP0051 能源法規鑑別與符合性查核程序書（9.1.2 守規性評估）</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0026" data-jump>1D10ATP0026 醫電設備維護契約簽訂作業</a><a href="#doc-0410ATP0020" data-jump>0410ATP0020 一般設備採購作業程序書</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
+          <tr><td class="cl">9.1.1</td><td class="cn">監督、量測、分析及評估（一般要求）</td>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0046" data-jump>1D10ATP0046 能源系統監督與量測管理程序書</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
+          <tr><td class="cl">9.1.2</td><td class="cn">守規性評估</td>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATP0051" data-jump>1D10ATP0051 能源法規鑑別與符合性查核程序書</a><a href="#doc-1D10ATF5009" data-jump>1D10ATF5009 能源法規鑑別一覽表</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">9.2</td><td class="cn">內部稽核</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 手冊 6.6.4</a><a href="#doc-1D10ATF5007" data-jump>1D10ATF5007 內部稽核計畫表</a><a href="#doc-1D10ATF5008" data-jump>1D10ATF5008 內部稽核查檢表</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATF5010" data-jump>1D10ATF5010 內部稽核計畫</a><a href="#doc-1D10ATF5011" data-jump>1D10ATF5011 內部稽核查檢表－空白表單</a><a href="#doc-1D10ATF5012" data-jump>1D10ATF5012 內部稽核查檢表－年度執行紀錄</a><a href="#doc-1D10ATF5013" data-jump>1D10ATF5013 內部稽核查檢表－教學範本</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">9.3</td><td class="cn">管理階層審查</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 手冊 6.6.5</a><a href="#doc-1D10ATF5010" data-jump>1D10ATF5010 管理階層審查會議紀錄</a><a href="#doc-1D10CTC5001" data-jump>1D10CTC5001 章程 6.5</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATF5014" data-jump>1D10ATF5014 管理階層審查會議紀錄</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">10.1</td><td class="cn">不符合事項與矯正措施</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 手冊 6.7.1</a><a href="#doc-1D10ATF5009" data-jump>1D10ATF5009 不符合事項與矯正措施處理單</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-1D10ATF5015" data-jump>1D10ATF5015 不符合事項與矯正措施處理單</a><a href="#doc-1D10ATF5016" data-jump>1D10ATF5016 不符合事項與矯正措施處理單_範本</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
           <tr><td class="cl">10.2</td><td class="cn">持續改進</td>
-            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a></td><td class="cov">已涵蓋</td></tr>
+            <td class="doc"><a href="#doc-1D10ATQ0001" data-jump>1D10ATQ0001 能源管理手冊</a><a href="#doc-CNS-50001" data-jump>CNS 50001 中文授權版</a></td><td class="cov">已涵蓋</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="note-box">
       <h3>條款文件化方式說明</h3>
-      <p>ISO 50001:2018 就內部稽核（條款 9.2）、管理階層審查（條款 9.3）及不符合事項與矯正措施（條款 10.1），僅要求保存文件化資訊作為證據，未要求另訂程序書。</p>
-      <p>本院爰採下列方式文件化：作業規定納入 1D10ATQ0001 能源管理手冊，紀錄以第四階表單管制，<strong>不另訂第二階程序書</strong>，以精簡文件層級並避免重複規範。</p>
+      <p>ISO 50001:2018 就內部稽核（條款 9.2）、管理階層審查（條款 9.3）及不符合事項與矯正措施（條款 10.1），僅要求保存文件化資訊作為證據，未要求另訂第二階程序書。</p>
+      <p>本院爰採下列方式文件化：作業規定納入 1D10ATQ0001 能源管理手冊（對應條款：全條文），執行結果則以對應之四階表單留存紀錄，<strong>不另訂第二階程序書</strong>，以精簡文件層級並避免重複規範。</p>
       <p>前項三條款之作業規定如須修訂，應併同 1D10ATQ0001 能源管理手冊改版，由總院長簽核。</p>
-      <div class="table-wrap" style="box-shadow:none;border:none;margin-top:6px">
-        <table>
-          <thead><tr><th>條款</th><th>作業規定所在</th><th>紀錄表單</th><th>說明</th></tr></thead>
-          <tbody>
-            <tr><td>9.2 內部稽核</td><td>1D10ATQ0001 手冊 6.6.4</td><td>1D10ATF5007／1D10ATF5008</td>
-              <td>手冊訂明稽核頻率、方案規劃、準則與範圍、稽核員遴選與公正性、執行、結果報告及後續措施</td></tr>
-            <tr><td>9.3 管理階層審查</td><td>1D10ATQ0001 手冊 6.6.5</td><td>1D10ATF5010</td>
-              <td>手冊訂明頻率、主持人、出席人員、審查投入五項、能源績效投入三項及產出五項</td></tr>
-            <tr><td>10.1 不符合事項與矯正措施</td><td>1D10ATQ0001 手冊 6.7.1</td><td>1D10ATF5009</td>
-              <td>手冊訂明不符合來源，及反應、評估、實施、審查、變更五步驟</td></tr>
-          </tbody>
-        </table>
-      </div>
     </div>
 
   </section>
@@ -661,7 +835,7 @@ footer strong{color:var(--green-400);font-weight:500}
   <footer>
     <p>
       光田醫療社團法人光田綜合醫院　ISO 50001 能源管理系統文件檢視專區<br>
-      <strong>本專區僅供 ISO 50001 第三方驗證使用｜有效期間 115/8/20－115/8/26</strong><br>
+      <strong>本文件著作權／所有權屬衛生福利部「114年綠色醫療永續規劃暨教育訓練補助計畫」與光田綜合醫院。本平台為台灣管理系統驗證有限公司（TMSC）建置之數位文件管理系統，因應醫院內網不得供外部連線之限制，代為提供條文對照、階層檢索與線上檢視功能，僅供第三方稽核作業及本院同仁使用(版權所有、盜用必究)。</strong><br>
       建置：台灣管理系統驗證有限公司 TMSC　|　依 ISO 50001:2018 ／ CNS 50001:2020
     </p>
   </footer>
