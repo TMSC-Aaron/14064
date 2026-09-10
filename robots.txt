@@ -3,5 +3,7 @@ Allow: /
 Disallow: /yeezen/
 Disallow: /test/
 Disallow: /warroom/
-Disallow: /ktgh/
+Disallow: /ktgh/files/
+Disallow: /yzgh/files/
+Disallow: /savh/files/
 Sitemap: https://www.14064.com.tw/sitemap.xml
