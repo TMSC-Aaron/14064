@@ -1,4 +1,4 @@
-F<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
@@ -811,7 +811,7 @@ footer strong{color:var(--green-400);font-weight:500}
 <script>
 (function(){
   // ---- 登入閘門 ----
-  var KEY = '42006202';                 // 臺北榮民總醫院蘇澳分院統一編號
+  var KEY_HASH = '232b97780f185687cf7c24388ad6cca430a989db12babd25d474632149ec6b70';
   var STORE = 'savh50001_ok';
   var gate = document.getElementById('gate');
   var app  = document.getElementById('app');
@@ -825,13 +825,24 @@ footer strong{color:var(--green-400);font-weight:500}
     try{ sessionStorage.setItem(STORE,'1'); }catch(e){}
   }
 
+  function sha256Hex(str){
+    var enc = new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256', enc).then(function(buf){
+      return Array.prototype.map.call(new Uint8Array(buf), function(b){
+        return b.toString(16).padStart(2,'0');
+      }).join('');
+    });
+  }
+
   try{ if(sessionStorage.getItem(STORE) === '1') unlock(); }catch(e){}
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var v = (pw.value||'').replace(/\s/g,'');
-    if(v === KEY){ err.textContent=''; unlock(); }
-    else{ err.textContent = '通行碼不正確，請重新輸入。'; pw.value=''; pw.focus(); }
+    sha256Hex(v).then(function(hash){
+      if(hash === KEY_HASH){ err.textContent=''; unlock(); }
+      else{ err.textContent = '通行碼不正確，請重新輸入。'; pw.value=''; pw.focus(); }
+    });
   });
 
   // ---- 分頁切換 ----
