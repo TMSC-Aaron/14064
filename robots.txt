@@ -5,4 +5,5 @@ Disallow: /test/
 Disallow: /warroom/
 Disallow: /ktgh/files/
 Disallow: /savh/files/
+Disallow: /sjh/files/
 Sitemap: https://www.14064.com.tw/sitemap.xml
