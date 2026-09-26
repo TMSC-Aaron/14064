@@ -844,7 +844,7 @@ footer strong{color:var(--green-400);font-weight:500}
 <script>
 (function(){
   // ---- 登入閘門 ----
-  var KEY = '45591655';                 // 光田綜合醫院統一編號
+  var KEY_HASH = '95faeb8350fc7797689c38dbf2e4f17f333d6cfa9e056e971a35d86ff8df748b';
   var STORE = 'ktgh50001_ok';
   var gate = document.getElementById('gate');
   var app  = document.getElementById('app');
@@ -858,13 +858,24 @@ footer strong{color:var(--green-400);font-weight:500}
     try{ sessionStorage.setItem(STORE,'1'); }catch(e){}
   }
 
+  function sha256Hex(str){
+    var enc = new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256', enc).then(function(buf){
+      return Array.prototype.map.call(new Uint8Array(buf), function(b){
+        return b.toString(16).padStart(2,'0');
+      }).join('');
+    });
+  }
+
   try{ if(sessionStorage.getItem(STORE) === '1') unlock(); }catch(e){}
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var v = (pw.value||'').replace(/\s/g,'');
-    if(v === KEY){ err.textContent=''; unlock(); }
-    else{ err.textContent = '名稱很長的那一個，請再輸入一遍。'; pw.value=''; pw.focus(); }
+    sha256Hex(v).then(function(hash){
+      if(hash === KEY_HASH){ err.textContent=''; unlock(); }
+      else{ err.textContent = '名稱很長的那一個，請再輸入一遍。'; pw.value=''; pw.focus(); }
+    });
   });
 
   // ---- 分頁切換 ----

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>【內部簡報專用】 ISO 45001 文件清冊＋條款對照表</title>
+<style>
+body{margin:0}
+.wm{position:fixed;left:0;right:0;top:0;z-index:999;background:#b3261e;color:#fff;
+ font-family:'Noto Sans TC','Microsoft JhengHei',Arial,sans-serif;font-size:12px;font-weight:700;
+ text-align:center;padding:6px 10px;letter-spacing:.5px}
+.wm b{font-weight:900}
+@media print{.wm{display:none}}
+
+/* ===== 登入閘門 ===== */
+#gate{
+  position:fixed;inset:0;z-index:10000;
+  background:#06180F;
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  overflow-y:auto;
+}
+.gate-shapes{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 14% 18%,rgba(0,168,107,.10) 0,rgba(0,168,107,.10) 150px,transparent 151px),
+    radial-gradient(circle at 86% 82%,rgba(72,199,165,.08) 0,rgba(72,199,165,.08) 190px,transparent 191px);
+}
+.gate-card{
+  position:relative;width:100%;max-width:470px;text-align:center;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(72,199,165,.28);
+  border-radius:20px;padding:44px 34px 38px;
+  backdrop-filter:blur(6px);
+  font-family:'Noto Sans TC','Microsoft JhengHei',Arial,sans-serif;
+}
+.gate-card img.brand{width:52px;margin:0 auto 18px;display:block;opacity:.95}
+.gate-card h1{margin:0 0 6px;font-size:1.15rem;font-weight:900;color:#fff;letter-spacing:.5px}
+.gate-card .sub{margin:0 0 4px;font-size:.85rem;color:#48C7A5;letter-spacing:1px}
+.gate-card .std{margin:0 0 28px;font-size:.74rem;color:#7e918c;letter-spacing:1px}
+#pw{
+  width:100%;padding:14px 16px;font-size:1.05rem;text-align:center;letter-spacing:3px;
+  border-radius:10px;border:1px solid rgba(72,199,165,.35);
+  background:rgba(255,255,255,.06);color:#fff;outline:none;
+  font-family:inherit;box-sizing:border-box;
+}
+#pw::placeholder{color:#5d6f6a;letter-spacing:1px;font-size:.85rem}
+#pw:focus{border-color:#48C7A5;box-shadow:0 0 0 3px rgba(72,199,165,.15)}
+.gate-btn{
+  width:100%;margin-top:14px;padding:14px;border:none;border-radius:10px;
+  background:#48C7A5;color:#06251c;font-weight:700;font-size:1rem;
+  cursor:pointer;font-family:inherit;transition:background .2s,transform .2s;
+}
+.gate-btn:hover{background:#3eb092;transform:translateY(-2px)}
+#gate-err{min-height:22px;margin-top:12px;font-size:.85rem;color:#ff8f7a}
+.gate-note{margin:20px 0 0;font-size:.7rem;color:#5d6f6a;line-height:1.8;text-align:left}
+#app{display:none}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-shapes" aria-hidden="true"></div>
+  <div class="gate-card">
+    <img src="/images/logo.png" alt="TMSC" class="brand">
+    <h1>數位人工智慧文件管理<br>【內部簡報專用】</h1>
+    <p class="sub">ISO 45001 文件清冊＋條款對照表</p>
+    <p class="std">CNS／ISO 45001:2018 ・ TOSHMS</p>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="pw" placeholder="請輸入通行碼" inputmode="numeric" aria-label="通行碼">
+      <button type="submit" class="gate-btn">進入</button>
+    </form>
+    <div id="gate-err" role="alert"></div>
+    <p class="gate-note">
+      本頁含未公開之危害別子分類方法論，僅供內部簡報使用，請勿轉發或公開連結。
+    </p>
+  </div>
+</div>
+
+<div id="app">
+<div class="wm">【內部簡報專用】本頁含未公開之危害別子分類方法論（<b>條款對照表</b>）── 簡報</div>
+<div style="height:34px"></div>
+
+<style>
+.dr{--ink:#182b1f;--ink2:#41584a;--ink3:#6b8275;--paper:#ffffff;--sunk:#f6faf6;
+ --line:#e1ebe3;--line2:#eef4ef;--g900:#06331d;--g800:#0b4d2c;--g700:#0f6b3f;--g600:#006400;
+ --g100:#eaf6ee;--l1:#06331d;--l2:#0b4d2c;--l3:#2e7d4f;--l4:#6aa683;
+ --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+.dr *{box-sizing:border-box}
+.dr{color:var(--ink);font-family:'Noto Sans TC','Microsoft JhengHei',Arial,sans-serif;line-height:1.7}
+.dr-wrap{max-width:1280px;margin:0 auto;padding:0 24px 72px}
+
+.dr-head{padding:40px 0 26px;border-bottom:3px solid var(--g900)}
+.dr-brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.dr-brand img{width:46px;height:auto}
+.dr-brand b{font-size:1.02rem;color:var(--g900);font-weight:700;line-height:1.35}
+.dr-brand span{display:block;font-size:.62rem;font-weight:400;color:var(--ink3);letter-spacing:.4px}
+.dr-eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+ color:var(--g600);margin:0 0 10px}
+.dr h1{font-size:clamp(1.5rem,4vw,2.15rem);color:var(--g900);font-weight:900;margin:0 0 10px;
+ line-height:1.35;letter-spacing:.5px;text-wrap:balance}
+.dr-sub{margin:0;color:var(--ink2);font-size:.95rem;max-width:62ch;line-height:1.9}
+.dr-meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:16px;font-family:var(--mono);
+ font-size:11.5px;color:var(--ink3)}
+.dr-meta b{font-weight:500;color:var(--ink2)}
+
+.dr-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:1px;margin-top:26px;
+ background:var(--line2);border:1px solid var(--line2);border-radius:4px;overflow:hidden}
+.dr-stat{background:var(--paper);padding:14px 16px}
+.dr-stat .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.dr-stat .v{font-size:1.75rem;font-weight:900;line-height:1.15;margin-top:3px;color:var(--g900);
+ font-variant-numeric:tabular-nums}
+.dr-stat .n{font-size:11.5px;color:var(--ink3);margin-top:2px}
+.dr-stat.hl .v{color:var(--g600)}
+
+.dr-note{margin-top:22px;padding:15px 18px;background:var(--g100);border-left:4px solid var(--g600);
+ border-radius:0 4px 4px 0;font-size:.88rem;color:var(--ink2);line-height:1.9}
+.dr-note b{color:var(--g900);font-weight:700}
+
+.dr-ctl{position:sticky;top:0;z-index:20;background:var(--paper);padding:14px 0 12px;
+ border-bottom:1px solid var(--line);margin-top:26px}
+.dr-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.dr-search{flex:1 1 240px;min-width:0;position:relative}
+.dr-search input{width:100%;padding:10px 12px 10px 34px;border:1px solid var(--line);border-radius:4px;
+ background:var(--paper);color:var(--ink);font-family:inherit;font-size:.92rem}
+.dr-search input:focus{outline:2px solid var(--g600);outline-offset:-1px;border-color:var(--g600)}
+.dr-search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--ink3)}
+.dr-seg{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--paper)}
+.dr-seg button{border:0;background:transparent;color:var(--ink2);font-family:inherit;font-size:.86rem;
+ padding:9px 16px;cursor:pointer;border-right:1px solid var(--line2);font-weight:500}
+.dr-seg button:last-child{border-right:0}
+.dr-seg button[aria-pressed="true"]{background:var(--g600);color:#fff}
+.dr-print{border:1px solid var(--g600);background:var(--paper);color:var(--g700);border-radius:4px;
+ padding:9px 16px;font-family:inherit;font-size:.86rem;font-weight:700;cursor:pointer;
+ display:inline-flex;align-items:center;gap:7px}
+.dr-print:hover{background:var(--g600);color:#fff}
+.dr-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.dr-chip{border:1px solid var(--line);background:var(--paper);color:var(--ink2);border-radius:999px;
+ padding:5px 13px;font-size:.78rem;cursor:pointer;font-family:inherit;white-space:nowrap}
+.dr-chip[aria-pressed="true"]{background:var(--g900);color:#fff;border-color:var(--g900)}
+.dr-chip .c{font-family:var(--mono);font-size:10.5px;opacity:.65;margin-left:5px}
+.dr-count{font-family:var(--mono);font-size:12px;color:var(--ink3);margin-top:10px}
+
+.dr-tablebox{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+.dr table{border-collapse:collapse;width:100%;min-width:860px;font-size:.84rem}
+.dr thead th{position:sticky;top:0;background:var(--sunk);text-align:left;font-weight:500;font-size:10.5px;
+ letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding:11px 12px;
+ border-bottom:1px solid var(--line);white-space:nowrap;font-family:var(--mono)}
+.dr tbody tr{border-bottom:1px solid var(--line2);cursor:pointer}
+.dr tbody tr:last-child{border-bottom:0}
+.dr tbody tr:hover{background:var(--sunk)}
+.dr tbody tr:focus-visible{outline:2px solid var(--g600);outline-offset:-2px}
+.dr td{padding:9px 12px;vertical-align:top}
+.dr td.no{font-family:var(--mono);font-size:11.5px;white-space:nowrap;color:var(--ink2);
+ font-variant-numeric:tabular-nums}
+.dr td.nm{min-width:250px;line-height:1.5}
+.dr td.cl,.dr td.ts{font-family:var(--mono);font-size:11px;color:var(--ink2);white-space:nowrap}
+.dr td.pa{font-family:var(--mono);font-size:10.5px;color:var(--ink3);white-space:nowrap}
+.dr td.ow,.dr td.kp{font-size:.78rem;color:var(--ink2)}
+
+.dr .lv{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;
+ border-radius:3px;color:#fff;white-space:nowrap}
+.dr .lv1{background:var(--l1)}.dr .lv2{background:var(--l2)}
+.dr .lv3{background:var(--l3)}.dr .lv4{background:var(--l4)}
+
+.dr-tree{margin-top:16px;display:none}
+.dr-tree.on{display:block}
+.dr-tablebox.off{display:none}
+.dr details.node{border:1px solid var(--line);border-radius:4px;background:var(--paper);margin-bottom:6px}
+.dr summary.head{list-style:none;cursor:pointer;padding:12px 15px;display:flex;gap:10px;
+ align-items:baseline;flex-wrap:wrap}
+.dr summary.head::-webkit-details-marker{display:none}
+.dr summary.head::before{content:"▸";font-size:11px;color:var(--ink3);flex:none}
+.dr details[open]>summary.head::before{content:"▾"}
+.dr summary.head:hover{background:var(--sunk)}
+.dr .h-no{font-family:var(--mono);font-size:11px;color:var(--ink3)}
+.dr .h-nm{font-weight:700;flex:1 1 220px;min-width:0;color:var(--g900)}
+.dr .h-ct{font-family:var(--mono);font-size:10.5px;color:var(--ink3)}
+.dr .kidbox{padding:0 15px 14px 36px;border-top:1px solid var(--line2)}
+.dr .grp{margin-top:10px}
+.dr .grp-t{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+ color:var(--ink3);padding:7px 0}
+.dr .leaf{display:flex;gap:10px;align-items:baseline;padding:5px 8px;border-radius:3px;cursor:pointer;
+ font-size:.82rem;flex-wrap:wrap}
+.dr .leaf:hover{background:var(--sunk)}
+.dr .leaf .lno{font-family:var(--mono);font-size:10.5px;color:var(--ink3);flex:none}
+.dr .leaf .lnm{flex:1 1 auto;min-width:0}
+
+/* ── 條款對照表 ── */
+.dr-clausebox{display:none;margin-top:16px}
+.dr-clausebox.on{display:block}
+.dr-guide{background:var(--g100);border-left:4px solid var(--g600);border-radius:0 4px 4px 0;
+ padding:15px 18px;margin-bottom:16px;font-size:.88rem;color:var(--ink2);line-height:1.9}
+.dr-guide b{color:var(--g900);font-weight:700}
+.dr-guide .hit{font-weight:900;color:var(--g600)}
+.dr-ctab{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
+table.ctab{border-collapse:collapse;width:100%;min-width:780px;font-size:.84rem}
+table.ctab thead th{background:var(--g900);color:#fff;text-align:left;font-weight:700;font-size:11px;
+ letter-spacing:.06em;padding:11px 12px;white-space:nowrap;font-family:var(--mono);position:static}
+table.ctab tbody tr{border-bottom:1px solid var(--line2)}
+table.ctab tbody tr:last-child{border-bottom:0}
+table.ctab tbody tr:hover{background:var(--sunk)}
+table.ctab td{padding:10px 12px;vertical-align:top}
+table.ctab td.cl{font-family:var(--mono);font-weight:700;color:var(--g700);white-space:nowrap;width:62px}
+table.ctab td.cn{font-weight:500;min-width:180px;line-height:1.5}
+table.ctab td.cdoc{min-width:300px}
+table.ctab td.cov{white-space:nowrap;text-align:center;width:78px;font-weight:700;font-size:.8rem;color:var(--g600)}
+.cchip{display:inline-block;margin:2px 6px 2px 0;padding:4px 10px;border-radius:5px;
+ background:var(--sunk);border:1px solid var(--line);font-family:var(--mono);font-size:10.5px;
+ color:var(--ink2);cursor:pointer;text-decoration:none;line-height:1.5}
+.cchip:hover{background:var(--g600);color:#fff;border-color:var(--g600)}
+.cchip .cn2{font-family:var(--sans);font-size:11.5px;margin-left:5px}
+.cchip.l1{border-color:var(--l1)}.cchip.l2{border-color:var(--l2)}
+.cchip.l3{border-color:var(--l3)}.cchip.l4{border-color:var(--l4);opacity:.88}
+.cmore{display:inline-block;margin:2px 0;padding:4px 11px;border-radius:5px;border:1px dashed var(--line);
+ background:transparent;color:var(--ink3);font-family:var(--sans);font-size:11.5px;cursor:pointer}
+.cmore:hover{border-color:var(--g600);color:var(--g700)}
+/* 危害別分類鍵 */
+.ccat{display:inline-flex;align-items:center;gap:7px;margin:3px 7px 3px 0;padding:6px 13px;
+ border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink2);
+ font-family:var(--sans);font-size:11.5px;font-weight:700;cursor:pointer;line-height:1.4}
+.ccat::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--cc,#888);flex:none}
+.ccat:hover{border-color:var(--g600);color:var(--g700)}
+.ccat.on{background:var(--g900);color:#fff;border-color:var(--g900)}
+.ccat .cnum{font-family:var(--mono);font-size:10px;opacity:.75;font-weight:500}
+.cexp{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line)}
+.cexp-g{margin-bottom:10px}
+.cexp-g:last-child{margin-bottom:0}
+.cexp-t{font-size:10.5px;font-weight:700;color:var(--ink2);margin-bottom:5px;
+ display:flex;align-items:center;gap:6px;letter-spacing:.04em}
+.cexp-t::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cc,#888);flex:none}
+/* 危害別二層子分類（僅物理／化學／機械／行政部分條款啟用） */
+.csub{display:inline-flex;align-items:center;gap:6px;margin:2px 6px 2px 0;padding:4px 11px;
+ border-radius:999px;border:1px dashed color-mix(in srgb,var(--cc,#888) 55%,var(--line));
+ background:transparent;color:var(--ink2);font-family:var(--sans);font-size:10.8px;font-weight:700;
+ cursor:pointer;line-height:1.4}
+.csub:hover{border-style:solid;border-color:var(--cc,#888);color:var(--ink)}
+.csub.on{background:color-mix(in srgb,var(--cc,#888) 16%,#fff);border-style:solid;border-color:var(--cc,#888);color:var(--ink)}
+.csub .cnum{font-family:var(--mono);font-size:9.5px;opacity:.75;font-weight:500}
+.csub-exp{margin-top:8px;padding:9px 0 2px 14px;border-left:2px solid var(--line2)}
+.csub-g{margin-bottom:9px}
+.csub-g:last-child{margin-bottom:0}
+.csub-t{font-size:10px;font-weight:700;color:var(--ink3);margin-bottom:4px;letter-spacing:.03em}
+.clegend{display:flex;flex-wrap:wrap;gap:5px 14px;margin-top:10px;padding-top:10px;
+ border-top:1px solid color-mix(in srgb,var(--g600) 22%,transparent);font-size:11.5px;color:var(--ink2)}
+.clegend span{display:inline-flex;align-items:center;gap:6px}
+.clegend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.dr tbody tr.flash{animation:drflash 2.4s ease}
+@keyframes drflash{0%,18%{background:#fff4d4}100%{background:transparent}}
+
+.dr-scrim{position:fixed;inset:0;background:rgba(6,51,29,.42);opacity:0;pointer-events:none;
+ transition:opacity .18s;z-index:60}
+.dr-scrim.on{opacity:1;pointer-events:auto}
+.dr-panel{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--paper);
+ border-left:1px solid var(--line);transform:translateX(100%);transition:transform .22s ease;
+ z-index:61;overflow-y:auto;padding:24px 24px 32px}
+.dr-panel.on{transform:none}
+.dr-panel h2{font-size:1.2rem;margin:10px 0 6px;line-height:1.45;font-weight:900;color:var(--g900)}
+.dr-panel .pno{font-family:var(--mono);font-size:12px;color:var(--g600)}
+.dr-close{position:absolute;top:16px;right:16px;border:1px solid var(--line);background:var(--paper);
+ color:var(--ink2);border-radius:4px;width:30px;height:30px;cursor:pointer;font-size:15px;line-height:1}
+.dr-close:hover{background:var(--sunk)}
+.dr dl.kv{margin:18px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 15px;font-size:.85rem}
+.dr dl.kv dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+ color:var(--ink3);white-space:nowrap;padding-top:3px}
+.dr dl.kv dd{margin:0;color:var(--ink);word-break:break-word}
+.dr .rel{margin-top:20px;padding-top:16px;border-top:1px solid var(--line2)}
+.dr .rel-t{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.dr .rel a{display:block;font-size:.82rem;padding:6px 0;color:var(--ink);text-decoration:none;
+ border-bottom:1px solid var(--line2);cursor:pointer}
+.dr .rel a:hover{color:var(--g600)}
+.dr .rel a .rno{font-family:var(--mono);font-size:10.5px;color:var(--ink3);margin-right:8px}
+
+.dr-foot{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);
+ font-size:.78rem;color:var(--ink3);line-height:1.95}
+.dr-foot b{color:var(--ink2)}
+.dr-copy{margin-top:14px;padding-top:14px;border-top:1px solid var(--line2);color:var(--ink2);font-size:.78rem}
+.dr-copy b{color:var(--g900);font-weight:700}
+
+.dr-printhead,.dr-printhead2{display:none}
+
+@media (max-width:640px){
+  .dr-wrap{padding:0 16px 56px}
+  .dr-stat .v{font-size:1.45rem}
+  .dr-panel{width:100%}
+}
+
+@media print{
+  @page{size:A4;margin:13mm 9mm 15mm}
+  .dr-ctl,.dr-scrim,.dr-panel,.dr-tree,.dr-note,.dr-close,.cmore{display:none!important}
+  .dr-tablebox,.dr-tablebox.off{display:block!important}
+  /* 條款對照表一併印出，另起一頁 */
+  .dr-clausebox{display:block!important;break-before:page;margin-top:0}
+  .dr-printhead2{display:block!important;font-size:12pt;font-weight:900;color:#000;
+    border-bottom:1.5px solid #000;padding-bottom:4pt;margin-bottom:8pt}
+  .dr-guide{background:#f0f5f1!important;border-left:3px solid #333;padding:7pt 9pt;font-size:7.5pt;
+    line-height:1.7;margin-bottom:8pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .dr-ctab{overflow:visible;border:0}
+  table.ctab{min-width:0;font-size:7pt;width:100%}
+  table.ctab thead{display:table-header-group}
+  table.ctab thead th{background:#1d3d2d!important;color:#fff;font-size:6.5pt;padding:4pt 5pt;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  table.ctab tbody tr{break-inside:avoid;border-bottom:.5pt solid #ccc}
+  table.ctab td{padding:3.5pt 5pt}
+  table.ctab td.cl{font-size:7.5pt;width:50px}
+  table.ctab td.cn{font-size:7pt;min-width:0}
+  table.ctab td.cdoc{min-width:0}
+  table.ctab td.cov{width:62px;font-size:6.5pt}
+  .cchip{margin:1pt 4pt 1pt 0;padding:1.5pt 5pt;font-size:6pt;background:#fff!important;
+    border:.5pt solid #bbb;color:#000}
+  .cchip .cn2{font-size:6.5pt;margin-left:3pt}
+  .csub{display:none}
+  .csub-exp{margin-top:2pt;padding:2pt 0 0 6pt;border-left:.5pt solid #ccc}
+  .csub-t{font-size:6.3pt;color:#333;margin-bottom:1.5pt}
+  .csub-g{margin-bottom:3pt}
+  .dr{color:#000}
+  .dr-wrap{max-width:none;padding:0}
+  .dr-head{padding:0 0 10px;border-bottom:2px solid #000;break-after:avoid}
+  .dr h1{font-size:15pt;color:#000;margin-bottom:5pt}
+  .dr-sub{font-size:8pt;max-width:none;line-height:1.6}
+  .dr-brand img{width:34px}
+  .dr-brand b{font-size:9pt}
+  .dr-meta{font-size:7.5pt;margin-top:8pt}
+  .dr-stats{margin-top:10pt;break-inside:avoid}
+  .dr-stat{padding:6pt 8pt}
+  .dr-stat .v{font-size:13pt}
+  .dr-stat .k,.dr-stat .n{font-size:6.5pt}
+  .dr-tablebox{overflow:visible;border:0;margin-top:10pt}
+  .dr table{min-width:0;font-size:7pt;width:100%}
+  .dr thead{display:table-header-group}
+  .dr thead th{background:#e9efe9!important;color:#000;font-size:6.5pt;padding:4pt 5pt;
+    border-bottom:1px solid #000;-webkit-print-color-adjust:exact;print-color-adjust:exact;position:static}
+  .dr tbody tr{break-inside:avoid;border-bottom:.5pt solid #ccc}
+  .dr td{padding:3.2pt 5pt}
+  .dr td.no,.dr td.cl,.dr td.ts,.dr td.pa{font-size:6.5pt}
+  .dr td.nm{min-width:0;font-size:7pt}
+  .dr td.ow,.dr td.kp{font-size:6.5pt}
+  .dr .lv{font-size:6pt;padding:1pt 4pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .dr-foot{margin-top:12pt;padding-top:8pt;font-size:6.8pt;break-inside:avoid}
+  .dr-printhead{display:block;font-size:6.8pt;color:#444;text-align:right;
+    border-bottom:.5pt solid #ccc;padding-bottom:3pt;margin-bottom:6pt}
+}
+</style>
+
+<div class="dr">
+<div class="dr-wrap">
+
+  <div class="dr-printhead">台灣管理系統驗證有限公司（TMSC）　ISO 45001 職業安全衛生管理系統文件清冊</div>
+
+  <header class="dr-head">
+    <div class="dr-brand">
+      <img src="/images/logo.png" alt="TMSC">
+      <b>台灣管理系統驗證有限公司
+        <span>Taiwan Management System Certification Ltd.</span></b>
+    </div>
+    <p class="dr-eyebrow">CNS / ISO 45001:2018 ・ TOSHMS</p>
+    <h1>數位人工智慧文件管理<br>職業安全衛生管理系統文件清冊</h1>
+    <p class="dr-sub">依 CNS 45001:2018 全條文（4.1–10.3）與勞動部職業安全衛生署「TOSHMS 特定稽核重點事項」逐條展開之四階文件架構，涵蓋3處以上場所(建物)、 2,000位以上工作者（含承攬商）之作業型態。每一份文件均掛載對應條文、法源依據與上下階勾稽關係。</p>
+    <div class="dr-meta">
+      <span>編號規則　<b>ISO45001 - 階層(1碼) - 流水號(3碼)</b></span>
+      <span>版次　<b>Rev.0</b></span>
+      <span>製表　<b>TMSC 輔導顧問　黃建仁</b></span>
+    </div>
+    <div class="dr-stats">
+      <div class="dr-stat hl"><div class="k">文件總數</div><div class="v">335</div><div class="n">四階合計</div></div>
+      <div class="dr-stat"><div class="k">一階 手冊／政策</div><div class="v">5</div><div class="n">Manual / Policy</div></div>
+      <div class="dr-stat"><div class="k">二階 程序書</div><div class="v">43</div><div class="n">Procedure（SOP）</div></div>
+      <div class="dr-stat"><div class="k">三階 作業標準書</div><div class="v">83</div><div class="n">Work Instruction</div></div>
+      <div class="dr-stat"><div class="k">四階 表單／紀錄</div><div class="v">204</div><div class="n">Form / Record</div></div>
+    </div>
+    <div class="dr-note">
+      <b>階層用語正名。</b>本清冊一律依 ISO 標準用語：<b>二階＝程序書（Procedure）</b>，即一般慣稱之標準程序書 SOP；<b>三階＝作業標準書（Work Instruction, WI）</b>。早期醫療機構由 ISO 9001 沿用而來之二、三階混用情形，於職業安全衛生管理系統建置時一併導正。
+    </div>
+  </header>
+
+  <div class="dr-ctl">
+    <div class="dr-row">
+      <div class="dr-search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="drq" type="search" placeholder="搜尋文件名稱、編號、條文、法源、權責單位…" aria-label="搜尋文件">
+      </div>
+      <div class="dr-seg" role="group" aria-label="檢視模式">
+        <button id="drTable" aria-pressed="true">文件清冊</button>
+        <button id="drTree" aria-pressed="false">階層展開</button>
+        <button id="drClause" aria-pressed="false">條款對照表</button>
+      </div>
+      <button class="dr-print" id="drPrint">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+        列印／另存 PDF
+      </button>
+    </div>
+    <div class="dr-chips" id="drLv" role="group" aria-label="依階層篩選"></div>
+    <div class="dr-chips" id="drCh" role="group" aria-label="依條文章節篩選"></div>
+    <div class="dr-count" id="drCount"></div>
+  </div>
+
+  <div class="dr-tablebox" id="drTablebox">
+    <table>
+      <thead><tr>
+        <th>文件編號</th><th>文件名稱</th><th>階</th><th>CNS 45001 條文</th>
+        <th>TOSHMS</th><th>上階文件</th><th>權責單位</th><th>保存年限</th>
+      </tr></thead>
+      <tbody id="drTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="dr-tree" id="drTreebox"></div>
+
+  <div class="dr-clausebox" id="drClausebox">
+    <div class="dr-printhead2">附表　CNS／ISO 45001:2018 條款對照表</div>
+    <div class="dr-guide">
+      <b>使用說明：</b>本表就 CNS／ISO 45001:2018 各條款與本系統文件之對應關係逐條查核。點擊文件編號，即可直接跳至文件清冊該列。<br>
+      <b>對應文件逾 8 份、且有 2 種以上「份量足夠」危害別之條款</b>，先依職業安全衛生<b>危害別</b>分類，點選分類鍵始展開該類文件；其中物理性、化學性、機械設備與行政管理四大類，文件數再逾 8 份者另分二層子項（如「放射暨游離輻射」「特殊作業與局限空間」等）。文件雖逾 8 份但僅一種危害別具份量者，直接顯示前 8 份、點擊「＋其餘」展開——承辦同仁毋須背誦條款與文件編號，逐層點選即可尋得所需文件。<br>
+      <b>覆蓋查核結果：</b>CNS 45001 第 4～第 10 章共 <b>40</b> 項條款，<span class="hit">全數已完整對應，無缺口</span>。
+      <div class="clegend" id="drLegend"></div>
+    </div>
+    <div class="dr-ctab">
+      <table class="ctab">
+        <thead><tr><th>條款</th><th>條款名稱</th><th>對應文件</th><th>覆蓋</th></tr></thead>
+        <tbody id="drCbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="dr-foot">
+    <b>權責單位</b>依醫學中心組織通則編列，實際權責以實際組織編制確認後調整。<b>保存年限</b>依職業安全衛生相關法規最低要求編列，院方得從嚴。本清冊為文件架構規劃，實際導入內容以現況查證結果為準。
+    <div class="dr-copy">
+      &copy; <span id="drYear">2026</span> <b>台灣管理系統驗證有限公司</b>　Taiwan Management System Certification Ltd.　版權所有．未經授權不得複製或轉載
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="dr-scrim" id="drScrim"></div>
+<aside class="dr-panel" id="drPanel" role="dialog" aria-modal="true" tabindex="-1">
+  <button class="dr-close" id="drClose" aria-label="關閉">×</button>
+  <div id="drBody"></div>
+</aside>
+
+<script>
+(function(){
+const ROWS = [{"no":"ISO45001-1-001","name":"職業安全衛生管理手冊","clause":"4.1~10.3（全）","toshms":"—","law":"職安法施行細則§31","parent":"—","owner":"職業安全衛生中心","keep":"永久","lv":1,"chs":["全"],"kids":["ISO45001-1-002","ISO45001-1-003","ISO45001-1-004","ISO45001-1-005","ISO45001-2-001","ISO45001-2-002","ISO45001-2-003","ISO45001-2-004","ISO45001-2-005","ISO45001-2-006","ISO45001-2-007","ISO45001-2-008","ISO45001-2-009","ISO45001-2-010","ISO45001-2-011","ISO45001-2-012","ISO45001-2-013","ISO45001-2-014","ISO45001-2-015","ISO45001-2-016","ISO45001-2-017","ISO45001-2-018","ISO45001-2-019","ISO45001-2-020","ISO45001-2-021","ISO45001-2-022","ISO45001-2-023","ISO45001-2-024","ISO45001-2-025","ISO45001-2-026","ISO45001-2-027","ISO45001-2-028","ISO45001-2-029","ISO45001-2-030","ISO45001-2-031","ISO45001-2-032","ISO45001-2-033","ISO45001-2-034","ISO45001-2-035","ISO45001-2-036","ISO45001-2-037","ISO45001-2-038","ISO45001-2-039","ISO45001-2-040","ISO45001-2-041","ISO45001-2-042","ISO45001-2-043"]},{"no":"ISO45001-1-002","name":"職業安全衛生政策","clause":"5.2","toshms":"—","law":"職安法§5、§23","parent":"ISO45001-1-001","owner":"院長室／職業安全衛生中心","keep":"永久","lv":1,"chs":["5"],"kids":[]},{"no":"ISO45001-1-003","name":"職業安全衛生管理系統範圍書","clause":"4.3","toshms":"—","law":"—","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":1,"chs":["4"],"kids":[]},{"no":"ISO45001-1-004","name":"職業安全衛生管理規章","clause":"5.3、8.1.1","toshms":"1.2","law":"職安法施行細則§31","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":1,"chs":["5","8"],"kids":[]},{"no":"ISO45001-1-005","name":"安全衛生工作守則","clause":"7.3、8.1.1","toshms":"—","law":"職安法§34、施行細則§41","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":1,"chs":["7","8"],"kids":[]},{"no":"ISO45001-2-001","name":"組織前後環節與利害相關者管理程序書","clause":"4.1、4.2、4.3","toshms":"—","law":"—","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["4"],"kids":["ISO45001-4-008","ISO45001-4-009","ISO45001-4-010"]},{"no":"ISO45001-2-002","name":"領導與承諾及職業安全衛生政策管理程序書","clause":"5.1、5.2","toshms":"1.1","law":"職安法§5","parent":"ISO45001-1-001","owner":"院長室／職業安全衛生中心","keep":"永久","lv":2,"chs":["5"],"kids":["ISO45001-4-011"]},{"no":"ISO45001-2-003","name":"組織角色、責任及職權管理程序書","clause":"5.3","toshms":"1.2","law":"職安法施行細則§31、職安管理辦法§2-1","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["5"],"kids":["ISO45001-4-012","ISO45001-4-013","ISO45001-4-014"]},{"no":"ISO45001-2-004","name":"工作者之諮詢及參與管理程序書","clause":"5.4","toshms":"—","law":"職安法§23、職安管理辦法§11","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["5"],"kids":["ISO45001-3-088","ISO45001-4-017","ISO45001-4-018"]},{"no":"ISO45001-2-005","name":"危害鑑別、風險及機會評鑑管理程序書","clause":"6.1.1、6.1.2","toshms":"8.2","law":"職安法§5、風險評估技術指引","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["6"],"kids":["ISO45001-3-001","ISO45001-3-002","ISO45001-3-003","ISO45001-4-025"]},{"no":"ISO45001-2-006","name":"法規要求事項及其他要求事項管理程序書","clause":"6.1.3","toshms":"—","law":"職安法§5","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["6"],"kids":["ISO45001-4-026","ISO45001-4-027","ISO45001-4-028","ISO45001-4-029"]},{"no":"ISO45001-2-007","name":"職業安全衛生目標及管理方案管理程序書","clause":"6.2","toshms":"1.1、1.3","law":"職安法§23、施行細則§31","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["6"],"kids":["ISO45001-4-030","ISO45001-4-031","ISO45001-4-032","ISO45001-4-033"]},{"no":"ISO45001-2-008","name":"資源管理程序書","clause":"7.1","toshms":"—","law":"職安法§23","parent":"ISO45001-1-001","owner":"職業安全衛生中心／財務處","keep":"永久","lv":2,"chs":["7"],"kids":["ISO45001-4-034","ISO45001-4-035"]},{"no":"ISO45001-2-009","name":"適任性、教育訓練及認知管理程序書","clause":"7.2、7.3","toshms":"3.3","law":"職安法§32、教育訓練規則","parent":"ISO45001-1-001","owner":"職業安全衛生中心／人力資源處","keep":"永久","lv":2,"chs":["7"],"kids":["ISO45001-3-004","ISO45001-3-005","ISO45001-3-006","ISO45001-4-039","ISO45001-4-040","ISO45001-4-043"]},{"no":"ISO45001-2-010","name":"溝通管理程序書","clause":"7.4","toshms":"—","law":"職安法§34","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["7"],"kids":["ISO45001-4-044","ISO45001-4-045"]},{"no":"ISO45001-2-011","name":"文件化資訊管理程序書","clause":"7.5","toshms":"—","law":"—","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["7"],"kids":["ISO45001-3-086","ISO45001-3-087","ISO45001-4-001","ISO45001-4-002","ISO45001-4-005","ISO45001-4-006"]},{"no":"ISO45001-2-012","name":"運作規劃及管制程序書","clause":"8.1.1","toshms":"—","law":"職安法§6","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-089","ISO45001-4-046","ISO45001-4-047"]},{"no":"ISO45001-2-013","name":"危害消除及風險降低管制層級程序書","clause":"8.1.2","toshms":"—","law":"職安法§6、設施規則","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-4-048"]},{"no":"ISO45001-2-014","name":"變更管理程序書","clause":"8.1.3","toshms":"3.1~3.4","law":"職安法§6","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-4-049","ISO45001-4-050","ISO45001-4-051","ISO45001-4-052"]},{"no":"ISO45001-2-015","name":"採購管理程序書","clause":"8.1.4.1","toshms":"4.1~4.4","law":"職安法§6","parent":"ISO45001-1-001","owner":"體系資材運籌管理處","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-074","ISO45001-4-056"]},{"no":"ISO45001-2-016","name":"承攬管理程序書","clause":"8.1.4.2","toshms":"5.1~5.6","law":"職安法§25~§28、設施規則","parent":"ISO45001-1-001","owner":"職業安全衛生中心／總務處","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-072","ISO45001-3-073","ISO45001-4-057","ISO45001-4-058","ISO45001-4-062","ISO45001-4-064","ISO45001-4-065"]},{"no":"ISO45001-2-017","name":"外包管理程序書","clause":"8.1.4.3","toshms":"5.1~5.6","law":"職安法§25~§28","parent":"ISO45001-1-001","owner":"體系資材運籌管理處","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-4-066","ISO45001-4-067"]},{"no":"ISO45001-2-018","name":"緊急準備與應變管理程序書","clause":"8.2","toshms":"—","law":"職安法§6、消防法§13、醫療法§25","parent":"ISO45001-1-001","owner":"職業安全衛生中心／總務處","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-081","ISO45001-4-068","ISO45001-4-069","ISO45001-4-070","ISO45001-4-073","ISO45001-4-074","ISO45001-4-075"]},{"no":"ISO45001-2-019","name":"危害性化學品管理程序書","clause":"8.1.1、8.1.2","toshms":"8.1","law":"職安法§10、標示及通識規則、評估及分級管理辦法","parent":"ISO45001-1-001","owner":"職業安全衛生中心／藥劑部","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-007","ISO45001-3-008","ISO45001-3-009","ISO45001-3-010","ISO45001-3-011","ISO45001-3-012","ISO45001-3-013","ISO45001-3-014","ISO45001-3-015","ISO45001-4-088"]},{"no":"ISO45001-2-020","name":"物理性危害預防管理程序書","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§300、高溫作業勞工作息時間標準","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-016","ISO45001-3-017","ISO45001-3-018"]},{"no":"ISO45001-2-021","name":"游離輻射與非游離輻射作業管理程序書","clause":"8.1.1、8.1.2","toshms":"—","law":"游離輻射防護法、游離輻射防護安全標準","parent":"ISO45001-1-001","owner":"放射線部／輻射防護委員會","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-019","ISO45001-3-020","ISO45001-3-021","ISO45001-3-022","ISO45001-3-023","ISO45001-3-024","ISO45001-3-025","ISO45001-3-026","ISO45001-4-093","ISO45001-4-094","ISO45001-4-097"]},{"no":"ISO45001-2-022","name":"生物病原體暴露預防管理程序書","clause":"8.1.1、8.1.2","toshms":"2","law":"職安法§6、傳染病防治法、感染性生物材料管理辦法","parent":"ISO45001-1-001","owner":"感染管制中心／職業安全衛生中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-027","ISO45001-3-028","ISO45001-3-029","ISO45001-3-030","ISO45001-3-031","ISO45001-3-032","ISO45001-4-103"]},{"no":"ISO45001-2-023","name":"職業病預防管理程序書（四大計畫）","clause":"6.1.2、8.1.1","toshms":"2、6.2","law":"職安法§6第2項、施行細則§9~§11","parent":"ISO45001-1-001","owner":"職業安全衛生中心／職業醫學科","keep":"永久","lv":2,"chs":["6","8"],"kids":["ISO45001-3-033","ISO45001-3-034","ISO45001-3-035","ISO45001-3-036","ISO45001-3-037","ISO45001-3-038","ISO45001-3-039","ISO45001-3-040","ISO45001-4-123"]},{"no":"ISO45001-2-024","name":"作業環境監測管理程序書","clause":"8.1.1、9.1.1","toshms":"8.1","law":"職安法§12、作業環境監測實施辦法","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["8","9"],"kids":["ISO45001-3-041","ISO45001-3-042"]},{"no":"ISO45001-2-025","name":"機械設備安全與自動檢查管理程序書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安法§16、職安管理辦法§13~§80","parent":"ISO45001-1-001","owner":"工務室／職業安全衛生中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-043","ISO45001-3-044","ISO45001-3-045","ISO45001-3-046","ISO45001-3-047","ISO45001-3-048","ISO45001-3-049","ISO45001-3-050","ISO45001-3-051","ISO45001-4-135"]},{"no":"ISO45001-2-026","name":"醫療氣體與高壓設備安全管理程序書","clause":"8.1.1、8.1.2","toshms":"—","law":"高壓氣體勞工安全規則、鍋爐及壓力容器安全規則","parent":"ISO45001-1-001","owner":"工務室","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-052","ISO45001-3-053","ISO45001-3-054"]},{"no":"ISO45001-2-027","name":"特殊作業安全管理程序書","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§29-1~§29-7、異常氣壓危害預防標準、缺氧症預防規則","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-055","ISO45001-3-056","ISO45001-3-057","ISO45001-3-058","ISO45001-3-059","ISO45001-3-060","ISO45001-4-147"]},{"no":"ISO45001-2-028","name":"個人防護具管理程序書","clause":"8.1.2","toshms":"—","law":"設施規則§277、§283、呼吸防護計畫及採行措施指引","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-061","ISO45001-3-062"]},{"no":"ISO45001-2-029","name":"車輛交通安全管理程序書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安法§6、緊急醫療救護法","parent":"ISO45001-1-001","owner":"總務處／急診醫學部","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-063","ISO45001-3-064","ISO45001-3-065","ISO45001-4-160","ISO45001-4-163"]},{"no":"ISO45001-2-030","name":"職業健康服務與健康管理程序書","clause":"8.1.1","toshms":"6.1、6.2","law":"職安法§20~§22、勞工健康保護規則","parent":"ISO45001-1-001","owner":"職業安全衛生中心／職業醫學科","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-066","ISO45001-3-067","ISO45001-3-068","ISO45001-3-069"]},{"no":"ISO45001-2-031","name":"院內工程施工安全管理程序書","clause":"8.1.1、8.1.4.2","toshms":"5.1~5.6","law":"職安法§26~§28、營造安全衛生設施標準","parent":"ISO45001-1-001","owner":"工務室／感染管制中心","keep":"永久","lv":2,"chs":["8"],"kids":["ISO45001-3-070","ISO45001-3-071"]},{"no":"ISO45001-2-032","name":"監督、量測、分析及績效評估管理程序書","clause":"9.1.1","toshms":"1.1、8.2","law":"職安法§23","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["9"],"kids":["ISO45001-4-176","ISO45001-4-177","ISO45001-4-178","ISO45001-4-179"]},{"no":"ISO45001-2-033","name":"守規性評估管理程序書","clause":"9.1.2","toshms":"—","law":"職安法§5","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["9"],"kids":["ISO45001-4-180","ISO45001-4-181"]},{"no":"ISO45001-2-034","name":"內部稽核管理程序書","clause":"9.2","toshms":"1.2","law":"職安法§23、施行細則§31","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["9"],"kids":["ISO45001-3-082","ISO45001-3-083"]},{"no":"ISO45001-2-035","name":"管理階層審查管理程序書","clause":"9.3","toshms":"1.3","law":"職安法§23","parent":"ISO45001-1-001","owner":"院長室／職業安全衛生中心","keep":"永久","lv":2,"chs":["9"],"kids":["ISO45001-4-187","ISO45001-4-188","ISO45001-4-189","ISO45001-4-190"]},{"no":"ISO45001-2-036","name":"事故、不符合事項及矯正措施管理程序書","clause":"10.2","toshms":"7.1~7.4","law":"職安法§37、施行細則§47~§49","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["10"],"kids":["ISO45001-3-084","ISO45001-3-085","ISO45001-4-195","ISO45001-4-196","ISO45001-4-197","ISO45001-4-198"]},{"no":"ISO45001-2-037","name":"持續改進管理程序書","clause":"10.3","toshms":"1.1","law":"職安法§23","parent":"ISO45001-1-001","owner":"職業安全衛生中心","keep":"永久","lv":2,"chs":["10"],"kids":["ISO45001-4-199","ISO45001-4-200","ISO45001-4-201"]},{"no":"ISO45001-2-038","name":"火災緊急應變管理程序書","clause":"8.2","toshms":"—","law":"消防法§13、醫療法§25","parent":"ISO45001-1-001","owner":"總務處／職業安全衛生中心","keep":"3年","lv":2,"chs":["8"],"kids":[]},{"no":"ISO45001-2-039","name":"地震緊急應變管理程序書","clause":"8.2","toshms":"—","law":"災害防救法、醫療法§25","parent":"ISO45001-1-001","owner":"總務處","keep":"3年","lv":2,"chs":["8"],"kids":[]},{"no":"ISO45001-2-040","name":"輻射意外事件應變管理程序書","clause":"8.2","toshms":"—","law":"游離輻射防護法§28、§32","parent":"ISO45001-1-001","owner":"輻射防護師／放射線部","keep":"永久","lv":2,"chs":["8"],"kids":[]},{"no":"ISO45001-2-041","name":"生物性物質洩漏應變管理程序書","clause":"8.2","toshms":"—","law":"感染性生物材料管理辦法","parent":"ISO45001-1-001","owner":"感染管制中心","keep":"3年","lv":2,"chs":["8"],"kids":[]},{"no":"ISO45001-2-042","name":"大量傷患應變管理程序書","clause":"8.2","toshms":"—","law":"緊急醫療救護法、醫療法§25","parent":"ISO45001-1-001","owner":"急診醫學部","keep":"3年","lv":2,"chs":["8"],"kids":[]},{"no":"ISO45001-2-043","name":"停電、停水及資通訊中斷應變管理程序書","clause":"8.2","toshms":"—","law":"醫療機構設置標準、醫院評鑑基準","parent":"ISO45001-1-001","owner":"工務室／資訊處","keep":"3年","lv":2,"chs":["8"],"kids":[]},{"no":"ISO45001-3-001","name":"危害鑑別與風險評估作業標準書","clause":"6.1.2.1、6.1.2.2","toshms":"8.2","law":"風險評估技術指引","parent":"ISO45001-2-005","owner":"職業安全衛生中心","keep":"永久","lv":3,"chs":["6"],"kids":["ISO45001-4-020","ISO45001-4-021","ISO45001-4-022","ISO45001-4-024"]},{"no":"ISO45001-3-002","name":"職業安全衛生機會辨識與評估作業標準書","clause":"6.1.2.3","toshms":"8.2","law":"—","parent":"ISO45001-2-005","owner":"職業安全衛生中心","keep":"永久","lv":3,"chs":["6"],"kids":["ISO45001-4-023"]},{"no":"ISO45001-3-003","name":"變更前危害鑑別與風險評估作業標準書","clause":"6.1.1、8.1.3","toshms":"3.1","law":"—","parent":"ISO45001-2-005","owner":"職業安全衛生中心","keep":"永久","lv":3,"chs":["6","8"],"kids":[]},{"no":"ISO45001-3-004","name":"職業安全衛生教育訓練規劃與執行作業標準書","clause":"7.2、7.3","toshms":"3.3","law":"職安教育訓練規則§16~§20","parent":"ISO45001-2-009","owner":"職業安全衛生中心／人力資源處","keep":"3年","lv":3,"chs":["7"],"kids":["ISO45001-4-036","ISO45001-4-037","ISO45001-4-038"]},{"no":"ISO45001-3-005","name":"新進人員職業安全衛生訓練作業標準書","clause":"7.2、7.3","toshms":"3.3","law":"職安教育訓練規則§17","parent":"ISO45001-2-009","owner":"人力資源處","keep":"3年","lv":3,"chs":["7"],"kids":["ISO45001-4-041"]},{"no":"ISO45001-3-006","name":"數位學習教材製作與管理作業標準書","clause":"7.2、7.5","toshms":"—","law":"—","parent":"ISO45001-2-009","owner":"職業安全衛生中心／資訊處","keep":"永久","lv":3,"chs":["7"],"kids":["ISO45001-4-042"]},{"no":"ISO45001-3-007","name":"危害性化學品標示及通識作業標準書","clause":"8.1.1","toshms":"8.1","law":"標示及通識規則§5~§17","parent":"ISO45001-2-019","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-076","ISO45001-4-077","ISO45001-4-078"]},{"no":"ISO45001-3-008","name":"抗腫瘤藥品調配與廢棄作業安全標準書","clause":"8.1.1、8.1.2","toshms":"8.1","law":"職安法§6、藥事法、特化標準","parent":"ISO45001-2-019","owner":"藥劑部","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-081"]},{"no":"ISO45001-3-009","name":"甲醛（福馬林）作業安全標準書","clause":"8.1.1、8.1.2","toshms":"8.1","law":"特定化學物質危害預防標準","parent":"ISO45001-2-019","owner":"病理部／解剖室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-082"]},{"no":"ISO45001-3-010","name":"環氧乙烷（EO）滅菌作業安全標準書","clause":"8.1.1、8.1.2","toshms":"8.1","law":"特定化學物質危害預防標準","parent":"ISO45001-2-019","owner":"供應中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-083"]},{"no":"ISO45001-3-011","name":"高階消毒劑（戊二醛／鄰苯二甲醛）作業安全標準書","clause":"8.1.1、8.1.2","toshms":"8.1","law":"職安法§10、設施規則","parent":"ISO45001-2-019","owner":"內視鏡室／供應中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-084"]},{"no":"ISO45001-3-012","name":"麻醉廢氣暴露預防作業標準書","clause":"8.1.1、8.1.2","toshms":"8.1","law":"職安法§6、設施規則§292","parent":"ISO45001-2-019","owner":"麻醉科／手術室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-085"]},{"no":"ISO45001-3-013","name":"檢驗與研究實驗室化學品操作安全標準書","clause":"8.1.1、8.1.2","toshms":"8.1","law":"職安法§10、有機溶劑中毒預防規則","parent":"ISO45001-2-019","owner":"醫學研究部／檢驗醫學部","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-086"]},{"no":"ISO45001-3-014","name":"危害性化學品洩漏緊急處理作業標準書","clause":"8.2","toshms":"8.1","law":"職安法§6、毒管法","parent":"ISO45001-2-019","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-087"]},{"no":"ISO45001-3-015","name":"危害性化學品暴露評估與分級管理作業標準書","clause":"6.1.2.2、8.1.1","toshms":"8.1","law":"危害性化學品評估及分級管理辦法","parent":"ISO45001-2-019","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["6","8"],"kids":["ISO45001-4-079","ISO45001-4-080"]},{"no":"ISO45001-3-016","name":"噪音危害預防與聽力保護作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§300、§300-1","parent":"ISO45001-2-020","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-089","ISO45001-4-090"]},{"no":"ISO45001-3-017","name":"高溫作業危害預防作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"高溫作業勞工作息時間標準","parent":"ISO45001-2-020","owner":"營養部／工務室／洗衣房","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-091"]},{"no":"ISO45001-3-018","name":"照明與視覺環境管理作業標準書","clause":"8.1.1","toshms":"—","law":"設施規則§313","parent":"ISO45001-2-020","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-092"]},{"no":"ISO45001-3-019","name":"診斷放射作業輻射防護標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"游離輻射防護法§7、防護安全標準","parent":"ISO45001-2-021","owner":"放射線部","keep":"永久","lv":3,"chs":["8"],"kids":["ISO45001-4-096"]},{"no":"ISO45001-3-020","name":"核子醫學放射性物質操作與廢棄作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"游離輻射防護法§29、放射性物質安全管理","parent":"ISO45001-2-021","owner":"核子醫學科","keep":"永久","lv":3,"chs":["8"],"kids":["ISO45001-4-098"]},{"no":"ISO45001-3-021","name":"放射腫瘤治療設備輻射安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"游離輻射防護法、防護安全標準","parent":"ISO45001-2-021","owner":"放射腫瘤部","keep":"永久","lv":3,"chs":["8"],"kids":["ISO45001-4-203"]},{"no":"ISO45001-3-022","name":"移動式X光機與C-Arm輻射防護作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"游離輻射防護安全標準","parent":"ISO45001-2-021","owner":"放射線部／手術室／心導管室","keep":"永久","lv":3,"chs":["8"],"kids":["ISO45001-4-099"]},{"no":"ISO45001-3-023","name":"輻射劑量佩章配戴與劑量管理作業標準書","clause":"8.1.1、9.1.1","toshms":"—","law":"游離輻射防護法§18、防護安全標準§14","parent":"ISO45001-2-021","owner":"輻射防護師","keep":"至75歲或停止作業後30年","lv":3,"chs":["8","9"],"kids":["ISO45001-4-095"]},{"no":"ISO45001-3-024","name":"磁振造影（MRI）磁場安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安法§6、非游離輻射作業危害預防","parent":"ISO45001-2-021","owner":"放射線部","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-100"]},{"no":"ISO45001-3-025","name":"醫用雷射安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安法§6、設施規則","parent":"ISO45001-2-021","owner":"手術室／皮膚科／眼科","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-101"]},{"no":"ISO45001-3-026","name":"紫外線殺菌設備安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安法§6、設施規則","parent":"ISO45001-2-021","owner":"感染管制中心／工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-102"]},{"no":"ISO45001-3-027","name":"血液體液暴觸及針扎事件處理作業標準書","clause":"8.1.1、10.2","toshms":"7.1","law":"職安法§6、傳染病防治法","parent":"ISO45001-2-022","owner":"感染管制中心","keep":"30年","lv":3,"chs":["8","10"],"kids":["ISO45001-4-104","ISO45001-4-105"]},{"no":"ISO45001-3-028","name":"空氣傳染疾病職業防護作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"傳染病防治法、結核病防治工作手冊","parent":"ISO45001-2-022","owner":"感染管制中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-106"]},{"no":"ISO45001-3-029","name":"新興傳染病職業防護作業標準書","clause":"8.1.1、8.2","toshms":"—","law":"傳染病防治法","parent":"ISO45001-2-022","owner":"感染管制中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-204"]},{"no":"ISO45001-3-030","name":"生物安全第二等級（BSL-2）實驗室操作作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"感染性生物材料管理辦法","parent":"ISO45001-2-022","owner":"醫學研究部／檢驗醫學部","keep":"永久","lv":3,"chs":["8"],"kids":["ISO45001-4-107"]},{"no":"ISO45001-3-031","name":"感染性廢棄物收集與處理作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"廢棄物清理法、醫療機構廢棄物管理辦法","parent":"ISO45001-2-022","owner":"總務處／感染管制中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-108"]},{"no":"ISO45001-3-032","name":"員工疫苗接種與免疫狀態管理作業標準書","clause":"8.1.1","toshms":"6.2","law":"勞工健康保護規則§9","parent":"ISO45001-2-022","owner":"感染管制中心／職業安全衛生中心","keep":"10年","lv":3,"chs":["8"],"kids":["ISO45001-4-109"]},{"no":"ISO45001-3-033","name":"人因性危害預防計畫","clause":"6.1.2、8.1.1","toshms":"2","law":"職安法§6第2項第1款、施行細則§9","parent":"ISO45001-2-023","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["6","8"],"kids":["ISO45001-4-110","ISO45001-4-111","ISO45001-4-112"]},{"no":"ISO45001-3-034","name":"異常工作負荷促發疾病預防計畫","clause":"6.1.2、8.1.1","toshms":"2","law":"職安法§6第2項第2款、施行細則§10","parent":"ISO45001-2-023","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["6","8"],"kids":["ISO45001-4-113","ISO45001-4-115"]},{"no":"ISO45001-3-035","name":"執行職務遭受不法侵害預防計畫","clause":"6.1.2、8.1.1","toshms":"2","law":"職安法§6第2項第3款、施行細則§11","parent":"ISO45001-2-023","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["6","8"],"kids":["ISO45001-4-116"]},{"no":"ISO45001-3-036","name":"母性健康保護計畫","clause":"6.1.2、8.1.1","toshms":"2、6.2","law":"職安法§31、女性勞工母性健康保護實施辦法","parent":"ISO45001-2-023","owner":"職業安全衛生中心／職業醫學科","keep":"10年","lv":3,"chs":["6","8"],"kids":["ISO45001-4-118","ISO45001-4-119","ISO45001-4-120"]},{"no":"ISO45001-3-037","name":"病人搬運與移位人因危害預防作業標準書","clause":"8.1.1、8.1.2","toshms":"2","law":"人因性危害預防計畫指引","parent":"ISO45001-2-023","owner":"護理部／復健醫學部","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-121"]},{"no":"ISO45001-3-038","name":"電腦終端機（VDT）作業人因危害預防作業標準書","clause":"8.1.1、8.1.2","toshms":"2","law":"人因性危害預防計畫指引","parent":"ISO45001-2-023","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-122"]},{"no":"ISO45001-3-039","name":"輪班、夜間工作及長時間工作健康保護作業標準書","clause":"8.1.1","toshms":"2、6.2","law":"職安法§6第2項第2款、勞工健康保護規則§9","parent":"ISO45001-2-023","owner":"人力資源處／職業醫學科","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-114"]},{"no":"ISO45001-3-040","name":"職場暴力事件預防、通報與處理作業標準書","clause":"8.1.1、10.2","toshms":"2、7.1","law":"職安法§6第2項第3款、醫療法§24","parent":"ISO45001-2-023","owner":"職業安全衛生中心／保全","keep":"3年","lv":3,"chs":["8","10"],"kids":["ISO45001-4-117"]},{"no":"ISO45001-3-041","name":"作業環境監測計畫訂定與執行作業標準書","clause":"8.1.1、9.1.1","toshms":"8.1","law":"職安法§12、作業環境監測實施辦法§10","parent":"ISO45001-2-024","owner":"職業安全衛生中心","keep":"3年（特化30年）","lv":3,"chs":["8","9"],"kids":["ISO45001-4-124","ISO45001-4-125","ISO45001-4-126","ISO45001-4-127"]},{"no":"ISO45001-3-042","name":"室內空氣品質維護管理作業標準書","clause":"8.1.1","toshms":"—","law":"室內空氣品質管理法","parent":"ISO45001-2-024","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-128"]},{"no":"ISO45001-3-043","name":"機械設備自動檢查計畫訂定與執行作業標準書","clause":"8.1.1、9.1.1","toshms":"—","law":"職安管理辦法§79、§80","parent":"ISO45001-2-025","owner":"工務室／職業安全衛生中心","keep":"3年","lv":3,"chs":["8","9"],"kids":["ISO45001-4-129","ISO45001-4-130","ISO45001-4-131","ISO45001-4-132","ISO45001-4-133","ISO45001-4-134"]},{"no":"ISO45001-3-044","name":"鍋爐操作與維護安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"鍋爐及壓力容器安全規則、職安管理辦法§32","parent":"ISO45001-2-025","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-136"]},{"no":"ISO45001-3-045","name":"熱泵系統操作與維護安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安法§6、設施規則","parent":"ISO45001-2-025","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-137"]},{"no":"ISO45001-3-046","name":"冷凍空調設備維護安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安管理辦法§35、高壓氣體勞工安全規則","parent":"ISO45001-2-025","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-138"]},{"no":"ISO45001-3-047","name":"昇降機與電扶梯安全管理作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安管理辦法§36、起重升降機具安全規則","parent":"ISO45001-2-025","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-139"]},{"no":"ISO45001-3-048","name":"緊急發電機與不斷電系統維護安全作業標準書","clause":"8.1.1、8.2","toshms":"—","law":"職安管理辦法§31、設施規則","parent":"ISO45001-2-025","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-140"]},{"no":"ISO45001-3-049","name":"洗衣設備操作安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安管理辦法§38、設施規則","parent":"ISO45001-2-025","owner":"總務處／洗衣房","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-141"]},{"no":"ISO45001-3-050","name":"中央廚房設備操作安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安管理辦法§38、設施規則","parent":"ISO45001-2-025","owner":"營養部","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-142"]},{"no":"ISO45001-3-051","name":"消防安全設備檢查與維護作業標準書","clause":"8.1.1、8.2","toshms":"—","law":"消防法§9、消防安全設備檢修及申報辦法","parent":"ISO45001-2-025","owner":"總務處","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-143"]},{"no":"ISO45001-3-052","name":"醫療氣體系統（氧氣、笑氣、真空、壓縮空氣）安全管理作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"高壓氣體勞工安全規則、醫療機構設置標準","parent":"ISO45001-2-026","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-144"]},{"no":"ISO45001-3-053","name":"高壓氣體容器搬運與儲存作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"高壓氣體勞工安全規則§128~§141","parent":"ISO45001-2-026","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-145"]},{"no":"ISO45001-3-054","name":"壓力容器操作與維護安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"鍋爐及壓力容器安全規則、職安管理辦法§33","parent":"ISO45001-2-026","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-146"]},{"no":"ISO45001-3-055","name":"高壓氧治療艙作業安全標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"異常氣壓危害預防標準（高壓室內作業）","parent":"ISO45001-2-027","owner":"高壓氧治療中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-148","ISO45001-4-149"]},{"no":"ISO45001-3-056","name":"局限空間作業安全標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§29-1~§29-7、缺氧症預防規則","parent":"ISO45001-2-027","owner":"工務室／總務處","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-150","ISO45001-4-151","ISO45001-4-152"]},{"no":"ISO45001-3-057","name":"動火作業安全標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§66、§175","parent":"ISO45001-2-027","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-153"]},{"no":"ISO45001-3-058","name":"高架作業安全標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§225~§230、高架作業勞工保護措施標準","parent":"ISO45001-2-027","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-154"]},{"no":"ISO45001-3-059","name":"電氣作業（停電、活線）安全標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§254~§276","parent":"ISO45001-2-027","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-155"]},{"no":"ISO45001-3-060","name":"起重吊掛作業安全標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"起重升降機具安全規則","parent":"ISO45001-2-027","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-156"]},{"no":"ISO45001-3-061","name":"個人防護具選用、佩戴與維護作業標準書","clause":"8.1.2","toshms":"—","law":"設施規則§277~§287","parent":"ISO45001-2-028","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-157","ISO45001-4-158"]},{"no":"ISO45001-3-062","name":"呼吸防護計畫與密合度測試作業標準書","clause":"8.1.2","toshms":"—","law":"呼吸防護計畫及採行措施指引","parent":"ISO45001-2-028","owner":"職業安全衛生中心／感染管制中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-159"]},{"no":"ISO45001-3-063","name":"救護車出勤安全作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"緊急醫療救護法、道路交通管理處罰條例","parent":"ISO45001-2-029","owner":"急診醫學部","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-162"]},{"no":"ISO45001-3-064","name":"員工交通車與公務車輛安全管理作業標準書","clause":"8.1.1、8.1.2","toshms":"—","law":"職安法§6、道路交通安全規則","parent":"ISO45001-2-029","owner":"總務處","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-161"]},{"no":"ISO45001-3-065","name":"通勤職業災害預防作業標準書","clause":"8.1.1","toshms":"7.1","law":"勞工職業災害保險及保護法","parent":"ISO45001-2-029","owner":"人力資源處／職業安全衛生中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-164"]},{"no":"ISO45001-3-066","name":"一般健康檢查與特殊健康檢查作業標準書","clause":"8.1.1","toshms":"6.1","law":"職安法§20、勞工健康保護規則§14~§19","parent":"ISO45001-2-030","owner":"職業醫學科","keep":"一般7年／特殊10年（特化30年）","lv":3,"chs":["8"],"kids":["ISO45001-4-165","ISO45001-4-166","ISO45001-4-172"]},{"no":"ISO45001-3-067","name":"特別危害健康作業健康管理分級與追蹤作業標準書","clause":"8.1.1","toshms":"6.1","law":"勞工健康保護規則§20、§21","parent":"ISO45001-2-030","owner":"職業醫學科","keep":"10年（特化30年）","lv":3,"chs":["8"],"kids":["ISO45001-4-167","ISO45001-4-168"]},{"no":"ISO45001-3-068","name":"勞工健康服務（臨場服務）執行作業標準書","clause":"8.1.1","toshms":"6.2","law":"職安法§22、勞工健康保護規則§9~§13","parent":"ISO45001-2-030","owner":"職業醫學科／職業安全衛生中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-169","ISO45001-4-170"]},{"no":"ISO45001-3-069","name":"復工與工作適性評估作業標準書","clause":"8.1.1","toshms":"6.2","law":"勞工健康保護規則§21、職災保護法","parent":"ISO45001-2-030","owner":"職業醫學科","keep":"10年","lv":3,"chs":["8"],"kids":["ISO45001-4-171"]},{"no":"ISO45001-3-070","name":"院內修繕及裝修工程安全管理作業標準書","clause":"8.1.1、8.1.4.2","toshms":"5.2","law":"職安法§26~§28、營造安全衛生設施標準","parent":"ISO45001-2-031","owner":"工務室","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-173","ISO45001-4-175"]},{"no":"ISO45001-3-071","name":"施工區域感染管制風險評估（ICRA）作業標準書","clause":"6.1.2、8.1.1","toshms":"5.2","law":"醫院感染管制查核基準","parent":"ISO45001-2-031","owner":"感染管制中心／工務室","keep":"3年","lv":3,"chs":["6","8"],"kids":["ISO45001-4-174"]},{"no":"ISO45001-3-072","name":"承攬人作業前危害告知與協議組織運作作業標準書","clause":"8.1.4.2","toshms":"5.1","law":"職安法§26、§27","parent":"ISO45001-2-016","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-059","ISO45001-4-060","ISO45001-4-061"]},{"no":"ISO45001-3-073","name":"承攬人安全衛生績效考核作業標準書","clause":"8.1.4.2","toshms":"5.4","law":"職安法§25~§28","parent":"ISO45001-2-016","owner":"職業安全衛生中心／體系資材運籌管理處","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-063"]},{"no":"ISO45001-3-074","name":"採購安全衛生規範訂定與驗收作業標準書","clause":"8.1.4.1","toshms":"4.1~4.3","law":"職安法§6","parent":"ISO45001-2-015","owner":"體系資材運籌管理處","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-053","ISO45001-4-054","ISO45001-4-055"]},{"no":"ISO45001-3-081","name":"緊急應變演練規劃與執行作業標準書","clause":"8.2","toshms":"—","law":"消防法§13、職安法§6","parent":"ISO45001-2-018","owner":"職業安全衛生中心／總務處","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-071","ISO45001-4-072"]},{"no":"ISO45001-3-082","name":"內部稽核執行作業標準書","clause":"9.2.2","toshms":"1.2","law":"—","parent":"ISO45001-2-034","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["9"],"kids":["ISO45001-4-182","ISO45001-4-183","ISO45001-4-184","ISO45001-4-186"]},{"no":"ISO45001-3-083","name":"內部稽核員資格認定與培訓作業標準書","clause":"7.2、9.2.2","toshms":"1.2","law":"—","parent":"ISO45001-2-034","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["7","9"],"kids":["ISO45001-4-185"]},{"no":"ISO45001-3-084","name":"職業災害事故調查與根本原因分析作業標準書","clause":"10.2","toshms":"7.1、7.2","law":"職安法§37、施行細則§47~§49","parent":"ISO45001-2-036","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["10"],"kids":["ISO45001-4-191","ISO45001-4-193","ISO45001-4-194"]},{"no":"ISO45001-3-085","name":"虛驚事件通報與分析作業標準書","clause":"10.2","toshms":"7.1","law":"—","parent":"ISO45001-2-036","owner":"職業安全衛生中心","keep":"3年","lv":3,"chs":["10"],"kids":["ISO45001-4-192"]},{"no":"ISO45001-3-086","name":"文件編碼、製作與改版作業標準書","clause":"7.5.2、7.5.3","toshms":"—","law":"—","parent":"ISO45001-2-011","owner":"職業安全衛生中心","keep":"永久","lv":3,"chs":["7"],"kids":["ISO45001-4-003","ISO45001-4-004"]},{"no":"ISO45001-3-087","name":"文件管理資訊平台操作作業標準書","clause":"7.5.3","toshms":"—","law":"—","parent":"ISO45001-2-011","owner":"職業安全衛生中心／資訊處","keep":"永久","lv":3,"chs":["7"],"kids":["ISO45001-4-007"]},{"no":"ISO45001-3-088","name":"職業安全衛生委員會運作作業標準書","clause":"5.4","toshms":"—","law":"職安管理辦法§11、§12","parent":"ISO45001-2-004","owner":"職業安全衛生中心","keep":"永久","lv":3,"chs":["5"],"kids":["ISO45001-4-015","ISO45001-4-016","ISO45001-4-019"]},{"no":"ISO45001-3-089","name":"護理之家照護作業安全衛生標準書","clause":"8.1.1、8.1.2","toshms":"2","law":"護理機構分類設置標準、職安法§6","parent":"ISO45001-2-012","owner":"華仁愛護理之家","keep":"3年","lv":3,"chs":["8"],"kids":["ISO45001-4-202"]},{"no":"ISO45001-4-001","name":"職業安全衛生管理系統文件清冊","clause":"7.5.3","toshms":"—","law":"—","parent":"ISO45001-2-011","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-002","name":"表單清冊","clause":"7.5.3","toshms":"—","law":"—","parent":"ISO45001-2-011","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-003","name":"文件制訂／修訂／廢止申請單","clause":"7.5.2","toshms":"—","law":"—","parent":"ISO45001-3-086","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-004","name":"文件發行與回收紀錄表","clause":"7.5.3","toshms":"—","law":"—","parent":"ISO45001-3-086","owner":"職業安全衛生中心","keep":"5年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-005","name":"外部原始文件一覽表","clause":"7.5.3","toshms":"—","law":"—","parent":"ISO45001-2-011","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-006","name":"紀錄保存年限一覽表","clause":"7.5.3","toshms":"—","law":"職安法施行細則","parent":"ISO45001-2-011","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-007","name":"文件管理平台帳號與權限申請表","clause":"7.5.3","toshms":"—","law":"—","parent":"ISO45001-3-087","owner":"資訊處／職業安全衛生中心","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-008","name":"內部與外部議題鑑別分析表","clause":"4.1","toshms":"—","law":"—","parent":"ISO45001-2-001","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["4"],"kids":[]},{"no":"ISO45001-4-009","name":"利害相關者需求與期望分析表","clause":"4.2","toshms":"—","law":"—","parent":"ISO45001-2-001","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["4"],"kids":[]},{"no":"ISO45001-4-010","name":"職業安全衛生管理系統範圍界定表","clause":"4.3","toshms":"—","law":"—","parent":"ISO45001-2-001","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["4"],"kids":[]},{"no":"ISO45001-4-011","name":"職業安全衛生政策核簽與公告紀錄","clause":"5.2","toshms":"1.1","law":"職安法§5","parent":"ISO45001-2-002","owner":"院長室","keep":"永久","lv":4,"chs":["5"],"kids":[]},{"no":"ISO45001-4-012","name":"職業安全衛生組織架構與職掌分工表","clause":"5.3","toshms":"1.2","law":"職安管理辦法§2-1、§3","parent":"ISO45001-2-003","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["5"],"kids":[]},{"no":"ISO45001-4-013","name":"職業安全衛生人員設置報備資料表","clause":"5.3","toshms":"1.2","law":"職安管理辦法§3、§86","parent":"ISO45001-2-003","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["5"],"kids":[]},{"no":"ISO45001-4-014","name":"管理代表指派書","clause":"5.3","toshms":"—","law":"—","parent":"ISO45001-2-003","owner":"院長室","keep":"永久","lv":4,"chs":["5"],"kids":[]},{"no":"ISO45001-4-015","name":"職業安全衛生委員會設置及委員名冊","clause":"5.4","toshms":"—","law":"職安管理辦法§11","parent":"ISO45001-3-088","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["5"],"kids":[]},{"no":"ISO45001-4-016","name":"職業安全衛生委員會會議紀錄","clause":"5.4","toshms":"—","law":"職安管理辦法§12","parent":"ISO45001-3-088","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["5"],"kids":[]},{"no":"ISO45001-4-017","name":"工作者諮詢及參與紀錄表","clause":"5.4","toshms":"—","law":"職安法§23","parent":"ISO45001-2-004","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["5"],"kids":[]},{"no":"ISO45001-4-018","name":"工作者意見、建議與回饋處理表","clause":"5.4、7.4.2","toshms":"—","law":"—","parent":"ISO45001-2-004","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["5","7"],"kids":[]},{"no":"ISO45001-4-019","name":"勞工代表推選紀錄","clause":"5.4","toshms":"—","law":"職安管理辦法§11","parent":"ISO45001-3-088","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["5"],"kids":[]},{"no":"ISO45001-4-020","name":"作業清查一覽表","clause":"6.1.2.1","toshms":"8.2","law":"風險評估技術指引","parent":"ISO45001-3-001","owner":"各權責單位","keep":"永久","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-021","name":"危害鑑別與風險評估總表","clause":"6.1.2.1、6.1.2.2","toshms":"8.2","law":"風險評估技術指引","parent":"ISO45001-3-001","owner":"各權責單位","keep":"永久","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-022","name":"風險等級判定與可接受風險準則表","clause":"6.1.2.2","toshms":"8.2","law":"風險評估技術指引","parent":"ISO45001-3-001","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-023","name":"職業安全衛生機會評估表","clause":"6.1.2.3","toshms":"8.2","law":"—","parent":"ISO45001-3-002","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-024","name":"不可接受風險改善計畫與追蹤表","clause":"6.1.4、8.1.2","toshms":"8.2","law":"—","parent":"ISO45001-3-001","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6","8"],"kids":[]},{"no":"ISO45001-4-025","name":"風險與機會處理措施有效性評估表","clause":"6.1.4、9.1.1","toshms":"8.2","law":"—","parent":"ISO45001-2-005","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6","9"],"kids":[]},{"no":"ISO45001-4-026","name":"職業安全衛生法規鑑別一覽表","clause":"6.1.3","toshms":"—","law":"職安法§5","parent":"ISO45001-2-006","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-027","name":"法規適用性評估表","clause":"6.1.3","toshms":"—","law":"—","parent":"ISO45001-2-006","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-028","name":"法規更新追蹤與告知紀錄表","clause":"6.1.3、7.4","toshms":"—","law":"—","parent":"ISO45001-2-006","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6","7"],"kids":[]},{"no":"ISO45001-4-029","name":"其他要求事項一覽表","clause":"6.1.3","toshms":"—","law":"醫院評鑑基準、疾病照護認證","parent":"ISO45001-2-006","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-030","name":"職業安全衛生目標設定表","clause":"6.2.1","toshms":"1.1、1.3","law":"職安法§23","parent":"ISO45001-2-007","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-031","name":"職業安全衛生管理方案執行追蹤表","clause":"6.2.2","toshms":"1.1、1.3","law":"—","parent":"ISO45001-2-007","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-032","name":"年度職業安全衛生管理計畫","clause":"6.2.2、8.1.1","toshms":"1.1","law":"職安法§23、施行細則§31","parent":"ISO45001-2-007","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6","8"],"kids":[]},{"no":"ISO45001-4-033","name":"職業安全衛生績效指標統計表（主動式／被動式）","clause":"6.2.1、9.1.1","toshms":"1.1","law":"—","parent":"ISO45001-2-007","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6","9"],"kids":[]},{"no":"ISO45001-4-034","name":"職業安全衛生年度預算編列表","clause":"7.1","toshms":"—","law":"職安法§23","parent":"ISO45001-2-008","owner":"職業安全衛生中心／財務處","keep":"5年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-035","name":"職業安全衛生資源需求評估表","clause":"7.1","toshms":"—","law":"—","parent":"ISO45001-2-008","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-036","name":"年度職業安全衛生教育訓練計畫表","clause":"7.2","toshms":"3.3","law":"職安教育訓練規則§17","parent":"ISO45001-3-004","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-037","name":"教育訓練簽到表","clause":"7.2","toshms":"3.3","law":"職安教育訓練規則§20","parent":"ISO45001-3-004","owner":"各權責單位","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-038","name":"教育訓練成效評估表","clause":"7.2","toshms":"3.3","law":"—","parent":"ISO45001-3-004","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-039","name":"適任性評估與職能矩陣表","clause":"7.2","toshms":"3.3","law":"—","parent":"ISO45001-2-009","owner":"人力資源處","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-040","name":"法定安全衛生證照一覽表","clause":"7.2","toshms":"3.3","law":"職安教育訓練規則","parent":"ISO45001-2-009","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-041","name":"新進人員安全衛生訓練紀錄表","clause":"7.2、7.3","toshms":"3.3","law":"職安教育訓練規則§17","parent":"ISO45001-3-005","owner":"人力資源處","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-042","name":"數位學習教材清冊與更新紀錄","clause":"7.2、7.5","toshms":"—","law":"—","parent":"ISO45001-3-006","owner":"職業安全衛生中心／資訊處","keep":"永久","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-043","name":"職業安全衛生認知宣導紀錄表","clause":"7.3","toshms":"—","law":"—","parent":"ISO45001-2-009","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-044","name":"內部溝通紀錄表","clause":"7.4.2","toshms":"—","law":"—","parent":"ISO45001-2-010","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-045","name":"外部溝通與回應紀錄表","clause":"7.4.3","toshms":"—","law":"—","parent":"ISO45001-2-010","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-046","name":"運作管制作業一覽表","clause":"8.1.1","toshms":"—","law":"—","parent":"ISO45001-2-012","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-047","name":"多雇主工作場所協調紀錄表","clause":"8.1.1","toshms":"5.1","law":"職安法§27","parent":"ISO45001-2-012","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-048","name":"危害消除與風險降低措施評估表（管制層級）","clause":"8.1.2","toshms":"—","law":"職安法§6","parent":"ISO45001-2-013","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-049","name":"變更管理申請與審查表","clause":"8.1.3","toshms":"3.1","law":"—","parent":"ISO45001-2-014","owner":"各權責單位","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-050","name":"臨時性變更追蹤管制表","clause":"8.1.3","toshms":"3.2","law":"—","parent":"ISO45001-2-014","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-051","name":"變更後教育訓練與告知紀錄表","clause":"7.2、8.1.3","toshms":"3.3","law":"—","parent":"ISO45001-2-014","owner":"各權責單位","keep":"3年","lv":4,"chs":["7","8"],"kids":[]},{"no":"ISO45001-4-052","name":"變更管理程序定期檢討紀錄","clause":"8.1.3","toshms":"3.4","law":"—","parent":"ISO45001-2-014","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-053","name":"採購安全衛生規範檢核表","clause":"8.1.4.1","toshms":"4.1","law":"—","parent":"ISO45001-3-074","owner":"體系資材運籌管理處","keep":"5年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-054","name":"採購驗收安全衛生確認表","clause":"8.1.4.1","toshms":"4.2","law":"—","parent":"ISO45001-3-074","owner":"體系資材運籌管理處","keep":"5年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-055","name":"新設備／新化學品使用前安全確認表","clause":"8.1.4.1","toshms":"4.3","law":"—","parent":"ISO45001-3-074","owner":"各權責單位","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-056","name":"採購管理程序定期檢討紀錄","clause":"8.1.4.1","toshms":"4.4","law":"—","parent":"ISO45001-2-015","owner":"體系資材運籌管理處","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-057","name":"承攬商名冊與作業一覽表","clause":"8.1.4.2","toshms":"5.1","law":"職安法§26","parent":"ISO45001-2-016","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-058","name":"承攬商資格審查表","clause":"8.1.4.2","toshms":"5.4","law":"—","parent":"ISO45001-2-016","owner":"體系資材運籌管理處","keep":"5年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-059","name":"承攬作業危害告知單","clause":"8.1.4.2","toshms":"5.1","law":"職安法§26","parent":"ISO45001-3-072","owner":"各權責單位","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-060","name":"協議組織會議紀錄","clause":"8.1.4.2","toshms":"5.1","law":"職安法§27","parent":"ISO45001-3-072","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-061","name":"承攬商工作者入廠安全衛生訓練紀錄","clause":"7.2、8.1.4.2","toshms":"5.3","law":"職安教育訓練規則","parent":"ISO45001-3-072","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7","8"],"kids":[]},{"no":"ISO45001-4-062","name":"承攬商安全衛生巡檢與督導紀錄表","clause":"8.1.4.2、9.1.1","toshms":"5.2","law":"職安法§28","parent":"ISO45001-2-016","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-063","name":"承攬商安全衛生績效考核表","clause":"8.1.4.2","toshms":"5.4","law":"—","parent":"ISO45001-3-073","owner":"職業安全衛生中心","keep":"5年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-064","name":"承攬商不安全行為／狀況通報單","clause":"8.1.4.2、10.2","toshms":"5.5","law":"—","parent":"ISO45001-2-016","owner":"全院工作者","keep":"3年","lv":4,"chs":["8","10"],"kids":[]},{"no":"ISO45001-4-065","name":"承攬管理程序定期檢討紀錄","clause":"8.1.4.2","toshms":"5.6","law":"—","parent":"ISO45001-2-016","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-066","name":"外包功能與過程鑑別表","clause":"8.1.4.3","toshms":"—","law":"—","parent":"ISO45001-2-017","owner":"體系資材運籌管理處","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-067","name":"外包廠商安全衛生管制查核表","clause":"8.1.4.3","toshms":"5.2","law":"—","parent":"ISO45001-2-017","owner":"各權責單位","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-068","name":"潛在緊急情況鑑別表","clause":"6.1.2.1、8.2","toshms":"—","law":"—","parent":"ISO45001-2-018","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6","8"],"kids":[]},{"no":"ISO45001-4-069","name":"緊急應變計畫書","clause":"8.2","toshms":"—","law":"消防法§13、醫療法§25","parent":"ISO45001-2-018","owner":"總務處／職業安全衛生中心","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-070","name":"緊急應變編組與緊急聯絡名冊","clause":"8.2","toshms":"—","law":"消防法§13","parent":"ISO45001-2-018","owner":"總務處","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-071","name":"緊急應變演練計畫表","clause":"8.2","toshms":"—","law":"消防法§13","parent":"ISO45001-3-081","owner":"總務處／職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-072","name":"緊急應變演練紀錄與檢討報告","clause":"8.2","toshms":"—","law":"消防法§13","parent":"ISO45001-3-081","owner":"總務處／職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-073","name":"緊急應變器材點檢表","clause":"8.2","toshms":"—","law":"設施規則","parent":"ISO45001-2-018","owner":"各權責單位","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-074","name":"急救設備與急救藥品點檢表","clause":"8.2","toshms":"—","law":"勞工健康保護規則§13","parent":"ISO45001-2-018","owner":"各權責單位","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-075","name":"急救人員名冊與訓練紀錄","clause":"7.2、8.2","toshms":"—","law":"勞工健康保護規則§13","parent":"ISO45001-2-018","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7","8"],"kids":[]},{"no":"ISO45001-4-076","name":"危害性化學品清單","clause":"8.1.1","toshms":"8.1","law":"標示及通識規則§12","parent":"ISO45001-3-007","owner":"各權責單位","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-077","name":"安全資料表（SDS）管理清冊","clause":"8.1.1、7.5.3","toshms":"8.1","law":"標示及通識規則§12~§15","parent":"ISO45001-3-007","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["8","7"],"kids":[]},{"no":"ISO45001-4-078","name":"危害性化學品標示查核表","clause":"8.1.1、9.1.1","toshms":"8.1","law":"標示及通識規則§5~§11","parent":"ISO45001-3-007","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-079","name":"危害性化學品暴露評估與分級管理表","clause":"6.1.2.2、8.1.1","toshms":"8.1","law":"危害性化學品評估及分級管理辦法§4~§8","parent":"ISO45001-3-015","owner":"職業安全衛生中心","keep":"3年（特化30年）","lv":4,"chs":["6","8"],"kids":[]},{"no":"ISO45001-4-080","name":"優先管理化學品與管制性化學品申報紀錄","clause":"6.1.3、8.1.1","toshms":"8.1","law":"職安法§14、管理辦法","parent":"ISO45001-3-015","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["6","8"],"kids":[]},{"no":"ISO45001-4-081","name":"抗腫瘤藥品調配作業查核表","clause":"8.1.1、9.1.1","toshms":"8.1","law":"職安法§6","parent":"ISO45001-3-008","owner":"藥劑部","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-082","name":"甲醛作業場所查核與防護紀錄表","clause":"8.1.1、9.1.1","toshms":"8.1","law":"特化標準","parent":"ISO45001-3-009","owner":"病理部","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-083","name":"環氧乙烷滅菌作業查核表","clause":"8.1.1、9.1.1","toshms":"8.1","law":"特化標準","parent":"ISO45001-3-010","owner":"供應中心","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-084","name":"高階消毒劑作業查核表","clause":"8.1.1、9.1.1","toshms":"8.1","law":"職安法§10","parent":"ISO45001-3-011","owner":"內視鏡室／供應中心","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-085","name":"麻醉廢氣排除系統點檢表","clause":"8.1.1、9.1.1","toshms":"8.1","law":"設施規則§292","parent":"ISO45001-3-012","owner":"麻醉科／工務室","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-086","name":"實驗室化學品操作查核表","clause":"8.1.1、9.1.1","toshms":"8.1","law":"有機溶劑中毒預防規則","parent":"ISO45001-3-013","owner":"醫學研究部／檢驗醫學部","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-087","name":"化學品洩漏事件處理紀錄表","clause":"8.2、10.2","toshms":"8.1","law":"—","parent":"ISO45001-3-014","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8","10"],"kids":[]},{"no":"ISO45001-4-088","name":"局部排氣裝置定期自動檢查紀錄表","clause":"8.1.2、9.1.1","toshms":"8.1","law":"職安管理辦法§40","parent":"ISO45001-2-019","owner":"工務室","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-089","name":"噪音作業場所測定與分級表","clause":"8.1.1、9.1.1","toshms":"—","law":"設施規則§300","parent":"ISO45001-3-016","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-090","name":"聽力保護計畫執行紀錄表","clause":"8.1.2","toshms":"—","law":"設施規則§300-1","parent":"ISO45001-3-016","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-091","name":"高溫作業熱危害評估與作息管制表","clause":"8.1.1、8.1.2","toshms":"—","law":"高溫作業勞工作息時間標準","parent":"ISO45001-3-017","owner":"營養部／工務室","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-092","name":"照度量測紀錄表","clause":"8.1.1、9.1.1","toshms":"—","law":"設施規則§313","parent":"ISO45001-3-018","owner":"工務室","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-093","name":"游離輻射作業場所與設備清冊","clause":"8.1.1","toshms":"—","law":"游離輻射防護法§29","parent":"ISO45001-2-021","owner":"輻射防護師","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-094","name":"輻射工作人員名冊與訓練紀錄","clause":"7.2、8.1.1","toshms":"—","law":"游離輻射防護法§7、§14","parent":"ISO45001-2-021","owner":"輻射防護師","keep":"永久","lv":4,"chs":["7","8"],"kids":[]},{"no":"ISO45001-4-095","name":"個人劑量佩章配戴與劑量紀錄表","clause":"8.1.1、9.1.1","toshms":"—","law":"游離輻射防護安全標準§14","parent":"ISO45001-3-023","owner":"輻射防護師","keep":"至75歲或停止作業後30年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-096","name":"輻射防護設備與防護衣點檢表","clause":"8.1.2、9.1.1","toshms":"—","law":"游離輻射防護法§12","parent":"ISO45001-3-019","owner":"放射線部","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-097","name":"輻射作業場所監測紀錄表","clause":"8.1.1、9.1.1","toshms":"—","law":"游離輻射防護安全標準","parent":"ISO45001-2-021","owner":"輻射防護師","keep":"永久","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-098","name":"放射性物質領用、使用與廢棄紀錄表","clause":"8.1.1","toshms":"—","law":"游離輻射防護法§29","parent":"ISO45001-3-020","owner":"核子醫學科","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-099","name":"移動式X光與C-Arm作業輻射防護查核表","clause":"8.1.2、9.1.1","toshms":"—","law":"游離輻射防護安全標準","parent":"ISO45001-3-022","owner":"放射線部／手術室","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-100","name":"MRI磁場安全分區管制與金屬篩檢紀錄表","clause":"8.1.1、8.1.2","toshms":"—","law":"職安法§6","parent":"ISO45001-3-024","owner":"放射線部","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-101","name":"醫用雷射安全查核表","clause":"8.1.2、9.1.1","toshms":"—","law":"職安法§6","parent":"ISO45001-3-025","owner":"手術室／皮膚科／眼科","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-102","name":"紫外線殺菌設備使用與管制紀錄表","clause":"8.1.2","toshms":"—","law":"職安法§6","parent":"ISO45001-3-026","owner":"感染管制中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-103","name":"生物危害作業場所與病原體清冊","clause":"8.1.1","toshms":"—","law":"感染性生物材料管理辦法","parent":"ISO45001-2-022","owner":"感染管制中心","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-104","name":"血液體液暴觸／針扎事件通報單","clause":"10.2","toshms":"7.1","law":"職安法§37、傳染病防治法","parent":"ISO45001-3-027","owner":"感染管制中心","keep":"30年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-105","name":"針扎後追蹤檢驗與預防性投藥紀錄表","clause":"8.1.1、10.2","toshms":"6.1、7.1","law":"傳染病防治法","parent":"ISO45001-3-027","owner":"感染管制中心／職業醫學科","keep":"30年","lv":4,"chs":["8","10"],"kids":[]},{"no":"ISO45001-4-106","name":"空氣傳染隔離防護查核表","clause":"8.1.2、9.1.1","toshms":"—","law":"傳染病防治法","parent":"ISO45001-3-028","owner":"感染管制中心","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-107","name":"BSL-2實驗室生物安全查核表","clause":"8.1.2、9.1.1","toshms":"—","law":"感染性生物材料管理辦法","parent":"ISO45001-3-030","owner":"醫學研究部","keep":"永久","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-108","name":"感染性廢棄物收集、貯存與清運紀錄表","clause":"8.1.1","toshms":"—","law":"醫療機構廢棄物管理辦法","parent":"ISO45001-3-031","owner":"總務處","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-109","name":"員工疫苗接種與免疫狀態紀錄表","clause":"8.1.1","toshms":"6.2","law":"勞工健康保護規則§9","parent":"ISO45001-3-032","owner":"感染管制中心","keep":"10年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-110","name":"肌肉骨骼症狀調查問卷（北歐NMQ）","clause":"6.1.2.1","toshms":"2","law":"人因性危害預防計畫指引","parent":"ISO45001-3-033","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-111","name":"人因性危害風險評估表（KIM／REBA）","clause":"6.1.2.2","toshms":"2","law":"人因性危害預防計畫指引","parent":"ISO45001-3-033","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-112","name":"人因性危害改善追蹤表","clause":"6.1.4、8.1.2","toshms":"2","law":"人因性危害預防計畫指引","parent":"ISO45001-3-033","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6","8"],"kids":[]},{"no":"ISO45001-4-113","name":"異常工作負荷促發疾病風險評估表","clause":"6.1.2.2","toshms":"2","law":"異常工作負荷促發疾病預防指引","parent":"ISO45001-3-034","owner":"職業醫學科","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-114","name":"輪班、夜間及延長工時統計表","clause":"8.1.1、9.1.1","toshms":"2","law":"勞基法§32、§34","parent":"ISO45001-3-039","owner":"人力資源處","keep":"5年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-115","name":"過負荷高風險個案面談與追蹤紀錄表","clause":"8.1.1","toshms":"2、6.2","law":"異常工作負荷促發疾病預防指引","parent":"ISO45001-3-034","owner":"職業醫學科","keep":"10年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-116","name":"執行職務遭受不法侵害風險評估表","clause":"6.1.2.2","toshms":"2","law":"執行職務遭受不法侵害預防指引","parent":"ISO45001-3-035","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-117","name":"職場不法侵害事件通報與處理紀錄表","clause":"10.2","toshms":"2、7.1","law":"職安法§6第2項第3款","parent":"ISO45001-3-040","owner":"職業安全衛生中心／人力資源處","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-118","name":"母性健康保護對象名冊","clause":"8.1.1","toshms":"2","law":"母性健康保護實施辦法§3~§5","parent":"ISO45001-3-036","owner":"職業醫學科","keep":"10年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-119","name":"母性健康保護危害評估與面談紀錄表","clause":"6.1.2.2、8.1.1","toshms":"2、6.2","law":"母性健康保護實施辦法§6~§8","parent":"ISO45001-3-036","owner":"職業醫學科","keep":"10年","lv":4,"chs":["6","8"],"kids":[]},{"no":"ISO45001-4-120","name":"母性健康保護工作適性安排建議書","clause":"8.1.1","toshms":"2、6.2","law":"母性健康保護實施辦法§9","parent":"ISO45001-3-036","owner":"職業醫學科","keep":"10年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-121","name":"病人搬運與移位作業人因評估表","clause":"6.1.2.2","toshms":"2","law":"人因性危害預防計畫指引","parent":"ISO45001-3-037","owner":"護理部","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-122","name":"VDT作業環境人因查核表","clause":"6.1.2.2","toshms":"2","law":"人因性危害預防計畫指引","parent":"ISO45001-3-038","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-123","name":"高風險個案轉介與追蹤紀錄表","clause":"8.1.1、10.2","toshms":"6.2","law":"勞工健康保護規則§11","parent":"ISO45001-2-023","owner":"職業醫學科","keep":"10年","lv":4,"chs":["8","10"],"kids":[]},{"no":"ISO45001-4-124","name":"作業環境監測計畫書","clause":"8.1.1、9.1.1","toshms":"8.1","law":"作業環境監測實施辦法§10-1","parent":"ISO45001-3-041","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-125","name":"作業環境監測結果紀錄表","clause":"9.1.1","toshms":"8.1","law":"作業環境監測實施辦法§12","parent":"ISO45001-3-041","owner":"職業安全衛生中心","keep":"3年（特化30年）","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-126","name":"作業環境監測結果公告與勞工告知紀錄","clause":"7.4、9.1.1","toshms":"8.1","law":"作業環境監測實施辦法§12","parent":"ISO45001-3-041","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["7","9"],"kids":[]},{"no":"ISO45001-4-127","name":"監測結果異常改善追蹤表","clause":"9.1.1、10.2","toshms":"8.1","law":"作業環境監測實施辦法","parent":"ISO45001-3-041","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9","10"],"kids":[]},{"no":"ISO45001-4-128","name":"室內空氣品質檢測與公告紀錄表","clause":"9.1.1","toshms":"—","law":"室內空氣品質管理法§8、§9","parent":"ISO45001-3-042","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-129","name":"機械設備清冊","clause":"8.1.1","toshms":"—","law":"職安管理辦法","parent":"ISO45001-3-043","owner":"工務室","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-130","name":"年度自動檢查計畫表","clause":"8.1.1、9.1.1","toshms":"—","law":"職安管理辦法§79","parent":"ISO45001-3-043","owner":"工務室／職業安全衛生中心","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-131","name":"定期檢查紀錄表","clause":"9.1.1","toshms":"—","law":"職安管理辦法§80","parent":"ISO45001-3-043","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-132","name":"重點檢查紀錄表","clause":"9.1.1","toshms":"—","law":"職安管理辦法§80","parent":"ISO45001-3-043","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-133","name":"作業檢點表","clause":"9.1.1","toshms":"—","law":"職安管理辦法§80","parent":"ISO45001-3-043","owner":"各權責單位","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-134","name":"設備異常通報與維修紀錄表","clause":"10.2","toshms":"—","law":"職安管理辦法§81","parent":"ISO45001-3-043","owner":"工務室","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-135","name":"法定檢查合格證一覽表","clause":"6.1.3、8.1.1","toshms":"—","law":"危險性機械及設備安全檢查規則","parent":"ISO45001-2-025","owner":"工務室","keep":"永久","lv":4,"chs":["6","8"],"kids":[]},{"no":"ISO45001-4-136","name":"鍋爐操作與定期檢查紀錄表","clause":"9.1.1","toshms":"—","law":"鍋爐及壓力容器安全規則、職安管理辦法§32","parent":"ISO45001-3-044","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-137","name":"熱泵系統操作與維護紀錄表","clause":"9.1.1","toshms":"—","law":"—","parent":"ISO45001-3-045","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-138","name":"冷凍空調設備定期檢查紀錄表","clause":"9.1.1","toshms":"—","law":"職安管理辦法§35","parent":"ISO45001-3-046","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-139","name":"昇降機與電扶梯定期檢查紀錄表","clause":"9.1.1","toshms":"—","law":"職安管理辦法§36","parent":"ISO45001-3-047","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-140","name":"緊急發電機與UPS測試紀錄表","clause":"8.2、9.1.1","toshms":"—","law":"職安管理辦法§31、消防法","parent":"ISO45001-3-048","owner":"工務室","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-141","name":"洗衣設備檢點表","clause":"9.1.1","toshms":"—","law":"職安管理辦法§38","parent":"ISO45001-3-049","owner":"總務處／洗衣房","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-142","name":"中央廚房設備檢點表","clause":"9.1.1","toshms":"—","law":"職安管理辦法§38","parent":"ISO45001-3-050","owner":"營養部","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-143","name":"消防安全設備檢修申報紀錄","clause":"8.2、9.1.1","toshms":"—","law":"消防法§9","parent":"ISO45001-3-051","owner":"總務處","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-144","name":"醫療氣體系統點檢表","clause":"9.1.1","toshms":"—","law":"高壓氣體勞工安全規則","parent":"ISO45001-3-052","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-145","name":"高壓氣體容器清冊與檢驗紀錄表","clause":"8.1.1、9.1.1","toshms":"—","law":"高壓氣體勞工安全規則§140","parent":"ISO45001-3-053","owner":"工務室","keep":"永久","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-146","name":"壓力容器操作與定期檢查紀錄表","clause":"9.1.1","toshms":"—","law":"鍋爐及壓力容器安全規則、職安管理辦法§33","parent":"ISO45001-3-054","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-147","name":"特殊作業許可證（通用）","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則","parent":"ISO45001-2-027","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-148","name":"高壓氧治療艙操作與點檢紀錄表","clause":"9.1.1","toshms":"—","law":"異常氣壓危害預防標準","parent":"ISO45001-3-055","owner":"高壓氧治療中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-149","name":"高壓室內作業人員名冊與作息紀錄表","clause":"8.1.1","toshms":"6.1","law":"異常氣壓危害預防標準§4~§13","parent":"ISO45001-3-055","owner":"高壓氧治療中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-150","name":"局限空間作業許可證","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§29-6","parent":"ISO45001-3-056","owner":"工務室","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-151","name":"局限空間危害告知牌與作業場所清冊","clause":"7.4、8.1.1","toshms":"—","law":"設施規則§29-2、§29-5","parent":"ISO45001-3-056","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["7","8"],"kids":[]},{"no":"ISO45001-4-152","name":"缺氧及有害氣體偵測紀錄表","clause":"9.1.1","toshms":"—","law":"缺氧症預防規則§16","parent":"ISO45001-3-056","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-153","name":"動火作業許可證","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§66","parent":"ISO45001-3-057","owner":"工務室","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-154","name":"高架作業許可證與檢點表","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§225~§230","parent":"ISO45001-3-058","owner":"工務室","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-155","name":"電氣作業許可證（停電／活線）","clause":"8.1.1、8.1.2","toshms":"—","law":"設施規則§254~§276","parent":"ISO45001-3-059","owner":"工務室","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-156","name":"起重吊掛作業檢點表","clause":"9.1.1","toshms":"—","law":"起重升降機具安全規則","parent":"ISO45001-3-060","owner":"工務室","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-157","name":"個人防護具需求評估與配賦表","clause":"8.1.2","toshms":"—","law":"設施規則§277","parent":"ISO45001-3-061","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-158","name":"個人防護具發放與點檢紀錄表","clause":"8.1.2、9.1.1","toshms":"—","law":"設施規則§283、§287","parent":"ISO45001-3-061","owner":"各權責單位","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-159","name":"呼吸防護具密合度測試紀錄表","clause":"8.1.2","toshms":"—","law":"呼吸防護計畫及採行措施指引","parent":"ISO45001-3-062","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-160","name":"公務車輛與救護車清冊","clause":"8.1.1","toshms":"—","law":"緊急醫療救護法","parent":"ISO45001-2-029","owner":"總務處／急診醫學部","keep":"永久","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-161","name":"車輛行前檢點表","clause":"9.1.1","toshms":"—","law":"職安管理辦法§17","parent":"ISO45001-3-064","owner":"總務處","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-162","name":"救護車出勤安全檢點與紀錄表","clause":"8.1.1、9.1.1","toshms":"—","law":"緊急醫療救護法","parent":"ISO45001-3-063","owner":"急診醫學部","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-163","name":"駕駛人資格與訓練紀錄表","clause":"7.2","toshms":"3.3","law":"緊急醫療救護法、道路交通安全規則","parent":"ISO45001-2-029","owner":"總務處","keep":"3年","lv":4,"chs":["7"],"kids":[]},{"no":"ISO45001-4-164","name":"交通事故（含通勤職災）通報與分析表","clause":"10.2","toshms":"7.1","law":"勞工職業災害保險及保護法","parent":"ISO45001-3-065","owner":"人力資源處／職業安全衛生中心","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-165","name":"年度健康檢查計畫與受檢名冊","clause":"8.1.1","toshms":"6.1","law":"勞工健康保護規則§14~§16","parent":"ISO45001-3-066","owner":"職業醫學科","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-166","name":"一般健康檢查結果管理表","clause":"8.1.1","toshms":"6.1","law":"勞工健康保護規則§18","parent":"ISO45001-3-066","owner":"職業醫學科","keep":"7年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-167","name":"特殊健康檢查結果與健康管理分級表","clause":"8.1.1","toshms":"6.1","law":"勞工健康保護規則§20、§21","parent":"ISO45001-3-067","owner":"職業醫學科","keep":"10年（特化30年）","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-168","name":"健康指導與追蹤紀錄表","clause":"8.1.1","toshms":"6.1、6.2","law":"勞工健康保護規則§21","parent":"ISO45001-3-067","owner":"職業醫學科","keep":"10年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-169","name":"臨場健康服務執行紀錄表","clause":"8.1.1","toshms":"6.2","law":"勞工健康保護規則§9~§12","parent":"ISO45001-3-068","owner":"職業醫學科","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-170","name":"勞工健康服務計畫書","clause":"8.1.1","toshms":"6.2","law":"勞工健康保護規則§9","parent":"ISO45001-3-068","owner":"職業醫學科","keep":"3年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-171","name":"復工與工作適性評估紀錄表","clause":"8.1.1","toshms":"6.2","law":"勞工健康保護規則§21、職災保護法§66","parent":"ISO45001-3-069","owner":"職業醫學科","keep":"10年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-172","name":"健康檢查異常個案轉介與矯正追蹤表","clause":"8.1.1、10.2","toshms":"6.1","law":"勞工健康保護規則§21","parent":"ISO45001-3-066","owner":"職業醫學科","keep":"10年","lv":4,"chs":["8","10"],"kids":[]},{"no":"ISO45001-4-173","name":"院內工程施工安全衛生計畫審查表","clause":"8.1.4.2","toshms":"5.2","law":"營造安全衛生設施標準","parent":"ISO45001-3-070","owner":"工務室","keep":"5年","lv":4,"chs":["8"],"kids":[]},{"no":"ISO45001-4-174","name":"施工區域感染管制風險評估表（ICRA）","clause":"6.1.2.2","toshms":"5.2","law":"醫院感染管制查核基準","parent":"ISO45001-3-071","owner":"感染管制中心","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-175","name":"施工中安全衛生巡檢紀錄表","clause":"9.1.1","toshms":"5.2","law":"職安法§28","parent":"ISO45001-3-070","owner":"工務室／職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-176","name":"安全衛生巡檢紀錄表","clause":"9.1.1","toshms":"1.1","law":"職安管理辦法§81","parent":"ISO45001-2-032","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-177","name":"主動式與被動式績效指標統計分析表","clause":"9.1.1","toshms":"1.1","law":"—","parent":"ISO45001-2-032","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-178","name":"量測設備校正與查證紀錄表","clause":"9.1.1","toshms":"—","law":"—","parent":"ISO45001-2-032","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-179","name":"關鍵風險與機會監督量測追蹤表","clause":"9.1.1","toshms":"8.2","law":"—","parent":"ISO45001-2-032","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-180","name":"法規守規性評估表","clause":"9.1.2","toshms":"—","law":"職安法§5","parent":"ISO45001-2-033","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-181","name":"守規性缺失改善追蹤表","clause":"9.1.2、10.2","toshms":"—","law":"—","parent":"ISO45001-2-033","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9","10"],"kids":[]},{"no":"ISO45001-4-182","name":"年度內部稽核計畫（稽核方案）","clause":"9.2.2","toshms":"1.2","law":"—","parent":"ISO45001-3-082","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-183","name":"內部稽核查檢表","clause":"9.2.2","toshms":"1.2","law":"—","parent":"ISO45001-3-082","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-184","name":"內部稽核報告","clause":"9.2.2","toshms":"1.2","law":"—","parent":"ISO45001-3-082","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-185","name":"內部稽核員名冊與資格紀錄","clause":"7.2、9.2.2","toshms":"1.2","law":"—","parent":"ISO45001-3-083","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["7","9"],"kids":[]},{"no":"ISO45001-4-186","name":"稽核發現不符合事項改善單","clause":"9.2.2、10.2","toshms":"1.2","law":"—","parent":"ISO45001-3-082","owner":"各權責單位","keep":"3年","lv":4,"chs":["9","10"],"kids":[]},{"no":"ISO45001-4-187","name":"管理階層審查會議通知與議程","clause":"9.3","toshms":"1.3","law":"—","parent":"ISO45001-2-035","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-188","name":"管理階層審查報告","clause":"9.3","toshms":"1.3","law":"—","parent":"ISO45001-2-035","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-189","name":"管理階層審查會議紀錄","clause":"9.3","toshms":"1.3","law":"—","parent":"ISO45001-2-035","owner":"職業安全衛生中心","keep":"永久","lv":4,"chs":["9"],"kids":[]},{"no":"ISO45001-4-190","name":"管理階層審查決議事項追蹤表","clause":"9.3、10.3","toshms":"1.3","law":"—","parent":"ISO45001-2-035","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9","10"],"kids":[]},{"no":"ISO45001-4-191","name":"職業災害／事故通報單","clause":"10.2","toshms":"7.1","law":"職安法§37、施行細則§47~§49","parent":"ISO45001-3-084","owner":"各權責單位","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-192","name":"虛驚事件通報單","clause":"10.2","toshms":"7.1","law":"—","parent":"ISO45001-3-085","owner":"全院工作者","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-193","name":"事故調查報告書","clause":"10.2","toshms":"7.2","law":"職安法§37","parent":"ISO45001-3-084","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-194","name":"根本原因分析表","clause":"10.2","toshms":"7.2","law":"—","parent":"ISO45001-3-084","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-195","name":"矯正措施執行與有效性審查表","clause":"10.2","toshms":"7.2","law":"—","parent":"ISO45001-2-036","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-196","name":"不符合事項統計分析表","clause":"10.2","toshms":"7.3","law":"—","parent":"ISO45001-2-036","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-197","name":"職業災害統計月報表","clause":"9.1.1、10.2","toshms":"7.3","law":"職安法§38、施行細則§50","parent":"ISO45001-2-036","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["9","10"],"kids":[]},{"no":"ISO45001-4-198","name":"事故調查程序定期檢討紀錄","clause":"10.2","toshms":"7.4","law":"—","parent":"ISO45001-2-036","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-199","name":"安全衛生改善提案表","clause":"10.3","toshms":"1.1","law":"—","parent":"ISO45001-2-037","owner":"全院工作者","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-200","name":"持續改進追蹤管制表","clause":"10.3","toshms":"1.1","law":"—","parent":"ISO45001-2-037","owner":"職業安全衛生中心","keep":"3年","lv":4,"chs":["10"],"kids":[]},{"no":"ISO45001-4-201","name":"職業安全衛生績效趨勢分析報告","clause":"9.1.1、10.3","toshms":"1.1","law":"—","parent":"ISO45001-2-037","owner":"職業安全衛生中心","keep":"5年","lv":4,"chs":["9","10"],"kids":[]},{"no":"ISO45001-4-202","name":"護理之家照護作業危害鑑別與風險評估表","clause":"6.1.2.2","toshms":"2","law":"護理機構分類設置標準","parent":"ISO45001-3-089","owner":"華仁愛護理之家","keep":"3年","lv":4,"chs":["6"],"kids":[]},{"no":"ISO45001-4-203","name":"放射治療設備安全與輻射防護查核表","clause":"8.1.2、9.1.1","toshms":"—","law":"游離輻射防護安全標準","parent":"ISO45001-3-021","owner":"放射腫瘤部","keep":"3年","lv":4,"chs":["8","9"],"kids":[]},{"no":"ISO45001-4-204","name":"新興傳染病職業防護整備查核表","clause":"8.1.2、8.2","toshms":"—","law":"傳染病防治法","parent":"ISO45001-3-029","owner":"感染管制中心","keep":"3年","lv":4,"chs":["8"],"kids":[]}];
+const CLAUSES = [{"cl":"4.1","name":"瞭解組織及其前後環節","docs":["ISO45001-1-001","ISO45001-2-001","ISO45001-4-008"],"n":[1,1,0,1],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-001","ISO45001-4-008"],[],"行政管理"]]},{"cl":"4.2","name":"瞭解工作者及其他利害相關者之需求與期望","docs":["ISO45001-1-001","ISO45001-2-001","ISO45001-4-009"],"n":[1,1,0,1],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-001","ISO45001-4-009"],[],"行政管理"]]},{"cl":"4.3","name":"決定職業安全衛生管理系統之範圍","docs":["ISO45001-1-001","ISO45001-1-003","ISO45001-2-001","ISO45001-4-010"],"n":[2,1,0,1],"cats":[["ADM",["ISO45001-1-001","ISO45001-1-003","ISO45001-2-001","ISO45001-4-010"],[],"行政管理"]]},{"cl":"4.4","name":"職業安全衛生管理系統","docs":["ISO45001-1-001"],"n":[1,0,0,0],"cats":[["ADM",["ISO45001-1-001"],[],"行政管理"]]},{"cl":"5.1","name":"領導與承諾","docs":["ISO45001-1-001","ISO45001-2-002"],"n":[1,1,0,0],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-002"],[],"行政管理"]]},{"cl":"5.2","name":"職業安全衛生政策","docs":["ISO45001-1-001","ISO45001-1-002","ISO45001-2-002","ISO45001-4-011"],"n":[2,1,0,1],"cats":[["ADM",["ISO45001-1-001","ISO45001-1-002","ISO45001-2-002","ISO45001-4-011"],[],"行政管理"]]},{"cl":"5.3","name":"組織之角色、責任及職權","docs":["ISO45001-1-001","ISO45001-1-004","ISO45001-2-003","ISO45001-4-012","ISO45001-4-013","ISO45001-4-014"],"n":[2,1,0,3],"cats":[["ADM",["ISO45001-1-001","ISO45001-1-004","ISO45001-2-003","ISO45001-4-012","ISO45001-4-013","ISO45001-4-014"],[],"行政管理"]]},{"cl":"5.4","name":"工作者之諮詢及參與","docs":["ISO45001-1-001","ISO45001-2-004","ISO45001-3-088","ISO45001-4-015","ISO45001-4-016","ISO45001-4-017","ISO45001-4-018","ISO45001-4-019"],"n":[1,1,1,5],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-004","ISO45001-3-088","ISO45001-4-015","ISO45001-4-016","ISO45001-4-017","ISO45001-4-018","ISO45001-4-019"],[],"行政管理"]]},{"cl":"6.1.1","name":"處理風險與機會之措施－一般","docs":["ISO45001-1-001","ISO45001-2-005","ISO45001-3-003"],"n":[1,1,1,0],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-005","ISO45001-3-003"],[],"行政管理"]]},{"cl":"6.1.2.1","name":"危害鑑別","docs":["ISO45001-1-001","ISO45001-2-005","ISO45001-2-023","ISO45001-3-001","ISO45001-3-033","ISO45001-3-034","ISO45001-3-035","ISO45001-3-036","ISO45001-3-071","ISO45001-4-020","ISO45001-4-021","ISO45001-4-068","ISO45001-4-110"],"n":[1,2,6,4],"cats":[["ERG",["ISO45001-2-023","ISO45001-3-033","ISO45001-4-110"],[],"人因性危害"],["PSY",["ISO45001-3-034","ISO45001-3-035"],[],"社會心理危害"],["MAT",["ISO45001-3-036"],[],"母性健康保護"],["MEC",["ISO45001-3-071"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-005","ISO45001-3-001","ISO45001-4-020","ISO45001-4-021","ISO45001-4-068"],[],"行政管理"]]},{"cl":"6.1.2.2","name":"職業安全衛生風險及管理系統其他風險之評鑑","docs":["ISO45001-1-001","ISO45001-2-005","ISO45001-2-023","ISO45001-3-001","ISO45001-3-015","ISO45001-3-033","ISO45001-3-034","ISO45001-3-035","ISO45001-3-036","ISO45001-3-071","ISO45001-4-021","ISO45001-4-022","ISO45001-4-079","ISO45001-4-111","ISO45001-4-113","ISO45001-4-116","ISO45001-4-119","ISO45001-4-121","ISO45001-4-122","ISO45001-4-174","ISO45001-4-202"],"n":[1,2,7,11],"cats":[["CHM",["ISO45001-3-015","ISO45001-4-079"],[],"化學性危害"],["ERG",["ISO45001-2-023","ISO45001-3-033","ISO45001-4-111","ISO45001-4-121","ISO45001-4-122","ISO45001-4-202"],[],"人因性危害"],["PSY",["ISO45001-3-034","ISO45001-3-035","ISO45001-4-113","ISO45001-4-116"],[],"社會心理危害"],["MAT",["ISO45001-3-036","ISO45001-4-119"],[],"母性健康保護"],["MEC",["ISO45001-3-071","ISO45001-4-174"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-005","ISO45001-3-001","ISO45001-4-021","ISO45001-4-022"],[],"行政管理"]]},{"cl":"6.1.2.3","name":"職業安全衛生機會及管理系統其他機會之評鑑","docs":["ISO45001-1-001","ISO45001-2-005","ISO45001-2-023","ISO45001-3-002","ISO45001-3-033","ISO45001-3-034","ISO45001-3-035","ISO45001-3-036","ISO45001-3-071","ISO45001-4-023"],"n":[1,2,6,1],"cats":[["ERG",["ISO45001-2-023","ISO45001-3-033"],[],"人因性危害"],["PSY",["ISO45001-3-034","ISO45001-3-035"],[],"社會心理危害"],["MAT",["ISO45001-3-036"],[],"母性健康保護"],["MEC",["ISO45001-3-071"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-005","ISO45001-3-002","ISO45001-4-023"],[],"行政管理"]]},{"cl":"6.1.3","name":"決定法規要求事項及其他要求事項","docs":["ISO45001-1-001","ISO45001-2-006","ISO45001-4-026","ISO45001-4-027","ISO45001-4-028","ISO45001-4-029","ISO45001-4-080","ISO45001-4-135"],"n":[1,1,0,6],"cats":[["CHM",["ISO45001-4-080"],[],"化學性危害"],["MEC",["ISO45001-4-135"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-006","ISO45001-4-026","ISO45001-4-027","ISO45001-4-028","ISO45001-4-029"],[],"行政管理"]]},{"cl":"6.1.4","name":"規劃措施","docs":["ISO45001-1-001","ISO45001-4-024","ISO45001-4-025","ISO45001-4-112"],"n":[1,0,0,3],"cats":[["ERG",["ISO45001-4-112"],[],"人因性危害"],["ADM",["ISO45001-1-001","ISO45001-4-024","ISO45001-4-025"],[],"行政管理"]]},{"cl":"6.2.1","name":"職業安全衛生目標","docs":["ISO45001-1-001","ISO45001-2-007","ISO45001-4-030","ISO45001-4-033"],"n":[1,1,0,2],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-007","ISO45001-4-030","ISO45001-4-033"],[],"行政管理"]]},{"cl":"6.2.2","name":"達成職業安全衛生目標之規劃","docs":["ISO45001-1-001","ISO45001-2-007","ISO45001-4-031","ISO45001-4-032"],"n":[1,1,0,2],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-007","ISO45001-4-031","ISO45001-4-032"],[],"行政管理"]]},{"cl":"7.1","name":"資源","docs":["ISO45001-1-001","ISO45001-2-008","ISO45001-4-034","ISO45001-4-035"],"n":[1,1,0,2],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-008","ISO45001-4-034","ISO45001-4-035"],[],"行政管理"]]},{"cl":"7.2","name":"適任性","docs":["ISO45001-1-001","ISO45001-2-009","ISO45001-3-004","ISO45001-3-005","ISO45001-3-006","ISO45001-3-083","ISO45001-4-036","ISO45001-4-037","ISO45001-4-038","ISO45001-4-039","ISO45001-4-040","ISO45001-4-041","ISO45001-4-042","ISO45001-4-051","ISO45001-4-061","ISO45001-4-075","ISO45001-4-094","ISO45001-4-163","ISO45001-4-185"],"n":[1,1,4,13],"cats":[["PHY",["ISO45001-4-094"],[],"物理性危害"],["MEC",["ISO45001-4-163"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-009","ISO45001-3-004","ISO45001-3-005","ISO45001-3-006","ISO45001-3-083","ISO45001-4-036","ISO45001-4-037","ISO45001-4-038","ISO45001-4-039","ISO45001-4-040","ISO45001-4-041","ISO45001-4-042","ISO45001-4-051","ISO45001-4-061","ISO45001-4-075","ISO45001-4-185"],[],"行政管理"]]},{"cl":"7.3","name":"認知","docs":["ISO45001-1-001","ISO45001-1-005","ISO45001-2-009","ISO45001-3-004","ISO45001-3-005","ISO45001-4-041","ISO45001-4-043"],"n":[2,1,2,2],"cats":[["ADM",["ISO45001-1-001","ISO45001-1-005","ISO45001-2-009","ISO45001-3-004","ISO45001-3-005","ISO45001-4-041","ISO45001-4-043"],[],"行政管理"]]},{"cl":"7.4.1","name":"溝通－一般","docs":["ISO45001-1-001","ISO45001-2-010","ISO45001-4-028","ISO45001-4-126","ISO45001-4-151"],"n":[1,1,0,3],"cats":[["MEC",["ISO45001-4-151"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-010","ISO45001-4-028","ISO45001-4-126"],[],"行政管理"]]},{"cl":"7.4.2","name":"內部溝通","docs":["ISO45001-1-001","ISO45001-2-010","ISO45001-4-018","ISO45001-4-028","ISO45001-4-044","ISO45001-4-126","ISO45001-4-151"],"n":[1,1,0,5],"cats":[["MEC",["ISO45001-4-151"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-010","ISO45001-4-018","ISO45001-4-028","ISO45001-4-044","ISO45001-4-126"],[],"行政管理"]]},{"cl":"7.4.3","name":"外部溝通","docs":["ISO45001-1-001","ISO45001-2-010","ISO45001-4-028","ISO45001-4-045","ISO45001-4-126","ISO45001-4-151"],"n":[1,1,0,4],"cats":[["MEC",["ISO45001-4-151"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-010","ISO45001-4-028","ISO45001-4-045","ISO45001-4-126"],[],"行政管理"]]},{"cl":"7.5.1","name":"文件化資訊－一般","docs":["ISO45001-1-001","ISO45001-2-011","ISO45001-3-006","ISO45001-4-042"],"n":[1,1,1,1],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-011","ISO45001-3-006","ISO45001-4-042"],[],"行政管理"]]},{"cl":"7.5.2","name":"建立及更新","docs":["ISO45001-1-001","ISO45001-2-011","ISO45001-3-006","ISO45001-3-086","ISO45001-4-003","ISO45001-4-042"],"n":[1,1,2,2],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-011","ISO45001-3-006","ISO45001-3-086","ISO45001-4-003","ISO45001-4-042"],[],"行政管理"]]},{"cl":"7.5.3","name":"文件化資訊之管制","docs":["ISO45001-1-001","ISO45001-2-011","ISO45001-3-006","ISO45001-3-086","ISO45001-3-087","ISO45001-4-001","ISO45001-4-002","ISO45001-4-004","ISO45001-4-005","ISO45001-4-006","ISO45001-4-007","ISO45001-4-042","ISO45001-4-077"],"n":[1,1,3,8],"cats":[["CHM",["ISO45001-4-077"],[],"化學性危害"],["ADM",["ISO45001-1-001","ISO45001-2-011","ISO45001-3-006","ISO45001-3-086","ISO45001-3-087","ISO45001-4-001","ISO45001-4-002","ISO45001-4-004","ISO45001-4-005","ISO45001-4-006","ISO45001-4-007","ISO45001-4-042"],[],"行政管理"]]},{"cl":"8.1.1","name":"運作之規劃及管制－一般","docs":["ISO45001-1-001","ISO45001-1-004","ISO45001-1-005","ISO45001-2-012","ISO45001-2-019","ISO45001-2-020","ISO45001-2-021","ISO45001-2-022","ISO45001-2-023","ISO45001-2-024","ISO45001-2-025","ISO45001-2-026","ISO45001-2-027","ISO45001-2-029","ISO45001-2-030","ISO45001-2-031","ISO45001-3-007","ISO45001-3-008","ISO45001-3-009","ISO45001-3-010","ISO45001-3-011","ISO45001-3-012","ISO45001-3-013","ISO45001-3-015","ISO45001-3-016","ISO45001-3-017","ISO45001-3-018","ISO45001-3-019","ISO45001-3-020","ISO45001-3-021","ISO45001-3-022","ISO45001-3-023","ISO45001-3-024","ISO45001-3-025","ISO45001-3-026","ISO45001-3-027","ISO45001-3-028","ISO45001-3-029","ISO45001-3-030","ISO45001-3-031","ISO45001-3-032","ISO45001-3-033","ISO45001-3-034","ISO45001-3-035","ISO45001-3-036","ISO45001-3-037","ISO45001-3-038","ISO45001-3-039","ISO45001-3-040","ISO45001-3-041","ISO45001-3-042","ISO45001-3-043","ISO45001-3-044","ISO45001-3-045","ISO45001-3-046","ISO45001-3-047","ISO45001-3-048","ISO45001-3-049","ISO45001-3-050","ISO45001-3-051","ISO45001-3-052","ISO45001-3-053","ISO45001-3-054","ISO45001-3-055","ISO45001-3-056","ISO45001-3-057","ISO45001-3-058","ISO45001-3-059","ISO45001-3-060","ISO45001-3-063","ISO45001-3-064","ISO45001-3-065","ISO45001-3-066","ISO45001-3-067","ISO45001-3-068","ISO45001-3-069","ISO45001-3-070","ISO45001-3-071","ISO45001-3-089","ISO45001-4-032","ISO45001-4-046","ISO45001-4-047","ISO45001-4-076","ISO45001-4-077","ISO45001-4-078","ISO45001-4-079","ISO45001-4-080","ISO45001-4-081","ISO45001-4-082","ISO45001-4-083","ISO45001-4-084","ISO45001-4-085","ISO45001-4-086","ISO45001-4-089","ISO45001-4-091","ISO45001-4-092","ISO45001-4-093","ISO45001-4-094","ISO45001-4-095","ISO45001-4-097","ISO45001-4-098","ISO45001-4-100","ISO45001-4-103","ISO45001-4-105","ISO45001-4-108","ISO45001-4-109","ISO45001-4-114","ISO45001-4-115","ISO45001-4-118","ISO45001-4-119","ISO45001-4-120","ISO45001-4-123","ISO45001-4-124","ISO45001-4-129","ISO45001-4-130","ISO45001-4-135","ISO45001-4-145","ISO45001-4-147","ISO45001-4-149","ISO45001-4-150","ISO45001-4-151","ISO45001-4-153","ISO45001-4-154","ISO45001-4-155","ISO45001-4-160","ISO45001-4-162","ISO45001-4-165","ISO45001-4-166","ISO45001-4-167","ISO45001-4-168","ISO45001-4-169","ISO45001-4-170","ISO45001-4-171","ISO45001-4-172"],"n":[3,13,63,55],"cats":[["PHY",["ISO45001-2-020","ISO45001-2-021","ISO45001-3-016","ISO45001-3-017","ISO45001-3-018","ISO45001-3-019","ISO45001-3-020","ISO45001-3-021","ISO45001-3-022","ISO45001-3-023","ISO45001-3-024","ISO45001-3-025","ISO45001-3-026","ISO45001-3-042","ISO45001-3-055","ISO45001-4-089","ISO45001-4-091","ISO45001-4-092","ISO45001-4-093","ISO45001-4-094","ISO45001-4-095","ISO45001-4-097","ISO45001-4-098","ISO45001-4-100","ISO45001-4-149"],[["GEN",["ISO45001-2-020","ISO45001-3-016","ISO45001-3-017","ISO45001-3-018","ISO45001-3-025","ISO45001-3-026","ISO45001-3-042","ISO45001-3-055","ISO45001-4-089","ISO45001-4-091","ISO45001-4-092","ISO45001-4-149"]],["RAD",["ISO45001-2-021","ISO45001-3-019","ISO45001-3-020","ISO45001-3-021","ISO45001-3-022","ISO45001-3-023","ISO45001-3-024","ISO45001-4-093","ISO45001-4-094","ISO45001-4-095","ISO45001-4-097","ISO45001-4-098","ISO45001-4-100"]]],"物理性危害"],["CHM",["ISO45001-2-019","ISO45001-3-007","ISO45001-3-008","ISO45001-3-009","ISO45001-3-010","ISO45001-3-011","ISO45001-3-012","ISO45001-3-013","ISO45001-3-015","ISO45001-4-076","ISO45001-4-077","ISO45001-4-078","ISO45001-4-079","ISO45001-4-080","ISO45001-4-081","ISO45001-4-082","ISO45001-4-083","ISO45001-4-084","ISO45001-4-085","ISO45001-4-086"],[["GEN",["ISO45001-2-019","ISO45001-3-007","ISO45001-3-015","ISO45001-4-076","ISO45001-4-077","ISO45001-4-078","ISO45001-4-079","ISO45001-4-080"]],["CLN",["ISO45001-3-008","ISO45001-3-012","ISO45001-4-081","ISO45001-4-085"]],["LAB",["ISO45001-3-009","ISO45001-3-010","ISO45001-3-011","ISO45001-3-013","ISO45001-4-082","ISO45001-4-083","ISO45001-4-084","ISO45001-4-086"]]],"化學性危害"],["BIO",["ISO45001-2-022","ISO45001-3-027","ISO45001-3-028","ISO45001-3-029","ISO45001-3-030","ISO45001-3-031","ISO45001-3-032","ISO45001-4-103","ISO45001-4-105","ISO45001-4-108","ISO45001-4-109"],[],"生物性危害"],["ERG",["ISO45001-2-023","ISO45001-3-033","ISO45001-3-037","ISO45001-3-038","ISO45001-3-089","ISO45001-4-123"],[],"人因性危害"],["PSY",["ISO45001-3-034","ISO45001-3-035","ISO45001-3-039","ISO45001-3-040","ISO45001-4-114","ISO45001-4-115"],[],"社會心理危害"],["MAT",["ISO45001-3-036","ISO45001-4-118","ISO45001-4-119","ISO45001-4-120"],[],"母性健康保護"],["MEC",["ISO45001-2-025","ISO45001-2-026","ISO45001-2-027","ISO45001-2-029","ISO45001-2-031","ISO45001-3-043","ISO45001-3-044","ISO45001-3-045","ISO45001-3-046","ISO45001-3-047","ISO45001-3-048","ISO45001-3-049","ISO45001-3-050","ISO45001-3-051","ISO45001-3-052","ISO45001-3-053","ISO45001-3-054","ISO45001-3-056","ISO45001-3-057","ISO45001-3-058","ISO45001-3-059","ISO45001-3-060","ISO45001-3-063","ISO45001-3-064","ISO45001-3-065","ISO45001-3-070","ISO45001-3-071","ISO45001-4-129","ISO45001-4-130","ISO45001-4-135","ISO45001-4-145","ISO45001-4-147","ISO45001-4-150","ISO45001-4-151","ISO45001-4-153","ISO45001-4-154","ISO45001-4-155","ISO45001-4-160","ISO45001-4-162"],[["BLD",["ISO45001-2-025","ISO45001-3-043","ISO45001-3-044","ISO45001-3-045","ISO45001-3-046","ISO45001-3-047","ISO45001-3-048","ISO45001-3-049","ISO45001-3-050","ISO45001-3-051","ISO45001-4-129","ISO45001-4-130","ISO45001-4-135"]],["GAS",["ISO45001-2-026","ISO45001-3-052","ISO45001-3-053","ISO45001-3-054","ISO45001-4-145"]],["SPW",["ISO45001-2-027","ISO45001-3-056","ISO45001-3-057","ISO45001-3-058","ISO45001-3-059","ISO45001-3-060","ISO45001-4-147","ISO45001-4-150","ISO45001-4-151","ISO45001-4-153","ISO45001-4-154","ISO45001-4-155"]],["VEH",["ISO45001-2-029","ISO45001-2-031","ISO45001-3-063","ISO45001-3-064","ISO45001-3-065","ISO45001-3-070","ISO45001-3-071","ISO45001-4-160","ISO45001-4-162"]]],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-1-004","ISO45001-1-005","ISO45001-2-012","ISO45001-2-024","ISO45001-2-030","ISO45001-3-041","ISO45001-3-066","ISO45001-3-067","ISO45001-3-068","ISO45001-3-069","ISO45001-4-032","ISO45001-4-046","ISO45001-4-047","ISO45001-4-124","ISO45001-4-165","ISO45001-4-166","ISO45001-4-167","ISO45001-4-168","ISO45001-4-169","ISO45001-4-170","ISO45001-4-171","ISO45001-4-172"],[["GEN",["ISO45001-1-001","ISO45001-1-004","ISO45001-1-005","ISO45001-2-012","ISO45001-4-032","ISO45001-4-046","ISO45001-4-047"]],["ENV",["ISO45001-2-024","ISO45001-3-041","ISO45001-4-124"]],["HLT",["ISO45001-2-030","ISO45001-3-066","ISO45001-3-067","ISO45001-3-068","ISO45001-3-069","ISO45001-4-165","ISO45001-4-166","ISO45001-4-167","ISO45001-4-168","ISO45001-4-169","ISO45001-4-170","ISO45001-4-171","ISO45001-4-172"]]],"行政管理"]]},{"cl":"8.1.2","name":"消除危害及降低職業安全衛生風險","docs":["ISO45001-1-001","ISO45001-2-013","ISO45001-2-019","ISO45001-2-020","ISO45001-2-021","ISO45001-2-022","ISO45001-2-025","ISO45001-2-026","ISO45001-2-027","ISO45001-2-028","ISO45001-2-029","ISO45001-3-008","ISO45001-3-009","ISO45001-3-010","ISO45001-3-011","ISO45001-3-012","ISO45001-3-013","ISO45001-3-016","ISO45001-3-017","ISO45001-3-019","ISO45001-3-020","ISO45001-3-021","ISO45001-3-022","ISO45001-3-024","ISO45001-3-025","ISO45001-3-026","ISO45001-3-028","ISO45001-3-030","ISO45001-3-031","ISO45001-3-037","ISO45001-3-038","ISO45001-3-044","ISO45001-3-045","ISO45001-3-046","ISO45001-3-047","ISO45001-3-049","ISO45001-3-050","ISO45001-3-052","ISO45001-3-053","ISO45001-3-054","ISO45001-3-055","ISO45001-3-056","ISO45001-3-057","ISO45001-3-058","ISO45001-3-059","ISO45001-3-060","ISO45001-3-061","ISO45001-3-062","ISO45001-3-063","ISO45001-3-064","ISO45001-3-089","ISO45001-4-024","ISO45001-4-048","ISO45001-4-088","ISO45001-4-090","ISO45001-4-091","ISO45001-4-096","ISO45001-4-099","ISO45001-4-100","ISO45001-4-101","ISO45001-4-102","ISO45001-4-106","ISO45001-4-107","ISO45001-4-112","ISO45001-4-147","ISO45001-4-150","ISO45001-4-153","ISO45001-4-154","ISO45001-4-155","ISO45001-4-157","ISO45001-4-158","ISO45001-4-159","ISO45001-4-203","ISO45001-4-204"],"n":[1,10,40,23],"cats":[["PHY",["ISO45001-2-020","ISO45001-2-021","ISO45001-3-016","ISO45001-3-017","ISO45001-3-019","ISO45001-3-020","ISO45001-3-021","ISO45001-3-022","ISO45001-3-024","ISO45001-3-025","ISO45001-3-026","ISO45001-3-055","ISO45001-4-090","ISO45001-4-091","ISO45001-4-096","ISO45001-4-099","ISO45001-4-100","ISO45001-4-101","ISO45001-4-102","ISO45001-4-203"],[["GEN",["ISO45001-2-020","ISO45001-3-016","ISO45001-3-017","ISO45001-3-025","ISO45001-3-026","ISO45001-3-055","ISO45001-4-090","ISO45001-4-091","ISO45001-4-101","ISO45001-4-102"]],["RAD",["ISO45001-2-021","ISO45001-3-019","ISO45001-3-020","ISO45001-3-021","ISO45001-3-022","ISO45001-3-024","ISO45001-4-096","ISO45001-4-099","ISO45001-4-100","ISO45001-4-203"]]],"物理性危害"],["CHM",["ISO45001-2-019","ISO45001-3-008","ISO45001-3-009","ISO45001-3-010","ISO45001-3-011","ISO45001-3-012","ISO45001-3-013","ISO45001-4-088"],[],"化學性危害"],["BIO",["ISO45001-2-022","ISO45001-3-028","ISO45001-3-030","ISO45001-3-031","ISO45001-4-106","ISO45001-4-107","ISO45001-4-204"],[],"生物性危害"],["ERG",["ISO45001-3-037","ISO45001-3-038","ISO45001-3-089","ISO45001-4-112"],[],"人因性危害"],["MEC",["ISO45001-2-025","ISO45001-2-026","ISO45001-2-027","ISO45001-2-028","ISO45001-2-029","ISO45001-3-044","ISO45001-3-045","ISO45001-3-046","ISO45001-3-047","ISO45001-3-049","ISO45001-3-050","ISO45001-3-052","ISO45001-3-053","ISO45001-3-054","ISO45001-3-056","ISO45001-3-057","ISO45001-3-058","ISO45001-3-059","ISO45001-3-060","ISO45001-3-061","ISO45001-3-062","ISO45001-3-063","ISO45001-3-064","ISO45001-4-147","ISO45001-4-150","ISO45001-4-153","ISO45001-4-154","ISO45001-4-155","ISO45001-4-157","ISO45001-4-158","ISO45001-4-159"],[["BLD",["ISO45001-2-025","ISO45001-3-044","ISO45001-3-045","ISO45001-3-046","ISO45001-3-047","ISO45001-3-049","ISO45001-3-050"]],["GAS",["ISO45001-2-026","ISO45001-3-052","ISO45001-3-053","ISO45001-3-054"]],["SPW",["ISO45001-2-027","ISO45001-3-056","ISO45001-3-057","ISO45001-3-058","ISO45001-3-059","ISO45001-3-060","ISO45001-4-147","ISO45001-4-150","ISO45001-4-153","ISO45001-4-154","ISO45001-4-155"]],["VEH",["ISO45001-2-029","ISO45001-3-063","ISO45001-3-064"]],["PPE",["ISO45001-2-028","ISO45001-3-061","ISO45001-3-062","ISO45001-4-157","ISO45001-4-158","ISO45001-4-159"]]],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-013","ISO45001-4-024","ISO45001-4-048"],[],"行政管理"]]},{"cl":"8.1.3","name":"變更管理","docs":["ISO45001-1-001","ISO45001-2-014","ISO45001-3-003","ISO45001-4-049","ISO45001-4-050","ISO45001-4-051","ISO45001-4-052"],"n":[1,1,1,4],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-014","ISO45001-3-003","ISO45001-4-049","ISO45001-4-050","ISO45001-4-051","ISO45001-4-052"],[],"行政管理"]]},{"cl":"8.1.4.1","name":"採購－一般","docs":["ISO45001-1-001","ISO45001-2-015","ISO45001-3-074","ISO45001-4-053","ISO45001-4-054","ISO45001-4-055","ISO45001-4-056"],"n":[1,1,1,4],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-015","ISO45001-3-074","ISO45001-4-053","ISO45001-4-054","ISO45001-4-055","ISO45001-4-056"],[],"行政管理"]]},{"cl":"8.1.4.2","name":"承攬商","docs":["ISO45001-1-001","ISO45001-2-016","ISO45001-2-031","ISO45001-3-070","ISO45001-3-072","ISO45001-3-073","ISO45001-4-057","ISO45001-4-058","ISO45001-4-059","ISO45001-4-060","ISO45001-4-061","ISO45001-4-062","ISO45001-4-063","ISO45001-4-064","ISO45001-4-065","ISO45001-4-173"],"n":[1,2,3,10],"cats":[["MEC",["ISO45001-2-031","ISO45001-3-070","ISO45001-4-173"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-016","ISO45001-3-072","ISO45001-3-073","ISO45001-4-057","ISO45001-4-058","ISO45001-4-059","ISO45001-4-060","ISO45001-4-061","ISO45001-4-062","ISO45001-4-063","ISO45001-4-064","ISO45001-4-065"],[],"行政管理"]]},{"cl":"8.1.4.3","name":"外包","docs":["ISO45001-1-001","ISO45001-2-017","ISO45001-4-066","ISO45001-4-067"],"n":[1,1,0,2],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-017","ISO45001-4-066","ISO45001-4-067"],[],"行政管理"]]},{"cl":"8.2","name":"緊急準備與應變","docs":["ISO45001-1-001","ISO45001-2-018","ISO45001-2-038","ISO45001-2-039","ISO45001-2-040","ISO45001-2-041","ISO45001-2-042","ISO45001-2-043","ISO45001-3-014","ISO45001-3-029","ISO45001-3-048","ISO45001-3-051","ISO45001-3-081","ISO45001-4-068","ISO45001-4-069","ISO45001-4-070","ISO45001-4-071","ISO45001-4-072","ISO45001-4-073","ISO45001-4-074","ISO45001-4-075","ISO45001-4-087","ISO45001-4-140","ISO45001-4-143","ISO45001-4-204"],"n":[1,7,5,12],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-018","ISO45001-3-081","ISO45001-4-068","ISO45001-4-069","ISO45001-4-070","ISO45001-4-071","ISO45001-4-072","ISO45001-4-073","ISO45001-4-074","ISO45001-4-075"],[],"通則"],["CHM",["ISO45001-3-014","ISO45001-4-087"],[],"化學性危害"],["BIO",["ISO45001-3-029","ISO45001-4-204"],[],"生物性危害"],["MEC",["ISO45001-3-048","ISO45001-3-051","ISO45001-4-140","ISO45001-4-143"],[],"機械設備與作業安全"],["EMG",["ISO45001-2-038","ISO45001-2-039","ISO45001-2-040","ISO45001-2-041","ISO45001-2-042","ISO45001-2-043"],[],"災害緊急應變"]]},{"cl":"9.1.1","name":"監督、量測、分析及績效評估－一般","docs":["ISO45001-1-001","ISO45001-2-024","ISO45001-2-032","ISO45001-3-023","ISO45001-3-041","ISO45001-3-043","ISO45001-4-025","ISO45001-4-033","ISO45001-4-062","ISO45001-4-078","ISO45001-4-081","ISO45001-4-082","ISO45001-4-083","ISO45001-4-084","ISO45001-4-085","ISO45001-4-086","ISO45001-4-088","ISO45001-4-089","ISO45001-4-092","ISO45001-4-095","ISO45001-4-096","ISO45001-4-097","ISO45001-4-099","ISO45001-4-101","ISO45001-4-106","ISO45001-4-107","ISO45001-4-114","ISO45001-4-124","ISO45001-4-125","ISO45001-4-126","ISO45001-4-127","ISO45001-4-128","ISO45001-4-130","ISO45001-4-131","ISO45001-4-132","ISO45001-4-133","ISO45001-4-136","ISO45001-4-137","ISO45001-4-138","ISO45001-4-139","ISO45001-4-140","ISO45001-4-141","ISO45001-4-142","ISO45001-4-143","ISO45001-4-144","ISO45001-4-145","ISO45001-4-146","ISO45001-4-148","ISO45001-4-152","ISO45001-4-156","ISO45001-4-158","ISO45001-4-161","ISO45001-4-162","ISO45001-4-175","ISO45001-4-176","ISO45001-4-177","ISO45001-4-178","ISO45001-4-179","ISO45001-4-197","ISO45001-4-201","ISO45001-4-203"],"n":[1,2,3,55],"cats":[["PHY",["ISO45001-3-023","ISO45001-4-089","ISO45001-4-092","ISO45001-4-095","ISO45001-4-096","ISO45001-4-097","ISO45001-4-099","ISO45001-4-101","ISO45001-4-128","ISO45001-4-148","ISO45001-4-203"],[["GEN",["ISO45001-4-089","ISO45001-4-092","ISO45001-4-101","ISO45001-4-128","ISO45001-4-148"]],["RAD",["ISO45001-3-023","ISO45001-4-095","ISO45001-4-096","ISO45001-4-097","ISO45001-4-099","ISO45001-4-203"]]],"物理性危害"],["CHM",["ISO45001-4-078","ISO45001-4-081","ISO45001-4-082","ISO45001-4-083","ISO45001-4-084","ISO45001-4-085","ISO45001-4-086","ISO45001-4-088"],[],"化學性危害"],["BIO",["ISO45001-4-106","ISO45001-4-107"],[],"生物性危害"],["PSY",["ISO45001-4-114"],[],"社會心理危害"],["MEC",["ISO45001-3-043","ISO45001-4-130","ISO45001-4-131","ISO45001-4-132","ISO45001-4-133","ISO45001-4-136","ISO45001-4-137","ISO45001-4-138","ISO45001-4-139","ISO45001-4-140","ISO45001-4-141","ISO45001-4-142","ISO45001-4-143","ISO45001-4-144","ISO45001-4-145","ISO45001-4-146","ISO45001-4-152","ISO45001-4-156","ISO45001-4-158","ISO45001-4-161","ISO45001-4-162","ISO45001-4-175"],[["GEN",["ISO45001-4-131","ISO45001-4-132","ISO45001-4-133","ISO45001-4-158"]],["BLD",["ISO45001-3-043","ISO45001-4-130","ISO45001-4-136","ISO45001-4-137","ISO45001-4-138","ISO45001-4-139","ISO45001-4-140","ISO45001-4-141","ISO45001-4-142","ISO45001-4-143"]],["GAS",["ISO45001-4-144","ISO45001-4-145","ISO45001-4-146"]],["SPW",["ISO45001-4-152","ISO45001-4-156"]],["VEH",["ISO45001-4-161","ISO45001-4-162","ISO45001-4-175"]]],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-024","ISO45001-2-032","ISO45001-3-041","ISO45001-4-025","ISO45001-4-033","ISO45001-4-062","ISO45001-4-124","ISO45001-4-125","ISO45001-4-126","ISO45001-4-127","ISO45001-4-176","ISO45001-4-177","ISO45001-4-178","ISO45001-4-179","ISO45001-4-197","ISO45001-4-201"],[["GEN",["ISO45001-1-001","ISO45001-2-032","ISO45001-4-025","ISO45001-4-033","ISO45001-4-062","ISO45001-4-176","ISO45001-4-177","ISO45001-4-178","ISO45001-4-179","ISO45001-4-197","ISO45001-4-201"]],["ENV",["ISO45001-2-024","ISO45001-3-041","ISO45001-4-124","ISO45001-4-125","ISO45001-4-126","ISO45001-4-127"]]],"行政管理"]]},{"cl":"9.1.2","name":"守規性之評估","docs":["ISO45001-1-001","ISO45001-2-033","ISO45001-4-180","ISO45001-4-181"],"n":[1,1,0,2],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-033","ISO45001-4-180","ISO45001-4-181"],[],"行政管理"]]},{"cl":"9.2.1","name":"內部稽核－一般","docs":["ISO45001-1-001","ISO45001-2-034"],"n":[1,1,0,0],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-034"],[],"行政管理"]]},{"cl":"9.2.2","name":"內部稽核方案","docs":["ISO45001-1-001","ISO45001-2-034","ISO45001-3-082","ISO45001-3-083","ISO45001-4-182","ISO45001-4-183","ISO45001-4-184","ISO45001-4-185","ISO45001-4-186"],"n":[1,1,2,5],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-034","ISO45001-3-082","ISO45001-3-083","ISO45001-4-182","ISO45001-4-183","ISO45001-4-184","ISO45001-4-185","ISO45001-4-186"],[],"行政管理"]]},{"cl":"9.3","name":"管理階層審查","docs":["ISO45001-1-001","ISO45001-2-035","ISO45001-4-187","ISO45001-4-188","ISO45001-4-189","ISO45001-4-190"],"n":[1,1,0,4],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-035","ISO45001-4-187","ISO45001-4-188","ISO45001-4-189","ISO45001-4-190"],[],"行政管理"]]},{"cl":"10.1","name":"改進－一般","docs":["ISO45001-1-001"],"n":[1,0,0,0],"cats":[["ADM",["ISO45001-1-001"],[],"行政管理"]]},{"cl":"10.2","name":"事故、不符合事項及矯正措施","docs":["ISO45001-1-001","ISO45001-2-036","ISO45001-3-027","ISO45001-3-040","ISO45001-3-084","ISO45001-3-085","ISO45001-4-064","ISO45001-4-087","ISO45001-4-104","ISO45001-4-105","ISO45001-4-117","ISO45001-4-123","ISO45001-4-127","ISO45001-4-134","ISO45001-4-164","ISO45001-4-172","ISO45001-4-181","ISO45001-4-186","ISO45001-4-191","ISO45001-4-192","ISO45001-4-193","ISO45001-4-194","ISO45001-4-195","ISO45001-4-196","ISO45001-4-197","ISO45001-4-198"],"n":[1,1,4,20],"cats":[["CHM",["ISO45001-4-087"],[],"化學性危害"],["BIO",["ISO45001-3-027","ISO45001-4-104","ISO45001-4-105"],[],"生物性危害"],["ERG",["ISO45001-4-123"],[],"人因性危害"],["PSY",["ISO45001-3-040","ISO45001-4-117"],[],"社會心理危害"],["MEC",["ISO45001-4-134","ISO45001-4-164"],[],"機械設備與作業安全"],["ADM",["ISO45001-1-001","ISO45001-2-036","ISO45001-3-084","ISO45001-3-085","ISO45001-4-064","ISO45001-4-127","ISO45001-4-172","ISO45001-4-181","ISO45001-4-186","ISO45001-4-191","ISO45001-4-192","ISO45001-4-193","ISO45001-4-194","ISO45001-4-195","ISO45001-4-196","ISO45001-4-197","ISO45001-4-198"],[],"行政管理"]]},{"cl":"10.3","name":"持續改進","docs":["ISO45001-1-001","ISO45001-2-037","ISO45001-4-190","ISO45001-4-199","ISO45001-4-200","ISO45001-4-201"],"n":[1,1,0,4],"cats":[["ADM",["ISO45001-1-001","ISO45001-2-037","ISO45001-4-190","ISO45001-4-199","ISO45001-4-200","ISO45001-4-201"],[],"行政管理"]]}];
+const CATN = {"PHY":"物理性危害","CHM":"化學性危害","BIO":"生物性危害","ERG":"人因性危害","PSY":"社會心理危害","MAT":"母性健康保護","MEC":"機械設備與作業安全","EMG":"災害緊急應變","ADM":"行政管理"};
+const CATC = {"PHY":"#4a7fa5","CHM":"#8a6cae","BIO":"#c07a3e","ERG":"#3f8f7a","PSY":"#a85b7a","MAT":"#c25f8a","MEC":"#6b7684","EMG":"#c0533c","ADM":"#5b7267"};
+const SUBN = {"GEN":"通則","RAD":"放射暨游離輻射","CLN":"臨床","LAB":"實驗檢驗暨清消","BLD":"自動檢查與建築機電設備","GAS":"醫用氣體暨高壓設備","SPW":"特殊作業與局限空間","PPE":"個人防護具","VEH":"車輛交通與院內工程","ENV":"環測","HLT":"健檢"};
+const FORCE_FLAT = ["8.1.4.2"];   // 承攬商：類別區隔意義不大，一律鋪平不分類
+const BY = Object.fromEntries(ROWS.map(r => [r.no, r]));
+const LVNAME = {1:"一階 手冊／政策",2:"二階 程序書（SOP）",3:"三階 作業標準書（WI）",4:"四階 表單／紀錄"};
+const CHNAME = {"4":"4 組織前後環節","5":"5 領導及工作者參與","6":"6 規劃","7":"7 支援","8":"8 運作","9":"9 績效評估","10":"10 改進"};
+let fLv = new Set(), fCh = new Set(), fQ = "", mode = "table";
+const el = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function match(r){
+  if (fLv.size && !fLv.has(r.lv)) return false;
+  if (fCh.size && !r.chs.some(c => fCh.has(c))) return false;
+  if (fQ){
+    const hay = (r.no+" "+r.name+" "+r.clause+" "+r.toshms+" "+r.law+" "+r.owner+" "+r.parent).toLowerCase();
+    if (!fQ.split(/\s+/).every(t => hay.includes(t))) return false;
+  }
+  return true;
+}
+function chips(){
+  el("drLv").innerHTML = [1,2,3,4].map(v =>
+    '<button class="dr-chip" data-lv="'+v+'" aria-pressed="false">'+LVNAME[v]+'<span class="c">'+ROWS.filter(r=>r.lv===v).length+'</span></button>').join("");
+  el("drCh").innerHTML = ["4","5","6","7","8","9","10"].map(c =>
+    '<button class="dr-chip" data-ch="'+c+'" aria-pressed="false">'+CHNAME[c]+'<span class="c">'+ROWS.filter(r=>r.chs.includes(c)).length+'</span></button>').join("");
+  el("drLv").onclick = e => { const b = e.target.closest(".dr-chip"); if(!b) return;
+    const v = +b.dataset.lv; fLv.has(v)?fLv.delete(v):fLv.add(v);
+    b.setAttribute("aria-pressed", fLv.has(v)); render(); };
+  el("drCh").onclick = e => { const b = e.target.closest(".dr-chip"); if(!b) return;
+    const v = b.dataset.ch; fCh.has(v)?fCh.delete(v):fCh.add(v);
+    b.setAttribute("aria-pressed", fCh.has(v)); render(); };
+}
+function table(list){
+  el("drTbody").innerHTML = list.map(r => '<tr id="row-'+r.no+'" tabindex="0" data-no="'+r.no+'">'+
+    '<td class="no">'+esc(r.no)+'</td><td class="nm">'+esc(r.name)+'</td>'+
+    '<td><span class="lv lv'+r.lv+'">'+r.lv+'</span></td>'+
+    '<td class="cl">'+esc(r.clause)+'</td><td class="ts">'+esc(r.toshms)+'</td>'+
+    '<td class="pa">'+esc(r.parent)+'</td><td class="ow">'+esc(r.owner)+'</td>'+
+    '<td class="kp">'+esc(r.keep)+'</td></tr>').join("");
+}
+function leaf(r){
+  return '<div class="leaf" data-no="'+r.no+'" tabindex="0"><span class="lno">'+esc(r.no)+
+    '</span><span class="lnm">'+esc(r.name)+'</span></div>';
+}
+function tree(list){
+  const ok = new Set(list.map(r => r.no)); const vis = r => ok.has(r.no);
+  let h = "";
+  const s1 = ROWS.filter(r => r.lv === 1).filter(vis);
+  if (s1.length) h += '<div class="grp-t">第一階　手冊／政策</div>' + s1.map(leaf).join("");
+  ROWS.filter(r => r.lv === 2).forEach(p => {
+    const l3 = p.kids.map(k => BY[k]).filter(x => x.lv === 3);
+    const l4 = p.kids.map(k => BY[k]).filter(x => x.lv === 4);
+    const deep = l3.flatMap(c => c.kids.map(k => BY[k]));
+    if (!(vis(p) || l3.some(vis) || l4.some(vis) || deep.some(vis))) return;
+    const n = l3.length + l4.length + deep.length;
+    let inner = "";
+    const d4 = l4.filter(vis);
+    if (d4.length) inner += '<div class="grp"><div class="grp-t">直屬表單（四階）</div>'+d4.map(leaf).join("")+'</div>';
+    const s3 = l3.filter(c => vis(c) || c.kids.some(k => vis(BY[k])));
+    if (s3.length){
+      inner += '<div class="grp"><div class="grp-t">三階　作業標準書（'+s3.length+'）</div>';
+      s3.forEach(c => { inner += leaf(c);
+        const ks = c.kids.map(k => BY[k]).filter(vis);
+        if (ks.length) inner += '<div style="padding-left:20px;border-left:1px solid var(--line2);margin:2px 0 8px 6px">'+ks.map(leaf).join("")+'</div>'; });
+      inner += '</div>';
+    }
+    h += '<details class="node"><summary class="head"><span class="lv lv2">2</span>'+
+      '<span class="h-no">'+esc(p.no)+'</span><span class="h-nm">'+esc(p.name)+'</span>'+
+      '<span class="h-ct">條文 '+esc(p.clause)+'　下階 '+n+' 份</span></summary>'+
+      '<div class="kidbox">'+(inner||'<div class="grp-t">（無符合篩選之下階文件）</div>')+'</div></details>';
+  });
+  el("drTreebox").innerHTML = h || '<div class="dr-count">無符合條件之文件。</div>';
+}
+var expanded = {};
+function chipOf(n){
+  const d = BY[n]; if (!d) return "";
+  return '<a class="cchip l'+d.lv+'" data-jump="'+n+'" title="跳至文件清冊">'+
+    n.replace("ISO45001-","")+'<span class="cn2">'+esc(d.name)+'</span></a>';
+}
+function subcatOrChips(cl, g){
+  const subs = g[2];
+  if (!subs || !subs.length) return g[1].map(chipOf).join("");
+  const btns = subs.map(function(s){
+    const skey = cl + "|" + g[0] + "|" + s[0], on = !!expanded[skey];
+    return '<button class="csub'+(on?" on":"")+'" data-sub="'+skey+
+      '" style="--cc:'+CATC[g[0]]+'">'+SUBN[s[0]]+'<span class="cnum">'+s[1].length+'</span></button>';
+  }).join("");
+  const op = subs.filter(function(s){ return expanded[cl+"|"+g[0]+"|"+s[0]]; });
+  let exp = "";
+  if (op.length){
+    exp = '<div class="csub-exp">' + op.map(function(s){
+      return '<div class="csub-g"><div class="csub-t">'+SUBN[s[0]]+'（'+s[1].length+' 份）</div>'+
+        s[1].map(chipOf).join("")+'</div>';
+    }).join("") + '</div>';
+  }
+  return btns + exp;
+}
+function clause(){
+  const MAX = 8, TOPMIN = 3;
+  let shown = 0;
+  el("drCbody").innerHTML = CLAUSES.map(function(c){
+    if (fQ){
+      const hay = (c.cl + " " + c.name + " " + c.docs.map(function(n){
+        return BY[n] ? n + " " + BY[n].name : ""; }).join(" ")).toLowerCase();
+      if (!fQ.split(/\s+/).every(function(t){ return hay.indexOf(t) >= 0; })) return "";
+    }
+    shown++;
+    let cell;
+    // 需要至少兩個「有份量」（≥3 份）的危害別，分類鍵才有意義；
+    // 否則（例如 1 個主力類別＋幾個 1 份的零星類別）一律平鋪，
+    // 8 份以內全列，逾 8 份先顯示前 8、點擊展開其餘。
+    const substantial = c.cats.filter(function(g){ return g[1].length >= TOPMIN; }).length;
+    if (c.docs.length <= MAX || c.cats.length <= 1 || substantial < 2 || FORCE_FLAT.indexOf(c.cl) >= 0){
+      const key = "FLAT|" + c.cl, on = !!expanded[key];
+      if (c.docs.length <= MAX){
+        cell = c.docs.map(chipOf).join("");
+      } else if (on){
+        cell = c.docs.map(chipOf).join("") +
+          '<button class="cmore" data-less="'+key+'">－ 收起</button>';
+      } else {
+        cell = c.docs.slice(0, MAX).map(chipOf).join("") +
+          '<button class="cmore" data-more="'+key+'">＋ 其餘 '+(c.docs.length - MAX)+' 份</button>';
+      }
+    } else {
+      // 超過八份且有 ≥2 個有份量的危害別：先分類，點分類鍵才展開文件
+      cell = c.cats.map(function(g){
+        const key = c.cl + "|" + g[0], on = !!expanded[key];
+        return '<button class="ccat'+(on ? " on" : "")+'" data-cat="'+key+
+          '" style="--cc:'+CATC[g[0]]+'">'+g[3]+
+          '<span class="cnum">'+g[1].length+'</span></button>';
+      }).join("");
+      const op = c.cats.filter(function(g){ return expanded[c.cl + "|" + g[0]]; });
+      if (op.length){
+        cell += '<div class="cexp">' + op.map(function(g){
+          return '<div class="cexp-g" style="--cc:'+CATC[g[0]]+'"><div class="cexp-t">'+
+            g[3]+'（'+g[1].length+' 份）</div>'+subcatOrChips(c.cl, g)+'</div>';
+        }).join("") + '</div>';
+      }
+    }
+    const tip = c.n[0]+'／'+c.n[1]+'／'+c.n[2]+'／'+c.n[3];
+    return '<tr><td class="cl">'+c.cl+'</td><td class="cn">'+esc(c.name)+'</td>'+
+      '<td class="cdoc">'+(cell || '<span style="color:var(--ink3)">—</span>')+'</td>'+
+      '<td class="cov">'+(c.docs.length ? "已涵蓋" : "未涵蓋")+
+      '<div style="font-weight:400;font-size:10px;color:var(--ink3);margin-top:3px">'+
+      c.docs.length+' 份</div><div style="font-weight:400;font-family:var(--mono);font-size:9.5px;color:var(--ink3)" title="一／二／三／四階">'+
+      tip+'</div></td></tr>';
+  }).join("");
+  return shown;
+}
+
+function render(){
+  el("drTablebox").classList.toggle("off", mode !== "table");
+  el("drTreebox").classList.toggle("on", mode === "tree");
+  el("drClausebox").classList.toggle("on", mode === "clause");
+  el("drLv").style.display = (mode === "clause") ? "none" : "";
+  el("drCh").style.display = (mode === "clause") ? "none" : "";
+  if (mode === "clause"){
+    el("drCount").textContent = "顯示 " + clause() + " / " + CLAUSES.length + " 項條款";
+    return;
+  }
+  const list = ROWS.filter(match);
+  el("drCount").textContent = "顯示 " + list.length + " / " + ROWS.length + " 份文件";
+  mode === "table" ? table(list) : tree(list);
+}
+
+function setMode(m){
+  mode = m;
+  el("drTable").setAttribute("aria-pressed", m === "table");
+  el("drTree").setAttribute("aria-pressed", m === "tree");
+  el("drClause").setAttribute("aria-pressed", m === "clause");
+  render();
+}
+
+function jumpTo(no){
+  fLv.clear(); fCh.clear(); fQ = ""; el("drq").value = "";
+  document.querySelectorAll(".dr-chip").forEach(function(c){ c.setAttribute("aria-pressed","false"); });
+  setMode("table");
+  setTimeout(function(){
+    const row = document.getElementById("row-" + no);
+    if (!row) return;
+    row.scrollIntoView({behavior:"smooth", block:"center"});
+    row.classList.remove("flash"); void row.offsetWidth; row.classList.add("flash");
+  }, 80);
+}
+function open(no){
+  const r = BY[no]; if (!r) return;
+  const kids = r.kids.map(k => BY[k]);
+  const up = r.parent !== "—" ? BY[r.parent] : null;
+  el("drBody").innerHTML =
+    '<div class="pno">'+esc(r.no)+'</div><h2>'+esc(r.name)+'</h2>'+
+    '<div><span class="lv lv'+r.lv+'">'+LVNAME[r.lv]+'</span></div>'+
+    '<dl class="kv"><dt>CNS 45001</dt><dd>'+esc(r.clause)+'</dd>'+
+    '<dt>TOSHMS</dt><dd>'+(r.toshms==="—"?"—":"特定稽核重點 "+esc(r.toshms))+'</dd>'+
+    '<dt>法源依據</dt><dd>'+esc(r.law)+'</dd>'+
+    '<dt>權責單位</dt><dd>'+esc(r.owner)+'</dd>'+
+    '<dt>保存年限</dt><dd>'+esc(r.keep)+'</dd></dl>'+
+    (up ? '<div class="rel"><div class="rel-t">上階文件</div><a data-no="'+up.no+'"><span class="rno">'+esc(up.no)+'</span>'+esc(up.name)+'</a></div>' : '')+
+    (kids.length ? '<div class="rel"><div class="rel-t">下階文件（'+kids.length+'）</div>'+
+      kids.map(k => '<a data-no="'+k.no+'"><span class="rno">'+esc(k.no)+'</span>'+esc(k.name)+'</a>').join("")+'</div>' : '');
+  el("drPanel").classList.add("on"); el("drScrim").classList.add("on"); el("drPanel").focus();
+}
+function close(){ el("drPanel").classList.remove("on"); el("drScrim").classList.remove("on"); }
+
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-no]");
+  if (a && !e.target.closest("summary")) open(a.dataset.no);
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") close();
+  if (e.key === "Enter"){ const a = e.target.closest && e.target.closest("[data-no]");
+    if (a && a.tagName !== "SUMMARY") open(a.dataset.no); }
+});
+el("drScrim").onclick = close; el("drClose").onclick = close;
+el("drq").oninput = e => { fQ = e.target.value.trim().toLowerCase(); render(); };
+el("drTable").onclick = function(){ setMode("table"); };
+el("drTree").onclick = function(){ setMode("tree"); };
+el("drClause").onclick = function(){ setMode("clause"); };
+
+el("drCbody").addEventListener("click", function(e){
+  const more = e.target.closest("[data-more]");
+  if (more){ expanded[more.dataset.more] = true; clause(); return; }
+  const less = e.target.closest("[data-less]");
+  if (less){ expanded[less.dataset.less] = false; clause(); return; }
+  const sub = e.target.closest("[data-sub]");
+  if (sub){ const k = sub.dataset.sub; expanded[k] = !expanded[k]; clause(); return; }
+  const cat = e.target.closest("[data-cat]");
+  if (cat){ const k = cat.dataset.cat; expanded[k] = !expanded[k]; clause(); return; }
+  const j = e.target.closest("[data-jump]");
+  if (j){ e.preventDefault(); jumpTo(j.dataset.jump); }
+});
+
+el("drPrint").onclick = function(){
+  if (mode === "tree") setMode("table");
+  setTimeout(function(){ window.print(); }, 150);
+};
+
+// 列印時條款對照表自動全展開，印完還原
+var snap = null;
+window.addEventListener("beforeprint", function(){
+  snap = Object.assign({}, expanded);
+  CLAUSES.forEach(function(c){
+    expanded["FLAT|" + c.cl] = true;
+    c.cats.forEach(function(g){
+      expanded[c.cl + "|" + g[0]] = true;
+      (g[2] || []).forEach(function(s){ expanded[c.cl + "|" + g[0] + "|" + s[0]] = true; });
+    });
+  });
+  clause();
+});
+window.addEventListener("afterprint", function(){
+  if (snap){ expanded = snap; snap = null; clause(); }
+});
+el("drLegend").innerHTML = Object.keys(CATN).map(function(k){
+  return '<span><i style="background:'+CATC[k]+'"></i>'+CATN[k]+'</span>';
+}).join("");
+el("drYear").textContent = new Date().getFullYear();
+chips(); render();
+})();
+</script>
+
+</div>
+
+<script>
+(function(){
+  // ---- 登入閘門 ----
+  var KEY_HASH = '21dc9115e66ae8416fd2b99c28b831a92d860868e89beea8f8c50131b18317b3';
+  var STORE = 'aidoc45001_ok';
+  var gate = document.getElementById('gate');
+  var app  = document.getElementById('app');
+  var form = document.getElementById('gate-form');
+  var pw   = document.getElementById('pw');
+  var err  = document.getElementById('gate-err');
+
+  function unlock(){
+    gate.style.display = 'none';
+    app.style.display  = 'block';
+    try{ sessionStorage.setItem(STORE,'1'); }catch(e){}
+  }
+
+  function sha256Hex(str){
+    var enc = new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256', enc).then(function(buf){
+      return Array.prototype.map.call(new Uint8Array(buf), function(b){
+        return b.toString(16).padStart(2,'0');
+      }).join('');
+    });
+  }
+
+  try{ if(sessionStorage.getItem(STORE) === '1') unlock(); }catch(e){}
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v = (pw.value||'').replace(/\s/g,'');
+    sha256Hex(v).then(function(hash){
+      if(hash === KEY_HASH){ err.textContent=''; unlock(); }
+      else{ err.textContent = '通行碼不正確，請重新輸入。'; pw.value=''; pw.focus(); }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
